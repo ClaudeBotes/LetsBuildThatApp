@@ -2,8 +2,8 @@
 //  KindleCloneTests.swift
 //  KindleCloneTests
 //
-//  Created by Claude on 4/5/2017.
-//  Copyright © 2017 Claude. All rights reserved.
+//  Created by Claude on 5/5/2017.
+//  Copyright © 2017 cfb. All rights reserved.
 //
 
 import XCTest

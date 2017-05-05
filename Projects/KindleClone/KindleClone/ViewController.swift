@@ -31,11 +31,21 @@ class Page {
 }
 
 class ViewController: UIViewController {
-
+    
+    // MARK: Objects
+    var books: [Book]?
+    
     // MARK: Events
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBooks()
+    }
+    
+    // MARK: Functions
+    
+    func setupBooks(){
         
         // Create Pages
         
@@ -61,20 +71,20 @@ class ViewController: UIViewController {
         
         // Print Book Pages
         
-        for book in [bookOne, bookTwo]{
-            
-            print("Book Title: \(book.title)")
-            
-            for page in book.pages{
-                print("Page Number: \(page.pageNumber )")
-                print("Page Text: \(page.text )")
+        self.books = [bookOne, bookTwo]
+        
+        if let unwrappedBooks = self.books {
+            for book in unwrappedBooks{
+                
+                print("Book Title: \(book.title)")
+                
+                for page in book.pages{
+                    print("Page Number: \(page.pageNumber )")
+                    print("Page Text: \(page.text )")
+                }
+                print("Loading next book...")
             }
-            print("Loading next book...")
         }
-        
-        
-        
-        
     }
 }
 

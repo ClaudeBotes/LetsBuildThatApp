@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51697D0E1EBBD983003D6FEA"
+               BlueprintIdentifier = "512CE5A31EBCF985002F5031"
                BuildableName = "KindleClone.app"
                BlueprintName = "KindleClone"
                ReferencedContainer = "container:KindleClone.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51697D221EBBD984003D6FEA"
+               BlueprintIdentifier = "512CE5BA1EBCF985002F5031"
                BuildableName = "KindleCloneTests.xctest"
                BlueprintName = "KindleCloneTests"
                ReferencedContainer = "container:KindleClone.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51697D2D1EBBD984003D6FEA"
+               BlueprintIdentifier = "512CE5C51EBCF985002F5031"
                BuildableName = "KindleCloneUITests.xctest"
                BlueprintName = "KindleCloneUITests"
                ReferencedContainer = "container:KindleClone.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51697D0E1EBBD983003D6FEA"
+            BlueprintIdentifier = "512CE5A31EBCF985002F5031"
             BuildableName = "KindleClone.app"
             BlueprintName = "KindleClone"
             ReferencedContainer = "container:KindleClone.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51697D0E1EBBD983003D6FEA"
+            BlueprintIdentifier = "512CE5A31EBCF985002F5031"
             BuildableName = "KindleClone.app"
             BlueprintName = "KindleClone"
             ReferencedContainer = "container:KindleClone.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51697D0E1EBBD983003D6FEA"
+            BlueprintIdentifier = "512CE5A31EBCF985002F5031"
             BuildableName = "KindleClone.app"
             BlueprintName = "KindleClone"
             ReferencedContainer = "container:KindleClone.xcodeproj">
