@@ -26,11 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let layout = UICollectionViewFlowLayout()
         
-        // UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        // MARK: Setup UINavigationBar
         
-        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        // Only use this to get rid of black bar underneath navbar
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(),for: .default)
+        
+        // end get rid of black bar
         
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
+        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         
         // MARK: Set style of status bar before creating a custom statusbar
         // *Remember to add the property "View controller-based status bar appearance" in the Info.plist

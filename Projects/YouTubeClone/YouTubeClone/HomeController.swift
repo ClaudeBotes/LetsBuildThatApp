@@ -31,9 +31,30 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.backgroundColor = .white
         
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
+        
+        // Make provision for menubar by pushing collectionview down
+        collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
+        
+        // MARK: Add menu bar
+        SetupMenuBar()
     }
     
-    // MARK: Collection View 
+    // MARK: My Methods
+    
+    let menuBar: MenuBar = {
+        let menubar = MenuBar()
+        return menubar
+    }()
+    
+    private func SetupMenuBar(){
+        
+        view.addSubview(menuBar)
+        view.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
+        view.addConstraintWithFormat(format: "V:|[v0(50)]|", views: menuBar)
+    }
+    
+    // MARK: Collection View Events
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
