@@ -29,9 +29,16 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: "cellId")
         
+        // MARK: Add collection of menu buttons to menubar
         addSubview(collectionView)
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionView)
         addConstraintWithFormat(format: "V:|[v0]|", views: collectionView)
+        
+        // Set selected button on load
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .bottom)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

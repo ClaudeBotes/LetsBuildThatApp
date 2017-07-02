@@ -23,6 +23,12 @@ class MenuCell: BaseCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet{
+            imageView.tintColor = isSelected ? .white : UIColor.rgb(red: 91, green: 14, blue: 13)
+        }
+    }
+    
     override func setupViews() {
         super.setupViews()
         
