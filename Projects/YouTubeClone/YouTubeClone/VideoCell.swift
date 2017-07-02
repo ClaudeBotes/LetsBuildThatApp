@@ -10,9 +10,52 @@ import UIKit
 
 class VideoCell: BaseCell {
     
+    var video: Video? {
+        didSet{
+            titleLabel.text = video?.title
+            
+            if let thumbnailImageName = video?.thumbnailImageName {
+                    thumbnailImageView.image = UIImage(named: thumbnailImageName)
+            }
+            
+            if let profileImageName = video?.channel?.profileImageName {
+                userProfileImageView.image = UIImage(named: profileImageName)
+            }
+            
+            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago"
+                subtitleTextView.text = subtitleText
+            }
+            
+            // Measure title text to see if it should be wrapped 
+            // TODO: figure out wtf im doing here
+            if let title = video?.title{
+                // Size is width of entire title label
+                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000)
+                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+                let estimatedRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+                
+                print(estimatedRect.size.height)
+                
+                if estimatedRect.size.height > 20 {
+                    titleLabelHeightConstraint?.constant = 44
+                }else{
+                    titleLabelHeightConstraint?.constant = 20
+                }
+                
+                //let estimatedRect
+            }
+            
+        }
+    }
+    
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "VideoThumbnail")
+        imageView.image = UIImage(named: "firstDateThumbnail")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -20,7 +63,7 @@ class VideoCell: BaseCell {
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "smallAvatar")
+        imageView.image = UIImage(named: "blinkAvatar")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         return imageView
@@ -30,6 +73,7 @@ class VideoCell: BaseCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Blink-182 - First Date"
+        label.numberOfLines = 2
         return label
     }()
     
@@ -47,6 +91,9 @@ class VideoCell: BaseCell {
         view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 230/255)
         return view
     }()
+    
+    // Here we need to figure out how to set the height of a cell and title, based on the lenght of the title
+    var titleLabelHeightConstraint: NSLayoutConstraint?
     
     override func setupViews(){
         super.setupViews()
@@ -81,7 +128,9 @@ class VideoCell: BaseCell {
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         
         // Height constraint
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        //addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        titleLabelHeightConstraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44)
+        addConstraint(titleLabelHeightConstraint!)
         
         // ------ Sub-title Label Constraints ------
         

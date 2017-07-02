@@ -11,6 +11,38 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     
+    var videos: [Video] = {
+        
+        // MARK: Setup Blink channel and vids
+        var blink182Channel = Channel()
+        blink182Channel.name = "Blink 182"
+        blink182Channel.profileImageName = "blinkAvatar"
+        
+        var firstDate = Video()
+        firstDate.title = "Blink 182 - First Date"
+        firstDate.thumbnailImageName = "firstDateThumbnail"
+        firstDate.numberOfViews = 97988325
+        
+        firstDate.subTitle = "blink182VEVO • 97,988,325 views • 8 years ago"
+        firstDate.channel = blink182Channel
+        
+        // MARK: Setup Gangnam channel and vids
+        
+        var psyChannel = Channel()
+        psyChannel.name = "PSY"
+        psyChannel.profileImageName = "gangumAvatar"
+        
+        var gangnamStyle = Video()
+        gangnamStyle.title = "PSY - GANGNAM STYLE(강남스타일) M/V"
+        gangnamStyle.thumbnailImageName = "gangnumThumbnail"
+        gangnamStyle.numberOfViews = 17988325
+        gangnamStyle.subTitle = "officialpsy • 2.8B views • 4 years ago"
+        gangnamStyle.channel = psyChannel
+        
+        return [gangnamStyle, firstDate]
+        
+    }()
+    
     // MARK: View Controller Events
     
     override func viewDidLoad() {
@@ -37,7 +69,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
         
         // MARK: Add menu bar
-        SetupMenuBar()
+        setupMenuBar()
+        setupNavBarButtons()
     }
     
     // MARK: My Methods
@@ -47,21 +80,40 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return menubar
     }()
     
-    private func SetupMenuBar(){
+    private func setupMenuBar(){
         
         view.addSubview(menuBar)
         view.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
         view.addConstraintWithFormat(format: "V:|[v0(50)]|", views: menuBar)
     }
     
+    private func setupNavBarButtons(){
+        // Search Button
+        let searchBarButtongItem = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleSearch))
+        // More Button
+        let moreBarButtongItem = UIBarButtonItem(image: #imageLiteral(resourceName: "nav_more_icon").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMore))
+        navigationItem.rightBarButtonItems = [moreBarButtongItem,searchBarButtongItem]
+        
+    }
+    
+    func handleSearch(){
+        print("search")
+    }
+    
+    func handleMore(){
+        print("more")
+    }
+    
     // MARK: Collection View Events
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return videos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
+        
+        cell.video = videos[indexPath.item]
         
         return cell
     }
