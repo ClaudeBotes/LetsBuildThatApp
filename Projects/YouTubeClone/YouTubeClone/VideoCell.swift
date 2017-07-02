@@ -114,7 +114,7 @@ class VideoCell: BaseCell {
         addConstraintWithFormat(format: "H:|[v0]|", views: seperatorView)
         
         // Vertical constraints
-        addConstraintWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", views: thumbnailImageView, userProfileImageView, seperatorView)
+        addConstraintWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|", views: thumbnailImageView, userProfileImageView, seperatorView)
         
         // ------ Title Label Constraints ------
         
