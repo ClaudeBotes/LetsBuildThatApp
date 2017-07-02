@@ -128,7 +128,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let height = (view.frame.width - 16 - 16) * 9/16
         
         // Then we add to the height the 16 pixels at the top, plus all the values in the vertical constraints we added
-        return CGSize(width: view.frame.width, height: height + 16 + 68)
+        return CGSize(width: view.frame.width, height: height + 16 + 88)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
