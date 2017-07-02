@@ -14,6 +14,8 @@
 		511635931F044380009792C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511635911F044380009792C0 /* LaunchScreen.storyboard */; };
 		5116359E1F044380009792C0 /* YouTubeCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116359D1F044380009792C0 /* YouTubeCloneTests.swift */; };
 		511635A91F044380009792C0 /* YouTubeCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511635A81F044380009792C0 /* YouTubeCloneUITests.swift */; };
+		51389DB51F0977ED00E768BD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51389DB41F0977ED00E768BD /* Extensions.swift */; };
+		51389DB81F09786A00E768BD /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51389DB71F09786A00E768BD /* VideoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		511635A41F044380009792C0 /* YouTubeCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouTubeCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		511635A81F044380009792C0 /* YouTubeCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeCloneUITests.swift; sourceTree = "<group>"; };
 		511635AA1F044380009792C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51389DB41F0977ED00E768BD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		51389DB71F09786A00E768BD /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				511635B61F044392009792C0 /* Supporting Files */,
-				5116358A1F044380009792C0 /* HomeController.swift */,
+				51389DB61F09784800E768BD /* View */,
+				51389DB91F0978A100E768BD /* Controller */,
+				51389DB31F0977DF00E768BD /* Helpers */,
 				5116358C1F044380009792C0 /* Main.storyboard */,
 			);
 			path = YouTubeClone;
@@ -131,6 +137,30 @@
 				511635941F044380009792C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51389DB31F0977DF00E768BD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				51389DB41F0977ED00E768BD /* Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		51389DB61F09784800E768BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51389DB71F09786A00E768BD /* VideoCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		51389DB91F0978A100E768BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5116358A1F044380009792C0 /* HomeController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +298,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5116358B1F044380009792C0 /* HomeController.swift in Sources */,
+				51389DB81F09786A00E768BD /* VideoCell.swift in Sources */,
+				51389DB51F0977ED00E768BD /* Extensions.swift in Sources */,
 				511635891F044380009792C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +547,7 @@
 				511635AF1F044380009792C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		511635B01F044380009792C0 /* Build configuration list for PBXNativeTarget "YouTubeCloneTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +556,7 @@
 				511635B21F044380009792C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		511635B31F044380009792C0 /* Build configuration list for PBXNativeTarget "YouTubeCloneUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +565,7 @@
 				511635B51F044380009792C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

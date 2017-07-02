@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,13 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // MARK: Setup Launch screen
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
         
+        // UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        
+        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
+        // MARK: Set style of status bar before creating a custom statusbar
+        // *Remember to add the property "View controller-based status bar appearance" in the Info.plist
+        
+        application.statusBarStyle = .lightContent
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31)
+        
+        // Add status bar to application window with constraints
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
         
         return true
     }
