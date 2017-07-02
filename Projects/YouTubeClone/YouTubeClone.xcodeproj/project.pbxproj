@@ -109,10 +109,10 @@
 		511635871F044380009792C0 /* YouTubeClone */ = {
 			isa = PBXGroup;
 			children = (
-				511635B61F044392009792C0 /* Supporting Files */,
-				51389DC01F09958300E768BD /* Model */,
 				511635881F044380009792C0 /* AppDelegate.swift */,
 				5116358C1F044380009792C0 /* Main.storyboard */,
+				511635B61F044392009792C0 /* Supporting Files */,
+				51389DC01F09958300E768BD /* Model */,
 				51389DB61F09784800E768BD /* View */,
 				51389DB91F0978A100E768BD /* Controller */,
 				51389DB31F0977DF00E768BD /* Helpers */,
