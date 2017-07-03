@@ -2,6 +2,9 @@
 //  VideoCell.swift
 //  YouTubeClone
 //
+//  Description:
+//  VideoCell defines the behaviour of a given video cell that you see in the list of videos.
+//
 //  Created by Claude on 2/7/2017.
 //  Copyright © 2017 Claude. All rights reserved.
 //
@@ -10,48 +13,9 @@ import UIKit
 
 class VideoCell: BaseCell {
     
-    var video: Video? {
-        didSet{
-            titleLabel.text = video?.title
-            
-            if let thumbnailImageName = video?.thumbnailImageName {
-                    thumbnailImageView.image = UIImage(named: thumbnailImageName)
-            }
-            
-            if let profileImageName = video?.channel?.profileImageName {
-                userProfileImageView.image = UIImage(named: profileImageName)
-            }
-            
-            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
-                
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .decimal
-                
-                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago"
-                subtitleTextView.text = subtitleText
-            }
-            
-            // Measure title text to see if it should be wrapped 
-            // TODO: figure out wtf im doing here
-            if let title = video?.title{
-                // Size is width of entire title label
-                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000)
-                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-                let estimatedRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
-                
-                print(estimatedRect.size.height)
-                
-                if estimatedRect.size.height > 20 {
-                    titleLabelHeightConstraint?.constant = 44
-                }else{
-                    titleLabelHeightConstraint?.constant = 20
-                }
-                
-                //let estimatedRect
-            }
-            
-        }
-    }
+    // MARK: Properties
+    
+    // TODO: replace default images with vanila default images
     
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
@@ -66,6 +30,7 @@ class VideoCell: BaseCell {
         imageView.image = UIImage(named: "blinkAvatar")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -92,15 +57,54 @@ class VideoCell: BaseCell {
         return view
     }()
     
-    // Here we need to figure out how to set the height of a cell and title, based on the lenght of the title
+    /**
+     This property is needed to figure out what the height of a cell and title should be, based on the string lenght of the video title
+     */
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
+    // MARK: Video cell configuration / setup
+    
+    var video: Video? {
+        didSet{
+            titleLabel.text = video?.title
+            
+            setThumbnailImage()
+            setProfileImage()
+            
+            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago"
+                subtitleTextView.text = subtitleText
+            }
+            
+            // Measure title text to see if it should be wrapped 
+            // TODO: figure out wtf im doing here
+            if let title = video?.title {
+                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000)
+                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+                let estimatedRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+                
+                if estimatedRect.size.height > 20 {
+                    titleLabelHeightConstraint?.constant = 44
+                } else {
+                    titleLabelHeightConstraint?.constant = 20
+                }
+            }
+        }
+    }
+    
+    // MARK: Base cell methods
+    
+    /**
+     Sets up all of the required subviews and their constraints for the video cell.
+     */
     override func setupViews(){
         super.setupViews()
         
         backgroundColor = .white
-        
-        // Add and set constraints for video thumbnail
         
         addSubview(thumbnailImageView)
         addSubview(seperatorView)
@@ -147,4 +151,25 @@ class VideoCell: BaseCell {
         addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
         
     }
+    
+    // MARK: Video cell methods
+    
+    /** 
+     Loads the thumbnail image for the video cell if a valid channel image name was provided.
+     */
+    func setThumbnailImage(){
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
+        }
+    }
+    
+    /**
+     Loads the profile image for the video cell if a valid channel image name was provided.
+     */
+    func setProfileImage(){
+        if let profileImageUrl = video?.channel?.profileImageName {
+            userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
+        }
+    }
 }
+

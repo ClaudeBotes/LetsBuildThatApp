@@ -2,6 +2,9 @@
 //  Video.swift
 //  YouTubeClone
 //
+//  Description:
+//  Model object for every video.
+//
 //  Created by Claude on 2/7/2017.
 //  Copyright © 2017 Claude. All rights reserved.
 //
@@ -14,8 +17,6 @@ class Video: NSObject {
     var title: String?
     var numberOfViews: NSNumber?
     var uploadDate: NSDate?
-    
-    var subTitle: String?
     
     var channel: Channel?
 }
