@@ -17,16 +17,16 @@ class VideoCell: BaseCell {
     
     // TODO: replace default images with vanila default images
     
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+    let thumbnailImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named: "firstDateThumbnail")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named: "blinkAvatar")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true

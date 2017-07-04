@@ -44,7 +44,11 @@ extension UIView {
     }
 }
 
-extension UIImageView {
+let imageCache = NSCache<AnyObject, AnyObject>()
+
+class CustomImageView: UIImageView {
+    
+    var imageUrlString: String?
     
     /**
      Loads an image from a given url string and sets the image of the UIImageView.
@@ -54,7 +58,17 @@ extension UIImageView {
      */
     func loadImageUsingUrlString(urlString: String) {
         
+        imageUrlString = urlString
+        
         let url = NSURL(string: urlString)
+        
+        // First check if the image for the URL has not been cached yet
+        image = nil
+        // If cached, return it from cache and return in order to not re download the image everytime
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage{
+            self.image = imageFromCache
+            return
+        }
         
         URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
             
@@ -62,9 +76,19 @@ extension UIImageView {
                 print(error ?? "Error trying to fetch videos image thubnail.")
                 return
             }
-            // TODO: fix refresh rate of images loaded.
+            
             DispatchQueue.main.async(execute: {
-                self.image = UIImage(data: data!)
+                
+                // Add image to cache
+                let imageToCache = UIImage(data: data!)
+                
+                if self.imageUrlString == urlString {
+                    self.image = imageToCache
+                }
+                
+                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+                
+                
             })
             
             }.resume()

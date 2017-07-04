@@ -147,6 +147,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 // Refresh Collection View datasource
                 self.collectionView?.reloadData()
                 
+                DispatchQueue.main.async(execute: {
+                    self.collectionView?.reloadData()
+                })
+
+                
                 
             }catch let jsonError {
                 print(jsonError)
