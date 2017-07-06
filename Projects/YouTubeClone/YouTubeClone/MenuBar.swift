@@ -2,6 +2,9 @@
 //  MenuBar.swift
 //  YouTubeClone
 //
+//  Description:
+//  MenuBar defines the behaviour of menubar that is found at the top of the home view controller.
+//
 //  Created by Claude on 2/7/2017.
 //  Copyright © 2017 Claude. All rights reserved.
 //
@@ -10,8 +13,11 @@ import UIKit
 
 class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    // MARK: Setup collectionView to hold menu items
+    // MARK: Properties
     
+    /**
+     CollectionView that will contain the menu items.
+     */
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -24,6 +30,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     let cellId = "cellId"
     let menuBarImages = [#imageLiteral(resourceName: "home"), #imageLiteral(resourceName: "trending"), #imageLiteral(resourceName: "subscriptions"), #imageLiteral(resourceName: "account")]
     
+    // MARK: Constructor
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,14 +44,19 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         // Set selected button on load
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .bottom)
-        
-        
+
     }
-    
+
+    /**
+     NumberOfItemsInSection : Specify how many items should be in the collection view.
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
+    /**
+     CellForItemAt : Responsible for creating, configuring, and returning the appropriate cell for the given item.
+     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
         
@@ -54,11 +66,16 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         return cell
     }
     
+    /**
+     SizeForItemAt : Responsible for the size of the specified item’s cell.
+     */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width / 4, height: frame.height)
     }
     
-    // Return the amount of space between cells
+    /**
+     MinimumInteritemSpacingForSectionAt : Responsible spacing between successive items in the rows or columns of a section.
+     */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

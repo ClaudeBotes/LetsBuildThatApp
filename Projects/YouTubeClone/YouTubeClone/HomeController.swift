@@ -10,46 +10,49 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+
+//    var videos: [Video] = {
+//        
+//        // MARK: Setup Blink channel and vids
+//        var blink182Channel = Channel()
+//        blink182Channel.name = "Blink 182"
+//        blink182Channel.profileImageName = "blinkAvatar"
+//        
+//        var firstDate = Video()
+//        firstDate.title = "Blink 182 - First Date"
+//        firstDate.thumbnailImageName = "firstDateThumbnail"
+//        firstDate.numberOfViews = 97988325
+//        
+//        firstDate.channel = blink182Channel
+//        
+//        // MARK: Setup Gangnam channel and vids
+//        
+//        var psyChannel = Channel()
+//        psyChannel.name = "PSY"
+//        psyChannel.profileImageName = "gangumAvatar"
+//        
+//        var gangnamStyle = Video()
+//        gangnamStyle.title = "PSY - GANGNAM STYLE(강남스타일) M/V"
+//        gangnamStyle.thumbnailImageName = "gangnumThumbnail"
+//        gangnamStyle.numberOfViews = 17988325
+//        gangnamStyle.channel = psyChannel
+//        
+//        return [gangnamStyle, firstDate]
+//        
+//    }()
+ 
+    // MARK: Variables
     
-    var videos: [Video] = {
-        
-        // MARK: Setup Blink channel and vids
-        var blink182Channel = Channel()
-        blink182Channel.name = "Blink 182"
-        blink182Channel.profileImageName = "blinkAvatar"
-        
-        var firstDate = Video()
-        firstDate.title = "Blink 182 - First Date"
-        firstDate.thumbnailImageName = "firstDateThumbnail"
-        firstDate.numberOfViews = 97988325
-        
-        firstDate.subTitle = "blink182VEVO • 97,988,325 views • 8 years ago"
-        firstDate.channel = blink182Channel
-        
-        // MARK: Setup Gangnam channel and vids
-        
-        var psyChannel = Channel()
-        psyChannel.name = "PSY"
-        psyChannel.profileImageName = "gangumAvatar"
-        
-        var gangnamStyle = Video()
-        gangnamStyle.title = "PSY - GANGNAM STYLE(강남스타일) M/V"
-        gangnamStyle.thumbnailImageName = "gangnumThumbnail"
-        gangnamStyle.numberOfViews = 17988325
-        gangnamStyle.subTitle = "officialpsy • 2.8B views • 4 years ago"
-        gangnamStyle.channel = psyChannel
-        
-        return [gangnamStyle, firstDate]
-        
-    }()
+    var videos: [Video]?
     
     // MARK: View Controller Events
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isTranslucent = false
+        fetchVideos()
         
+        navigationController?.navigationBar.isTranslucent = false
         
         // MARK: Setup home screen label
         
@@ -84,7 +87,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         view.addSubview(menuBar)
         view.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintWithFormat(format: "V:|[v0(50)]|", views: menuBar)
+        view.addConstraintWithFormat(format: "V:|[v0(50)]", views: menuBar)
     }
     
     private func setupNavBarButtons(){
@@ -104,16 +107,75 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print("more")
     }
     
+    func fetchVideos() {
+        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
+        URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
+            
+            if error != nil {
+                print(error ?? "Error trying to fetch videos.")
+                return
+            }
+            
+            do {
+                // Create JSON Object
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                
+                // Create videos object to hold videos
+                self.videos = [Video]()
+                
+                // Build Video collection
+                for dictionary in json as! [[String: AnyObject]]{
+                    let video = Video()
+                    
+                    // Get title and thumbnail from json
+                    video.title = dictionary["title"] as? String
+                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    
+                    // Get channel details from json
+                    let channelDictionary = dictionary["channel"] as! [String:AnyObject]
+                    
+                    let channel = Channel()
+                    channel.name = channelDictionary["name"] as? String
+                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+                    
+                    // Add channel to video
+                    video.channel = channel
+                    
+                    self.videos?.append(video)
+                }
+                
+                // Refresh Collection View datasource
+                self.collectionView?.reloadData()
+                
+                DispatchQueue.main.async(execute: {
+                    self.collectionView?.reloadData()
+                })
+
+                
+                
+            }catch let jsonError {
+                print(jsonError)
+            }
+            
+            
+            
+            
+        }.resume()
+        
+    }
+    
     // MARK: Collection View Events
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        
+        return videos?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
         
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         
         return cell
     }
