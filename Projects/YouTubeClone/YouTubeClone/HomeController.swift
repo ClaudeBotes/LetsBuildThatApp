@@ -103,8 +103,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print("search")
     }
     
+    let settingsLauncher = SettingsLauncher()
+    
+    /**
+     Handle for when a user clicks on the more button
+     */
     func handleMore(){
-        print("more")
+        settingsLauncher.showSettings()
     }
     
     func fetchVideos() {
