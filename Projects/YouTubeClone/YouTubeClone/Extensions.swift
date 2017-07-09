@@ -31,7 +31,7 @@ extension UIView {
      - Parameter format: Format of the constraint. Example: "H:|-16-[v0]-16-|"
      - Parameter views: An array of views to which the constraint should be applied to.
      */
-    func addConstraintWithFormat(format: String, views: UIView...){
+    func addConstraintsWithFormat(format: String, views: UIView...){
         var viewsDictionary = [String:UIView]()
         
         for(index, view) in views.enumerated(){

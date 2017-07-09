@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Add status bar to application window with constraints
         window?.addSubview(statusBarBackgroundView)
-        window?.addConstraintWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
         
         return true
     }

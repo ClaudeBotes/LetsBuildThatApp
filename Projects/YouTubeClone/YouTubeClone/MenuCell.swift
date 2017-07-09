@@ -20,8 +20,8 @@ class MenuCell: BaseCell {
         super.setupViews()
         
         addSubview(imageView)
-        addConstraintWithFormat(format: "H:[v0(28)]", views: imageView)
-        addConstraintWithFormat(format: "V:[v0(28)]", views: imageView)
+        addConstraintsWithFormat(format: "H:[v0(28)]", views: imageView)
+        addConstraintsWithFormat(format: "V:[v0(28)]", views: imageView)
         
         // Centers the icons for X and Y
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))

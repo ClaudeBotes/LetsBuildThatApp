@@ -113,12 +113,12 @@ class VideoCell: BaseCell {
         addSubview(subtitleTextView)
         
         // Horizontal constraints
-        addConstraintWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
-        addConstraintWithFormat(format: "H:|-16-[v0(44)]", views: userProfileImageView)
-        addConstraintWithFormat(format: "H:|[v0]|", views: seperatorView)
+        addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
+        addConstraintsWithFormat(format: "H:|-16-[v0(44)]", views: userProfileImageView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: seperatorView)
         
         // Vertical constraints
-        addConstraintWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|", views: thumbnailImageView, userProfileImageView, seperatorView)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|", views: thumbnailImageView, userProfileImageView, seperatorView)
         
         // ------ Title Label Constraints ------
         

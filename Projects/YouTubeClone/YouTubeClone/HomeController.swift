@@ -86,8 +86,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     private func setupMenuBar(){
         
         view.addSubview(menuBar)
-        view.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
     }
     
     private func setupNavBarButtons(){
@@ -155,16 +155,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 DispatchQueue.main.async(execute: {
                     self.collectionView?.reloadData()
                 })
-
-                
-                
+   
             }catch let jsonError {
                 print(jsonError)
             }
-            
-            
-            
-            
         }.resume()
         
     }

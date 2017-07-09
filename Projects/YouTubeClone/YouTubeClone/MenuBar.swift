@@ -38,8 +38,8 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         // MARK: Add collection of menu buttons to menubar
         addSubview(collectionView)
-        addConstraintWithFormat(format: "H:|[v0]|", views: collectionView)
-        addConstraintWithFormat(format: "V:|[v0]|", views: collectionView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         
         // Set selected button on load
         let selectedIndexPath = IndexPath(item: 0, section: 0)

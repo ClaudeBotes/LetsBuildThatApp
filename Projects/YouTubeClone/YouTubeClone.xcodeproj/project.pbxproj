@@ -21,6 +21,7 @@
 		51389DBF1F0984F900E768BD /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51389DBE1F0984F900E768BD /* MenuCell.swift */; };
 		51389DC21F09959B00E768BD /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51389DC11F09959B00E768BD /* Video.swift */; };
 		514CFBA21F12320700AD1D35 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CFBA11F12320700AD1D35 /* SettingsLauncher.swift */; };
+		514CFBA41F1271CA00AD1D35 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CFBA31F1271CA00AD1D35 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		51389DBE1F0984F900E768BD /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		51389DC11F09959B00E768BD /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		514CFBA11F12320700AD1D35 /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		514CFBA31F1271CA00AD1D35 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				51389DBC1F0983D600E768BD /* BaseCell.swift */,
 				51389DB71F09786A00E768BD /* VideoCell.swift */,
+				514CFBA31F1271CA00AD1D35 /* SettingsCell.swift */,
 				51389DC31F0B04AD00E768BD /* MenuBar */,
 			);
 			name = Views;
@@ -332,6 +335,7 @@
 				5116358B1F044380009792C0 /* HomeController.swift in Sources */,
 				514CFBA21F12320700AD1D35 /* SettingsLauncher.swift in Sources */,
 				51389DB81F09786A00E768BD /* VideoCell.swift in Sources */,
+				514CFBA41F1271CA00AD1D35 /* SettingsCell.swift in Sources */,
 				51389DB51F0977ED00E768BD /* Extensions.swift in Sources */,
 				511635891F044380009792C0 /* AppDelegate.swift in Sources */,
 				51389DC21F09959B00E768BD /* Video.swift in Sources */,
