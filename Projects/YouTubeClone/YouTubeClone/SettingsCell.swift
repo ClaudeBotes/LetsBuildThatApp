@@ -2,6 +2,9 @@
 //  SettingsCell.swift
 //  YouTubeClone
 //
+//  Description:
+//  Settings cell defines the view of each cell you see in the settings menu that slides up from the bottom of the screen.
+//
 //  Created by Claude on 9/7/2017.
 //  Copyright © 2017 Claude. All rights reserved.
 //
@@ -40,9 +43,10 @@ class SettingsCell: BaseCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "settings")
         imageView.contentMode = .scaleAspectFill
-        
         return imageView
     }()
+    
+    // MARK: SettingsCell specific methods.
     
     override func setupViews() {
         super.setupViews()

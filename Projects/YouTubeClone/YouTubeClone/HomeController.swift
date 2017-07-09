@@ -103,13 +103,26 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print("search")
     }
     
-    let settingsLauncher = SettingsLauncher()
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
     /**
      Handle for when a user clicks on the more button
      */
     func handleMore(){
         settingsLauncher.showSettings()
+    }
+    
+    func showControllerForSetting(setting: Setting){
+        let settingsViewController = UIViewController()
+        settingsViewController.navigationItem.title = setting.name
+        settingsViewController.view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     func fetchVideos() {
