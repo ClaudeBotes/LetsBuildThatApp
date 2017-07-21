@@ -23,7 +23,7 @@ class SettingsCell: BaseCell {
     
     var setting: Setting? {
         didSet {
-            nameLabel.text = setting?.name
+            nameLabel.text = setting?.name.rawValue
             
             if let imageName = setting?.imageName {
                 iconImageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
@@ -65,11 +65,21 @@ class SettingsCell: BaseCell {
 }
 
 class Setting: NSObject {
-    let name: String
+    let name: SattingName
     let imageName: String
     
-    init(name: String, imageName: String) {
+    init(name: SattingName, imageName: String) {
         self.name = name
         self.imageName = imageName
     }
 }
+
+enum SattingName: String {
+    case Settings = "Settings"
+    case TermsAndConditions = "Terms & privacy policy"
+    case SendFeedback = "Send Feedback"
+    case Help = "Help"
+    case SwitchAccount = "Switch Account"
+    case Cancel = "Cancel"
+}
+

@@ -30,7 +30,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     // Create all the settings that needs to be displayed.
     let settings: [Setting] = {
-        return [Setting(name: "Settings", imageName: "settings"), Setting(name: "Terms & privacy policy", imageName: "privacy"), Setting(name: "Send Feedback", imageName: "feedback"), Setting(name: "Help", imageName: "help"), Setting(name: "Swith Account", imageName: "switch_account"), Setting(name: "Cancel", imageName: "cancel")]
+        
+        return [Setting(name: .Settings, imageName: "settings"), Setting(name: .TermsAndConditions, imageName: "privacy"), Setting(name: .SendFeedback, imageName: "feedback"), Setting(name: .Help, imageName: "help"), Setting(name: .SwitchAccount, imageName: "switch_account"), Setting(name: .Cancel, imageName: "cancel")]
     }()
     
     override init() {
@@ -111,7 +112,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             }
         }) { (completed: Bool) in
             
-            if setting.name != "" && setting.name != "Cancel"{
+            if setting.name != .Cancel{
                 self.homeController?.showControllerForSetting(setting: setting)
             }
             
