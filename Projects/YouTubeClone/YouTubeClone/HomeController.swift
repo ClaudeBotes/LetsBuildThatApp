@@ -9,37 +9,6 @@
 import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-
-//    var videos: [Video] = {
-//        
-//        // MARK: Setup Blink channel and vids
-//        var blink182Channel = Channel()
-//        blink182Channel.name = "Blink 182"
-//        blink182Channel.profileImageName = "blinkAvatar"
-//        
-//        var firstDate = Video()
-//        firstDate.title = "Blink 182 - First Date"
-//        firstDate.thumbnailImageName = "firstDateThumbnail"
-//        firstDate.numberOfViews = 97988325
-//        
-//        firstDate.channel = blink182Channel
-//        
-//        // MARK: Setup Gangnam channel and vids
-//        
-//        var psyChannel = Channel()
-//        psyChannel.name = "PSY"
-//        psyChannel.profileImageName = "gangumAvatar"
-//        
-//        var gangnamStyle = Video()
-//        gangnamStyle.title = "PSY - GANGNAM STYLE(강남스타일) M/V"
-//        gangnamStyle.thumbnailImageName = "gangnumThumbnail"
-//        gangnamStyle.numberOfViews = 17988325
-//        gangnamStyle.channel = psyChannel
-//        
-//        return [gangnamStyle, firstDate]
-//        
-//    }()
  
     // MARK: Variables
     
@@ -58,7 +27,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         // * subtracting 32 to have the spacing at the begining of the label
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
@@ -84,10 +53,20 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     private func setupMenuBar(){
+        navigationController?.hidesBarsOnSwipe = true
+        
+        
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        view.addSubview(redView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
+        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: redView)
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuBar)
+        
+        menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
     
     private func setupNavBarButtons(){
@@ -126,54 +105,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func fetchVideos() {
-        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
-        URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
-            
-            if error != nil {
-                print(error ?? "Error trying to fetch videos.")
-                return
-            }
-            
-            do {
-                // Create JSON Object
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                
-                // Create videos object to hold videos
-                self.videos = [Video]()
-                
-                // Build Video collection
-                for dictionary in json as! [[String: AnyObject]]{
-                    let video = Video()
-                    
-                    // Get title and thumbnail from json
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    
-                    // Get channel details from json
-                    let channelDictionary = dictionary["channel"] as! [String:AnyObject]
-                    
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    // Add channel to video
-                    video.channel = channel
-                    
-                    self.videos?.append(video)
-                }
-                
-                // Refresh Collection View datasource
-                self.collectionView?.reloadData()
-                
-                DispatchQueue.main.async(execute: {
-                    self.collectionView?.reloadData()
-                })
-   
-            }catch let jsonError {
-                print(jsonError)
-            }
-        }.resume()
-        
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            self.videos = videos
+            self.collectionView?.reloadData()
+        }
     }
     
     // MARK: Collection View Events
