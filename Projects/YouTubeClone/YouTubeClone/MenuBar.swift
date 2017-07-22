@@ -15,6 +15,8 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     // MARK: Properties
     
+    var homeController: HomeController?
+    
     /**
      CollectionView that will contain the menu items.
      */
@@ -71,14 +73,9 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
      didSelectItemAt : Lays out the subviews immediately.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
-        let x = CGFloat(indexPath.item) * frame.width / 4
         
-        horizontalBarLeftAnchorConstraint?.constant = x
-        
-        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
+        homeController?.scrollToMenuIndex(menuIndex: indexPath.item)
+        homeController?.setScreenTitleForIndex(menuIndex: indexPath.item)
     }
 
     /**

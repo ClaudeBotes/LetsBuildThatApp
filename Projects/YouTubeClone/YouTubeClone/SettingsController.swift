@@ -11,7 +11,7 @@
 
 import UIKit
 
-class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class SettingsController: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // blackView is used to dim the bacckground when showing a menu or performing search
     let blackView = UIView()
