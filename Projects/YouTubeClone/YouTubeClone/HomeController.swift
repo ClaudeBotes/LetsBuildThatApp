@@ -39,7 +39,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         setupNavBarButtons()
     }
     
-    // MARK: My Methods
+    //MARK: Setup Views
+    
+    lazy var menuBar: MenuBar = {
+        let menubar = MenuBar()
+        menubar.homeController = self
+        return menubar
+    }()
     
     func setupCollectionView(){
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -57,12 +63,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         collectionView?.isPagingEnabled = true
     }
-    
-    lazy var menuBar: MenuBar = {
-        let menubar = MenuBar()
-        menubar.homeController = self
-        return menubar
-    }()
     
     private func setupMenuBar(){
         navigationController?.hidesBarsOnSwipe = true
@@ -89,7 +89,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationItem.rightBarButtonItems = [moreBarButtongItem,searchBarButtongItem]
         
     }
+
     
+    // MARK: My Methods
+
     func handleSearch(){
         print("search")
     }
@@ -133,6 +136,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
+    // MARK: Scroll View Events
+    
     /**
      scrollViewDidScroll: Tells the delegate when the user scrolls the content view within the receiver.
      */
@@ -150,6 +155,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: UICollectionViewScrollPosition())
         setScreenTitleForIndex(menuIndex: Int(index))
     }
+    
+    // MARK: Collection View Events
     
     /**
      CollectionView: numberOfItemsInSection
@@ -174,7 +181,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return CGSize(width: view.frame.width, height: view.frame.height - 50) // the 50 comes from the size of the menubar
     }
     
-    // MARK: Collection View Events
+    
     
 }
 

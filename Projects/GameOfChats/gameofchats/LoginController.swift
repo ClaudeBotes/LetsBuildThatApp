@@ -114,7 +114,7 @@ class LoginController: UIViewController {
         return button
     }()
     
-    //MARK: Setup controls
+    //MARK: Setup Views
     
     func setupLoginRegisterSegmentedControl() {
         //need x, y, width, height constraints
