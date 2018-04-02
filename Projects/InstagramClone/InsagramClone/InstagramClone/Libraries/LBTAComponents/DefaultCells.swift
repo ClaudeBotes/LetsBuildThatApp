@@ -1,0 +1,65 @@
+//
+//  DefaultCell.swift
+//  Pods
+//
+//  Created by Brian Voong on 11/22/16.
+//
+//
+
+import UIKit
+
+class DefaultHeader: DefaultCell {
+    
+    override var datasourceItem: Any? {
+        didSet {
+            if datasourceItem == nil {
+                label.text = "This is your default header"
+            }
+        }
+    }
+    
+    override func setupViews() {
+        super.setupViews()
+        label.text = "Header Cell"
+        label.textAlignment = .center
+    }
+}
+
+class DefaultFooter: DefaultCell {
+    
+    override var datasourceItem: Any? {
+        didSet {
+            if datasourceItem == nil {
+                label.text = "This is your default footer"
+            }
+        }
+    }
+    
+    override func setupViews() {
+        super.setupViews()
+        label.text = "Footer Cell"
+        label.textAlignment = .center
+    }
+}
+
+class DefaultCell: GenericCollectionViewCell {
+    
+    override var datasourceItem: Any? {
+        didSet {
+            if let text = datasourceItem as? String {
+                label.text = text
+            } else {
+                label.text = datasourceItem.debugDescription
+            }
+        }
+    }
+    
+    let label = UILabel()
+    
+    override func setupViews() {
+        super.setupViews()
+        addSubview(label)
+        label.anchor(left: leftAnchor, top: topAnchor, right: rightAnchor, bottom: bottomAnchor, paddingLeft: 10, paddingTop: 0, paddingRight: 10, paddingBottom: 0, width: 0, height: 0)
+    }
+    
+}
