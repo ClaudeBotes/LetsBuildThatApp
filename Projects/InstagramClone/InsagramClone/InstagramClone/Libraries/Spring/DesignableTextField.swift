@@ -104,6 +104,7 @@ extension DesignableTextField {
                                   textColor: UIColor? = .white,
                                   placeholderText: String? = nil,
                                   placeholderTextColor: UIColor? = .white,
+                                  lineHeight: CGFloat = 1.5,
                                   cornerRadius: CGFloat = 0,
                                   borderWidth: CGFloat = 0,
                                   borderColor: UIColor = UIColor.clear,
@@ -116,6 +117,7 @@ extension DesignableTextField {
         textField.backgroundColor = backgroundColor
         textField.font = font
         textField.textColor = textColor
+        textField.lineHeight = lineHeight
         textField.cornerRadius = cornerRadius
         textField.borderWidth = borderWidth
         textField.borderColor = borderColor
