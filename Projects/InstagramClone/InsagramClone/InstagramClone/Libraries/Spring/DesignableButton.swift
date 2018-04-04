@@ -65,5 +65,45 @@ import UIKit
             layer.shadowOffset.height = shadowOffsetY
         }
     }
-    
+}
+
+extension DesignableButton {
+    static public func createWith(backgroundColor: UIColor = UIColor.clear,
+                            borderColor: UIColor = UIColor.clear,
+                            borderWidth: CGFloat = 0,
+                            cornerRadius: CGFloat = 0,
+                            title: String? = nil,
+                            font: UIFont? = nil,
+                            titleColor: UIColor? = .white,
+                            titleAlignment: UIControlContentHorizontalAlignment? = .center,
+                            shadowColor: UIColor = UIColor.clear,
+                            shadowRadius: CGFloat = 0,
+                            shadowOpacity: CGFloat = 0,
+                            shadowOffsetY: CGFloat = 0,
+                            isEnabled: Bool = true) -> DesignableButton {
+        
+        let button = DesignableButton()
+        button.backgroundColor = backgroundColor
+        button.titleLabel?.font = font
+        button.setTitleColor(titleColor, for: .normal)
+        button.borderColor = borderColor
+        button.borderWidth = borderWidth
+        button.cornerRadius = cornerRadius
+        button.shadowColor = shadowColor
+        button.shadowRadius = shadowRadius
+        button.shadowOpacity = shadowOpacity
+        button.shadowOffsetY = shadowOffsetY
+        button.isEnabled = isEnabled
+        
+        if let textAlignment = titleAlignment {
+            button.contentHorizontalAlignment = textAlignment
+        }
+        
+        if let buttonTitle = title {
+            button.setTitle(buttonTitle, for: .normal)
+        }
+        
+        return button
+    }
+
 }

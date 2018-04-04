@@ -31,63 +31,65 @@ class SignupVIew: UIView {
         return view
     }()
     
+    
     let emailTextField: DesignableTextField = {
-        let textField = DesignableTextField()
-        textField.font = UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize())
-        textField.textColor = SignUpTheme.Colors.TextFieldTextColor()
-        textField.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                             attributes: [NSAttributedStringKey.foregroundColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor()])
-        textField.cornerRadius = SignUpTheme.TextFieldStyle.CornerRadius()
-        textField.borderWidth = SignUpTheme.TextFieldStyle.BorderWidth()
-        textField.leftPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.rightPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.backgroundColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        textField.borderColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        //textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+                                                       textColor: SignUpTheme.Colors.TextFieldTextColor(),
+                                                       placeholderText: "Email",
+                                                       placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
+                                                       cornerRadius: SignUpTheme.TextFieldStyle.CornerRadius(),
+                                                       borderWidth: SignUpTheme.TextFieldStyle.BorderWidth(),
+                                                       borderColor: SignUpTheme.Colors.TextFieldBackgroundColor(),
+                                                       leftPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       rightPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       backgroundColor: SignUpTheme.Colors.TextFieldBackgroundColor())
+        
         return textField
     }()
     
     let usernameTextField: DesignableTextField = {
-        let textField = DesignableTextField()
-        textField.font = UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize())
-        textField.textColor = ApplicationTheme.Colors.White()
-        textField.attributedPlaceholder = NSAttributedString(string: "Username",
-                                                             attributes: [NSAttributedStringKey.foregroundColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor()])
-        textField.cornerRadius = SignUpTheme.TextFieldStyle.CornerRadius()
-        textField.borderWidth = SignUpTheme.TextFieldStyle.BorderWidth()
-        textField.leftPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.rightPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.backgroundColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        textField.borderColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        //textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+                                                       textColor: SignUpTheme.Colors.TextFieldTextColor(),
+                                                       placeholderText: "Username",
+                                                       placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
+                                                       cornerRadius: SignUpTheme.TextFieldStyle.CornerRadius(),
+                                                       borderWidth: SignUpTheme.TextFieldStyle.BorderWidth(),
+                                                       borderColor: SignUpTheme.Colors.TextFieldBackgroundColor(),
+                                                       leftPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       rightPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       backgroundColor: SignUpTheme.Colors.TextFieldBackgroundColor())
         return textField
     }()
     
     let passwordTextField: DesignableTextField = {
-        let textField = DesignableTextField()
+        
+        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+                                                       textColor: SignUpTheme.Colors.TextFieldTextColor(),
+                                                       placeholderText: "Password",
+                                                       placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
+                                                       cornerRadius: SignUpTheme.TextFieldStyle.CornerRadius(),
+                                                       borderWidth: SignUpTheme.TextFieldStyle.BorderWidth(),
+                                                       borderColor: SignUpTheme.Colors.TextFieldBackgroundColor(),
+                                                       leftPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       rightPadding: SignUpTheme.TextFieldStyle.TextFieldPadding(),
+                                                       backgroundColor: SignUpTheme.Colors.TextFieldBackgroundColor())
         textField.isSecureTextEntry = true
-        textField.font = UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize())
-        textField.textColor = ApplicationTheme.Colors.White()
-        textField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                             attributes: [NSAttributedStringKey.foregroundColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor()])
-        textField.cornerRadius = SignUpTheme.TextFieldStyle.CornerRadius()
-        textField.borderWidth = SignUpTheme.TextFieldStyle.BorderWidth()
-        textField.leftPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.rightPadding = SignUpTheme.TextFieldStyle.TextFieldPadding()
-        textField.backgroundColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        textField.borderColor = SignUpTheme.Colors.TextFieldBackgroundColor()
-        //textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return textField
     }()
     
     let signUpButton: DesignableButton = {
-        let button = DesignableButton()
-        button.backgroundColor =  SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5)
-        button.setTitle("Sign Up", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize())
-        button.cornerRadius = SignUpTheme.SignUpButtonStyle.CornerRadius()
-        button.setTitleColor(SignUpTheme.Colors.SignUpButtonTextColor().withAlphaComponent(0.5), for: .normal)
-        button.isEnabled = false
+        let button = DesignableButton.createWith(
+                           backgroundColor: SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5),
+                           borderColor: SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5),
+                           cornerRadius: SignUpTheme.SignUpButtonStyle.CornerRadius(),
+                           title: "Sign Up",
+                           font: UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+                           titleColor: SignUpTheme.Colors.SignUpButtonTextColor().withAlphaComponent(0.5),
+                           titleAlignment: .center,
+                           isEnabled: false )
+        
         return button
     }()
     
@@ -98,6 +100,7 @@ class SignupVIew: UIView {
         // Logo
         
         self.addSubview(logo)
+        
         logo.anchor(left: self.leftAnchor, top: self.topAnchor, right: nil, bottom: nil, paddingLeft: 23, paddingTop: 70, paddingRight: 0, paddingBottom: 0, width: 180, height: 50)
         
         // StackView

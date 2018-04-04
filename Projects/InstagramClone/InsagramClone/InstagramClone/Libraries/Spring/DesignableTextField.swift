@@ -98,3 +98,37 @@ import UIKit
     }
     
 }
+
+extension DesignableTextField {
+    static public func createWith(font: UIFont? = nil,
+                                  textColor: UIColor? = .white,
+                                  placeholderText: String? = nil,
+                                  placeholderTextColor: UIColor? = .white,
+                                  cornerRadius: CGFloat = 0,
+                                  borderWidth: CGFloat = 0,
+                                  borderColor: UIColor = UIColor.clear,
+                                  leftPadding: CGFloat = 0,
+                                  rightPadding: CGFloat = 0,
+                                  backgroundColor: UIColor = UIColor.clear,
+                                  isEnabled: Bool = true) -> DesignableTextField {
+        
+        let textField = DesignableTextField()
+        textField.backgroundColor = backgroundColor
+        textField.font = font
+        textField.textColor = textColor
+        textField.cornerRadius = cornerRadius
+        textField.borderWidth = borderWidth
+        textField.borderColor = borderColor
+        textField.leftPadding = leftPadding
+        textField.rightPadding = rightPadding
+        textField.isEnabled = isEnabled
+        
+        if let placeholderValue = placeholderText, let placeholderValueColor = placeholderTextColor {
+             textField.attributedPlaceholder = NSAttributedString(string: placeholderValue,
+                                                      attributes: [NSAttributedStringKey.foregroundColor: placeholderValueColor])
+        }
+        
+        return textField
+    }
+    
+}

@@ -1,9 +1,9 @@
 //
-//  DatasourceController.swift
-//  LBTAComponents
+//  GenericCollectionViewController.swift
+//  InstagramClone
 //
-//  Created by Brian Voong on 11/16/16.
-//  Copyright © 2016 Lets Build That App. All rights reserved.
+//  Created by Claude on 31/3/2018.
+//  Copyright © 2018 Claude. All rights reserved.
 //
 
 import UIKit
@@ -54,9 +54,9 @@ open class GenericCollectionViewController: UICollectionViewController, UICollec
         fatalError("init(coder:) has not been implemented")
     }
     
-    let defaultCellId = "lbta_defaultCellId"
-    let defaultFooterId = "lbta_defaultFooterId"
-    let defaultHeaderId = "lbta_defaultHeaderId"
+    let defaultCellId = "defaultCellId"
+    let defaultFooterId = "defaultFooterId"
+    let defaultHeaderId = "defaultHeaderId"
     
     override open func viewDidLoad() {
         super.viewDidLoad()

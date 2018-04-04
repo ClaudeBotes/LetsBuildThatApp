@@ -1,9 +1,9 @@
 //
-//  DefaultCell.swift
-//  Pods
+//  DefaultCells.swift
+//  InstagramClone
 //
-//  Created by Brian Voong on 11/22/16.
-//
+//  Created by Claude on 31/3/2018.
+//  Copyright © 2018 Claude. All rights reserved.
 //
 
 import UIKit

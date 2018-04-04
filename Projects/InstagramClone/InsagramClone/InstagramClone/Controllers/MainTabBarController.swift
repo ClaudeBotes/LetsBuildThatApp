@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         // User Profile
         
-       let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarUserProfileUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarUserProfileSelected"))
+        let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarUserProfileUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarUserProfileSelected"), rootViewController: SignupViewController())
         
         tabBar.tintColor = ApplicationTheme.Colors.PrimaryColor1()
         

@@ -1,9 +1,9 @@
 //
-//  DatasourceCell.swift
-//  Pods
+//  GenericCollectionViewCell.swift
+//  InstagramClone
 //
-//  Created by Brian Voong on 11/21/16.
-//
+//  Created by Claude on 31/3/2018.
+//  Copyright © 2018 Claude. All rights reserved.
 //
 
 import UIKit
@@ -26,7 +26,9 @@ open class GenericCollectionViewCell: UICollectionViewCell {
         setupViews()
     }
     
-    ///Override this method to provide your own custom views.
+    /**
+    Override this method to provide your own custom views.
+    */
     open func setupViews() {
         clipsToBounds = true
         addSubview(separatorLineView)

@@ -1,9 +1,9 @@
 //
-//  Datasource.swift
-//  Pods
+//  GenericCollectionViewDatasource.swift
+//  InstagramClone
 //
-//  Created by Brian Voong on 11/21/16.
-//
+//  Created by Claude on 31/3/2018.
+//  Copyright © 2018 Claude. All rights reserved.
 //
 
 import Foundation
@@ -15,22 +15,30 @@ open class GenericCollectionViewDatasource: NSObject {
     
     public var objects: [Any]?
     
-    ///The cell classes that will be used to render out each section.
+    /**
+        The cell classes that will be used to render out each section.
+    */
     open func cellClasses() -> [GenericCollectionViewCell.Type] {
         return []
     }
     
-    ///If you want more fine tuned control per row, override this method to provide the proper cell type that should be rendered
+    /**
+        If you want more fine tuned control per row, override this method to provide the proper cell type that should be rendered
+    */
     open func cellClass(_ indexPath: IndexPath) -> GenericCollectionViewCell.Type? {
         return nil
     }
     
-    ///Override this method to provide your list with what kind of headers should be rendered per section
+    /**
+        Override this method to provide your list with what kind of headers should be rendered per section
+    */
     open func headerClasses() -> [GenericCollectionViewCell.Type]? {
         return []
     }
     
-    ///Override this method to provide your list with what kind of footers should be rendered per section
+    /**
+        Override this method to provide your list with what kind of footers should be rendered per section
+    */
     open func footerClasses() -> [GenericCollectionViewCell.Type]? {
         return []
     }
@@ -43,17 +51,23 @@ open class GenericCollectionViewDatasource: NSObject {
         return 1
     }
     
-    ///For each row in your list, override this to provide it with a specific item. Access this in your DatasourceCell by overriding datasourceItem.
+    /**
+        For each row in your list, override this to provide it with a specific item. Access this in your DatasourceCell by overriding datasourceItem.
+    */
     open func item(_ indexPath: IndexPath) -> Any? {
         return objects?[indexPath.item]
     }
     
-    ///If your headers need a special item, return it here.
+    /**
+        If your headers need a special item, return it here.
+    */
     open func headerItem(_ section: Int) -> Any? {
         return nil
     }
     
-    ///If your footers need a special item, return it here
+    /**
+        If your footers need a special item, return it here
+    */
     open func footerItem(_ section: Int) -> Any? {
         return nil
     }

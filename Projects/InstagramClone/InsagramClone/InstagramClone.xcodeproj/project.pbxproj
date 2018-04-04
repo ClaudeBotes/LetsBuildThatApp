@@ -24,12 +24,8 @@
 		513CBB4920715B46004061BD /* NSMutableAttributedString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB3C20715B44004061BD /* NSMutableAttributedString+Helper.swift */; };
 		513CBB4A20715B46004061BD /* GenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB3D20715B44004061BD /* GenericCollectionViewCell.swift */; };
 		513CBB4B20715B46004061BD /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB3E20715B44004061BD /* CachedImageView.swift */; };
-		513CBB4C20715B46004061BD /* LBTALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB3F20715B44004061BD /* LBTALabel.swift */; };
-		513CBB4D20715B46004061BD /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4020715B44004061BD /* UIButton+Helper.swift */; };
 		513CBB4E20715B46004061BD /* DiscardableImageCacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4120715B45004061BD /* DiscardableImageCacheItem.swift */; };
 		513CBB4F20715B46004061BD /* DefaultCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4220715B45004061BD /* DefaultCells.swift */; };
-		513CBB5020715B46004061BD /* LBTATextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4320715B45004061BD /* LBTATextView.swift */; };
-		513CBB5220715B46004061BD /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4520715B45004061BD /* UIView+Anchors.swift */; };
 		513CBB5320715B46004061BD /* GenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4620715B45004061BD /* GenericCollectionViewController.swift */; };
 		513CBB5420715B46004061BD /* GenericCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB4720715B45004061BD /* GenericCollectionViewDatasource.swift */; };
 		514EEE23206EBDC50046E3B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE22206EBDC50046E3B6 /* AppDelegate.swift */; };
@@ -42,7 +38,7 @@
 		514EEE5B206ECB060046E3B6 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE53206ECB060046E3B6 /* Spring.swift */; };
 		514EEE5C206ECB060046E3B6 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE54206ECB060046E3B6 /* DesignableLabel.swift */; };
 		514EEE5D206ECB060046E3B6 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE55206ECB060046E3B6 /* SpringButton.swift */; };
-		514EEE5E206ECB060046E3B6 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE56206ECB060046E3B6 /* Misc.swift */; };
+		514EEE5E206ECB060046E3B6 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE56206ECB060046E3B6 /* HelperMethods.swift */; };
 		514EEE5F206ECB060046E3B6 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE57206ECB060046E3B6 /* SpringView.swift */; };
 		514EEE60206ECB060046E3B6 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE58206ECB060046E3B6 /* DesignableButton.swift */; };
 		514EEE61206ECB060046E3B6 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE59206ECB060046E3B6 /* DesignableView.swift */; };
@@ -102,12 +98,8 @@
 		513CBB3C20715B44004061BD /* NSMutableAttributedString+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Helper.swift"; sourceTree = "<group>"; };
 		513CBB3D20715B44004061BD /* GenericCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewCell.swift; sourceTree = "<group>"; };
 		513CBB3E20715B44004061BD /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
-		513CBB3F20715B44004061BD /* LBTALabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTALabel.swift; sourceTree = "<group>"; };
-		513CBB4020715B44004061BD /* UIButton+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Helper.swift"; sourceTree = "<group>"; };
 		513CBB4120715B45004061BD /* DiscardableImageCacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscardableImageCacheItem.swift; sourceTree = "<group>"; };
 		513CBB4220715B45004061BD /* DefaultCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCells.swift; sourceTree = "<group>"; };
-		513CBB4320715B45004061BD /* LBTATextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTATextView.swift; sourceTree = "<group>"; };
-		513CBB4520715B45004061BD /* UIView+Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		513CBB4620715B45004061BD /* GenericCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewController.swift; sourceTree = "<group>"; };
 		513CBB4720715B45004061BD /* GenericCollectionViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		514EEE1F206EBDC50046E3B6 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +118,7 @@
 		514EEE53206ECB060046E3B6 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		514EEE54206ECB060046E3B6 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		514EEE55206ECB060046E3B6 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
-		514EEE56206ECB060046E3B6 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		514EEE56206ECB060046E3B6 /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		514EEE57206ECB060046E3B6 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
 		514EEE58206ECB060046E3B6 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		514EEE59206ECB060046E3B6 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -222,6 +214,9 @@
 		513CBB3920715B1F004061BD /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				51FA8B462075874300BEEF3D /* GenericCollectionView */,
+				514EEE56206ECB060046E3B6 /* HelperMethods.swift */,
+				513CBB18206FA610004061BD /* Extensions.swift */,
 				513CBB3A20715B2C004061BD /* LBTAComponents */,
 				514EEE52206ECB060046E3B6 /* Spring */,
 			);
@@ -232,17 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				513CBB3E20715B44004061BD /* CachedImageView.swift */,
-				513CBB4720715B45004061BD /* GenericCollectionViewDatasource.swift */,
-				513CBB3D20715B44004061BD /* GenericCollectionViewCell.swift */,
-				513CBB4620715B45004061BD /* GenericCollectionViewController.swift */,
-				513CBB4220715B45004061BD /* DefaultCells.swift */,
 				513CBB4120715B45004061BD /* DiscardableImageCacheItem.swift */,
-				513CBB3F20715B44004061BD /* LBTALabel.swift */,
-				513CBB4320715B45004061BD /* LBTATextView.swift */,
 				513CBB3C20715B44004061BD /* NSMutableAttributedString+Helper.swift */,
-				513CBB4020715B44004061BD /* UIButton+Helper.swift */,
 				513CBB3B20715B44004061BD /* UIImage+Helper.swift */,
-				513CBB4520715B45004061BD /* UIView+Anchors.swift */,
 			);
 			path = LBTAComponents;
 			sourceTree = "<group>";
@@ -352,12 +339,10 @@
 				514EEE6A206ED6A60046E3B6 /* SpringTextField.swift */,
 				514EEE54206ECB060046E3B6 /* DesignableLabel.swift */,
 				514EEE55206ECB060046E3B6 /* SpringButton.swift */,
-				514EEE56206ECB060046E3B6 /* Misc.swift */,
 				514EEE57206ECB060046E3B6 /* SpringView.swift */,
 				514EEE58206ECB060046E3B6 /* DesignableButton.swift */,
 				514EEE59206ECB060046E3B6 /* DesignableView.swift */,
 				514EEE5A206ECB060046E3B6 /* SpringLabel.swift */,
-				513CBB18206FA610004061BD /* Extensions.swift */,
 			);
 			path = Spring;
 			sourceTree = "<group>";
@@ -414,6 +399,17 @@
 				514EEE24206EBDC50046E3B6 /* SignupVC.swift */,
 			);
 			path = Signup;
+			sourceTree = "<group>";
+		};
+		51FA8B462075874300BEEF3D /* GenericCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				513CBB4720715B45004061BD /* GenericCollectionViewDatasource.swift */,
+				513CBB3D20715B44004061BD /* GenericCollectionViewCell.swift */,
+				513CBB4620715B45004061BD /* GenericCollectionViewController.swift */,
+				513CBB4220715B45004061BD /* DefaultCells.swift */,
+			);
+			path = GenericCollectionView;
 			sourceTree = "<group>";
 		};
 		59A68F4ADF7F2ACDD21E4FD4 /* Pods */ = {
@@ -762,17 +758,14 @@
 				514EEE65206ECB750046E3B6 /* ApplicationTheme.swift in Sources */,
 				51FA8B4120718D9A00BEEF3D /* DesignableImageView.swift in Sources */,
 				513CBB2F20700620004061BD /* SignUpTheme.swift in Sources */,
-				514EEE5E206ECB060046E3B6 /* Misc.swift in Sources */,
+				514EEE5E206ECB060046E3B6 /* HelperMethods.swift in Sources */,
 				513CBB25206FF274004061BD /* Users.swift in Sources */,
-				513CBB5220715B46004061BD /* UIView+Anchors.swift in Sources */,
 				513CBB3820713C16004061BD /* AccountSummaryVC.swift in Sources */,
 				514EEE5D206ECB060046E3B6 /* SpringButton.swift in Sources */,
 				513CBB19206FA610004061BD /* Extensions.swift in Sources */,
-				513CBB4D20715B46004061BD /* UIButton+Helper.swift in Sources */,
 				513CBB20206FF191004061BD /* PersistencyManager.swift in Sources */,
 				513CBB4B20715B46004061BD /* CachedImageView.swift in Sources */,
 				514EEE67206ECF3A0046E3B6 /* CustomFont.swift in Sources */,
-				513CBB5020715B46004061BD /* LBTATextView.swift in Sources */,
 				513CBB4A20715B46004061BD /* GenericCollectionViewCell.swift in Sources */,
 				51FA8B352071639100BEEF3D /* AccountCollectionViewDatasource.swift in Sources */,
 				513CBB4E20715B46004061BD /* DiscardableImageCacheItem.swift in Sources */,
@@ -784,7 +777,6 @@
 				514EEE61206ECB060046E3B6 /* DesignableView.swift in Sources */,
 				51FA8B2E207160DB00BEEF3D /* AccountAPI.swift in Sources */,
 				514EEE69206ED6860046E3B6 /* DesignableTextField.swift in Sources */,
-				513CBB4C20715B46004061BD /* LBTALabel.swift in Sources */,
 				513CBB28206FF2F1004061BD /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
