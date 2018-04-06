@@ -11,11 +11,17 @@ import UIKit
 
 struct ApplicationTheme {
     
+    
+    
+    // TODO
+    // 1. All values to come from JSON
+    // 2. Colors and fonts for component themes should be centralised
+    
     // MARK: BASE THEME VALUES
     
     // MARK: COLORS
     private static let primaryColor1 = "F80060" // pink
-    private static let primaryColor2 = "2B2B50" // blue
+    private static let primaryColor2 = "1281AC" // blue
     private static let primaryColor3 = "FBFBFB" // offwhite
     
     
@@ -24,6 +30,7 @@ struct ApplicationTheme {
     private static let white = "FFFFFF" // white
     private static let lightGray = "A8A8B8" // light gray
     private static let cardShadowColor = "000000" //black
+    private static let rowSeperatorColor = "D8D8D8" // another light gray
 
     // MARK: Asset Names
     
@@ -101,6 +108,15 @@ struct ApplicationTheme {
         static func CardShadowString() -> String {
             return cardShadowColor
         }
+        
+        // Light Gray for row seperators
+        static func RowSeperatorColor() -> UIColor {
+            return UIColor(hex: rowSeperatorColor)
+        }
+        
+        static func RowSeperatorColorString() -> String {
+            return rowSeperatorColor
+        }
     }
     
     // MARK: FONTS
@@ -113,6 +129,14 @@ struct ApplicationTheme {
         
         static private func preferedFont() -> fontExperiment {
             return .system
+        }
+        
+        static func LargeTitle() -> UIFont {
+            if preferedFont() == .custom {
+                return FontBook.Regular.of(style: .largeTitle)
+            } else {
+                return UIFont.preferredFont(forTextStyle: UIFontTextStyle.largeTitle)
+            }
         }
         
         static func Title1() -> UIFont {

@@ -31,10 +31,9 @@ class SignupVIew: UIView {
         return view
     }()
     
-    
-    let emailTextField: DesignableTextField = {
+    let emailTextField: StyledTextField = {
         
-        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+        let textField = StyledTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
                                                        textColor: SignUpTheme.Colors.TextFieldTextColor(),
                                                        placeholderText: "Email",
                                                        placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
@@ -48,9 +47,9 @@ class SignupVIew: UIView {
         return textField
     }()
     
-    let usernameTextField: DesignableTextField = {
+    let usernameTextField: StyledTextField = {
         
-        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+        let textField = StyledTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
                                                        textColor: SignUpTheme.Colors.TextFieldTextColor(),
                                                        placeholderText: "Username",
                                                        placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
@@ -63,9 +62,9 @@ class SignupVIew: UIView {
         return textField
     }()
     
-    let passwordTextField: DesignableTextField = {
+    let passwordTextField: StyledTextField = {
         
-        let textField = DesignableTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
+        let textField = StyledTextField.createWith(font:UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
                                                        textColor: SignUpTheme.Colors.TextFieldTextColor(),
                                                        placeholderText: "Password",
                                                        placeholderTextColor: SignUpTheme.Colors.TextFieldPlaceholderTextColor(),
@@ -79,10 +78,10 @@ class SignupVIew: UIView {
         return textField
     }()
     
-    let signUpButton: DesignableButton = {
-        let button = DesignableButton.createWith(
-                           backgroundColor: SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5),
-                           borderColor: SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5),
+    let signUpButton: StyledButton = {
+        let button = StyledButton.createWith(
+                           backgroundColor: SignUpTheme.Colors.SignUpButtonBackgroundColor().withAlphaComponent(0.5),
+                           borderColor: SignUpTheme.Colors.SignUpButtonBackgroundColor().withAlphaComponent(0.5),
                            cornerRadius: SignUpTheme.SignUpButtonStyle.CornerRadius(),
                            title: "Sign Up",
                            font: UIFont.systemFont(ofSize: SignUpTheme.TextFieldStyle.FontSize()),
@@ -97,10 +96,9 @@ class SignupVIew: UIView {
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: SignUpTheme.AssetNames.BackgroundImage())!)
         
-        // Logo
+        // Add usernameTextField to view
         
         self.addSubview(logo)
-        
         logo.anchor(left: self.leftAnchor, top: self.topAnchor, right: nil, bottom: nil, paddingLeft: 23, paddingTop: 70, paddingRight: 0, paddingBottom: 0, width: 180, height: 50)
         
         // StackView
@@ -120,11 +118,11 @@ class SignupVIew: UIView {
         
         if isFormValid {
             signUpButton.isEnabled = true
-            signUpButton.backgroundColor = SignUpTheme.Colors.SignUpButtonColor()
+            signUpButton.backgroundColor = SignUpTheme.Colors.SignUpButtonBackgroundColor()
             signUpButton.setTitleColor(SignUpTheme.Colors.SignUpButtonTextColor(), for: .normal)
         } else {
             signUpButton.isEnabled = false
-            signUpButton.backgroundColor = SignUpTheme.Colors.SignUpButtonColor().withAlphaComponent(0.5)
+            signUpButton.backgroundColor = SignUpTheme.Colors.SignUpButtonBackgroundColor().withAlphaComponent(0.5)
             signUpButton.setTitleColor(SignUpTheme.Colors.SignUpButtonTextColor().withAlphaComponent(0.5), for: .normal)
         }
     }

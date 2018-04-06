@@ -31,7 +31,7 @@ struct SignUpTheme {
         
         // MARK: SignUp Button Colors
         
-        static func SignUpButtonColor() -> UIColor {
+        static func SignUpButtonBackgroundColor() -> UIColor {
             return UIColor(hex: ApplicationTheme.Colors.PrimaryColor1String())
         }
         

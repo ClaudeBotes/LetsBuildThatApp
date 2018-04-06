@@ -16,8 +16,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let index = viewControllers?.index(of: viewController)
         if index == 2 {
             
-            
-            
             return false
         }
         
@@ -26,28 +24,27 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.delegate = self
-        
-        
-        
-        view.backgroundColor = .blue
         
         setupViewControllers()
     }
     
     func setupViewControllers() {
         
+        // Transactions
+        let transactionsNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarHomeUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarHomeSelected"), rootViewController: TransactionsViewController())
+        
         // Home
         let homeNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarHomeUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarHomeSelected"), rootViewController: AccountSummaryViewController())
         
         // User Profile
         
-        let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarUserProfileUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarUserProfileSelected"), rootViewController: SignupViewController())
+        let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarUserProfileUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarUserProfileSelected"), rootViewController: ContactsViewController())
         
         tabBar.tintColor = ApplicationTheme.Colors.PrimaryColor1()
         
-        viewControllers = [homeNavController,
+        viewControllers = [transactionsNavController,
+                           homeNavController,
                            userProfileNavController]
         
         //modify tab bar item insets

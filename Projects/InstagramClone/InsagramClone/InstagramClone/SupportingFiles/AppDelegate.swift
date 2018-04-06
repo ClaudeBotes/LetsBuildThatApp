@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow()
-        window?.rootViewController = SignupViewController()
+        window?.rootViewController = MainTabBarController()
         
         // Style Naviagtion Bar
         UINavigationBar.appearance().barStyle = .blackOpaque // make status bar white
-        UINavigationBar.appearance().barTintColor = ApplicationTheme.Colors.PrimaryColor2()
-        let textAttributes = [NSAttributedStringKey.foregroundColor:ApplicationTheme.Colors.White()]
+        UINavigationBar.appearance().barTintColor = ApplicationTheme.Colors.White()
+        let textAttributes = [NSAttributedStringKey.foregroundColor:ApplicationTheme.Colors.PrimaryColor2()]
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         
         return true

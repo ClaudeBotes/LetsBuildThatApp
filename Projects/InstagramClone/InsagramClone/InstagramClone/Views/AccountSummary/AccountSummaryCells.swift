@@ -18,14 +18,14 @@ class AccountSummaryFooter: GenericCollectionViewCell {
 
 class AccountSummaryHeader: GenericCollectionViewCell {
     
-    let companyLogo: DesignableImageView = {
-        let image = DesignableImageView()
+    let companyLogo: StyledImageView = {
+        let image = StyledImageView()
         image.image = #imageLiteral(resourceName: "bank-logo-small")
         return image
     }()
     
-    let marketingContent: DesignableImageView = {
-        let image = DesignableImageView()
+    let marketingContent: StyledImageView = {
+        let image = StyledImageView()
         image.image = #imageLiteral(resourceName: "marketing banner")
         image.shadowColor =  AccountSuymmaryCellTheme.Colors.CardShadowColor()
         image.shadowOpacity = 0.15
@@ -100,8 +100,8 @@ class AccountSummaryCell: GenericCollectionViewCell {
         return card
     }()
     
-    let accountNameLabel: DesignableLabel = {
-        let label = DesignableLabel()
+    let accountNameLabel: StyledLabel = {
+        let label = StyledLabel()
         label.font = UIFont.systemFont(ofSize: AccountSuymmaryCellTheme.LabelStyle.AccountNameFont())
         label.textColor = AccountSuymmaryCellTheme.Colors.AccountNameColor()
         label.text = "1234 1234 1234 1234"
@@ -109,8 +109,8 @@ class AccountSummaryCell: GenericCollectionViewCell {
         return label
     }()
     
-    let openedDateLabel: DesignableLabel = {
-        let label = DesignableLabel()
+    let openedDateLabel: StyledLabel = {
+        let label = StyledLabel()
         label.font = UIFont.systemFont(ofSize: AccountSuymmaryCellTheme.LabelStyle.AccountNumberFont())
         label.textColor = AccountSuymmaryCellTheme.Colors.AccountNumberColor()
         label.text = "01 / 2018"
@@ -118,8 +118,8 @@ class AccountSummaryCell: GenericCollectionViewCell {
         return label
     }()
     
-    let availableBalanceLabel: DesignableLabel = {
-        let label = DesignableLabel()
+    let availableBalanceLabel: StyledLabel = {
+        let label = StyledLabel()
         label.font = UIFont.systemFont(ofSize: AccountSuymmaryCellTheme.LabelStyle.AvailableBalanceFont())
         label.textColor = AccountSuymmaryCellTheme.Colors.AccountNameColor()
         label.text = "1234"
@@ -127,8 +127,8 @@ class AccountSummaryCell: GenericCollectionViewCell {
         return label
     }()
     
-    let accountNumberLabel: DesignableLabel = {
-        let label = DesignableLabel()
+    let accountNumberLabel: StyledLabel = {
+        let label = StyledLabel()
         label.font = UIFont.systemFont(ofSize: AccountSuymmaryCellTheme.LabelStyle.AccountNumberFont())
         label.textColor = AccountSuymmaryCellTheme.Colors.AccountNumberColor()
         label.text = "**** **** **** ****"
