@@ -11,11 +11,6 @@ import UIKit
 
 class TransactionsViewController: GenericCollectionViewController {
     
-    
-    let maxHeaderHeight: CGFloat = 145
-    let minHeaderHeight: CGFloat = 76
-    var previousScrollOffset: CGFloat = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,10 +18,8 @@ class TransactionsViewController: GenericCollectionViewController {
         
         self.collectionView?.delegate = self
         
-        
-        
-        
         // Style Navigation Bar
+        
         navigationItem.title = ""
         self.navigationController!.navigationBar.isTranslucent = false
         
@@ -47,30 +40,9 @@ class TransactionsViewController: GenericCollectionViewController {
         
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrolled")
-        
-        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
-        let isScrollingDown = scrollDiff > 0
-        let isScrollingUp = scrollDiff < 0
-        
-        // Header height logic here next
-        
-        if let headerView = collectionView?.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionHeader).first as? TransactionHeader {
-            
-            // Automagically get the right height
-            let height = headerView.contentView.systemLayoutSizeFitting(UILayoutFittingExpandedSize).height
-            headerView  // what the fuck do i access here to set the height?
-            
-        }
-        
-        //self.previousScrollOffset = scrollView.contentOffset.y
-        
-    }
-    
     // Set header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 145)
+        return CGSize(width: view.frame.width, height: 168)
     }
     
     // Set footer size

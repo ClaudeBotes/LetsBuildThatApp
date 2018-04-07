@@ -16,7 +16,21 @@ class TransactionFooter: GenericCollectionViewCell {
     }
 }
 
+// This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
+class CustomLayer: CALayer {
+    override var zPosition: CGFloat {
+        get { return 0 }
+        set {}
+    }
+}
+
 class TransactionHeader: GenericCollectionViewCell {
+    
+    // This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
+    // Bug does not appear in ios10
+    override class var layerClass: AnyClass {
+        get { return CustomLayer.self }
+    }
     
     let accountBalanceLabel: StyledLabel = {
         let label = StyledLabel()
@@ -26,10 +40,19 @@ class TransactionHeader: GenericCollectionViewCell {
         return label
     }()
     
+    let accountNameLabel: StyledLabel = {
+        let label = StyledLabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = TransactionCellTheme.Colors.AccountNameColor()
+        label.text = "Check Account"
+        return label
+    }()
+
+    
     let accountNumberLabel: StyledLabel = {
         let label = StyledLabel()
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = TransactionCellTheme.Colors.TransactionAmountColor()
+        label.textColor = TransactionCellTheme.Colors.AccountNumberColor()
         label.text = "NL90 BANK 1234 5678 90"
         return label
     }()
@@ -52,11 +75,17 @@ class TransactionHeader: GenericCollectionViewCell {
         super.setupViews()
         self.backgroundColor = ApplicationTheme.Colors.White()
         
+        // Add account name
+        
+        addSubview(accountNameLabel)
+        accountNameLabel.anchorCenterXToSuperview()
+        accountNameLabel.anchor(left: nil, top: self.topAnchor, right: nil, bottom: nil, paddingLeft: 0, paddingTop: 3, paddingRight: 0, paddingBottom: 0, width: 0, height: 20)
+        
         // Add account balance
         
         addSubview(accountBalanceLabel)
         accountBalanceLabel.anchorCenterXToSuperview()
-        accountBalanceLabel.anchor(left: nil, top: self.topAnchor, right: nil, bottom: nil, paddingLeft: 0, paddingTop: 5, paddingRight: 0, paddingBottom: 0, width: 0, height: 41)
+        accountBalanceLabel.anchor(left: nil, top: accountNameLabel.bottomAnchor, right: nil, bottom: nil, paddingLeft: 0, paddingTop: 3, paddingRight: 0, paddingBottom: 0, width: 0, height: 41)
         
         // Add account number
         

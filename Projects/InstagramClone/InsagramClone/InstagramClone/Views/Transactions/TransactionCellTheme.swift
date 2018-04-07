@@ -41,6 +41,14 @@ struct TransactionCellTheme {
             return UIColor(hex: ApplicationTheme.Colors.LightGrayString())
         }
         
+        static func AccountNumberColor() -> UIColor {
+            return UIColor(hex: ApplicationTheme.Colors.LightGrayString())
+        }
+        
+        static func AccountNameColor() -> UIColor {
+            return UIColor(hex: ApplicationTheme.Colors.LightGrayString())
+        }
+        
         static func NewPaymentButtonBackgroundColor() -> UIColor {
             return UIColor(hex: ApplicationTheme.Colors.PrimaryColor2String())
         }
