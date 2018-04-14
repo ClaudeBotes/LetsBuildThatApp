@@ -25,8 +25,8 @@ class SignupVIew: UIView {
         self.init()
     }
     
-    let logo: DesignableView = {
-        let view = DesignableView()
+    let logo: StyledView = {
+        let view = StyledView()
         view.backgroundColor = UIColor(patternImage: UIImage(named: SignUpTheme.AssetNames.CompanyLogo())!)
         return view
     }()

@@ -11,8 +11,14 @@ import UIKit
 
 class TransactionsViewController: GenericCollectionViewController {
     
+    var productForTransactions: Product? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let product = productForTransactions {
+            print(product.alias! + " got this account")
+        }
         
         //navigationController?.hidesBarsOnSwipe = true
         

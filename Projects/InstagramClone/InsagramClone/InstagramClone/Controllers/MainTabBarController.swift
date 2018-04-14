@@ -32,19 +32,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupViewControllers() {
         
         // Transactions
-        let transactionsNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarHomeUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarHomeSelected"), rootViewController: TransactionsViewController())
+        let transactionsNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "money-disabled"), selectedImage: #imageLiteral(resourceName: "money-enabled"), rootViewController: TransactionsViewController())
         
         // Home
-        let homeNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarHomeUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarHomeSelected"), rootViewController: AccountSummaryViewController())
+        let homeNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "card-disabled"), selectedImage: #imageLiteral(resourceName: "card-enabled"), rootViewController: AccountSummaryViewController())
         
         // User Profile
         
-        let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "NavBarUserProfileUnselected"), selectedImage: #imageLiteral(resourceName: "NavBarUserProfileSelected"), rootViewController: ContactsViewController())
+        let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "profile-disabled"), selectedImage: #imageLiteral(resourceName: "profile-enabled"), rootViewController: ContactsViewController())
         
-        tabBar.tintColor = ApplicationTheme.Colors.PrimaryColor1()
+        tabBar.tintColor = ApplicationTheme.Colors.PrimaryColor2()
         
-        viewControllers = [transactionsNavController,
-                           homeNavController,
+        viewControllers = [homeNavController,
+                           transactionsNavController,
                            userProfileNavController]
         
         //modify tab bar item insets

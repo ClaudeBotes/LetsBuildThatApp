@@ -10,7 +10,7 @@ import Foundation
 
 class AccountSummaryCollectionViewDatasource: GenericCollectionViewDatasource {
     
-    let acounts = AccountAPI.shared.getAccounts()
+    let products = AccountAPI.shared.getProductsNotGroupedByType()
     
     override func footerClasses() -> [GenericCollectionViewCell.Type]? {
         return [AccountSummaryFooter.self]
@@ -25,11 +25,11 @@ class AccountSummaryCollectionViewDatasource: GenericCollectionViewDatasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return acounts[indexPath.item]
+        return products[indexPath.item]
     }
     
     override func numberOfItems(_ section: Int) -> Int {
-        return acounts.count
+        return products.count
     }
     
 }

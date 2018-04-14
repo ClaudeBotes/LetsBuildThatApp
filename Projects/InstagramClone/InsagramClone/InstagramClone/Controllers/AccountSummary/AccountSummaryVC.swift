@@ -10,19 +10,21 @@ import Foundation
 import UIKit
 
 class AccountSummaryViewController: GenericCollectionViewController {
+    
+    var productsDataSource: AccountSummaryCollectionViewDatasource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
         navigationController?.hidesBarsOnSwipe = true
        
         // Style Navigation Bar
-        navigationItem.title = "My Accounts"
+        navigationItem.title = "Accounts"
         self.navigationController!.navigationBar.isTranslucent = false
     
-        let accountsDatasource = AccountSummaryCollectionViewDatasource()
-        self.datasource = accountsDatasource
+        // Setup data source for collection view configurations
+        productsDataSource = AccountSummaryCollectionViewDatasource()
+        self.datasource = productsDataSource
     }
     
     // Set header size
@@ -44,7 +46,15 @@ class AccountSummaryViewController: GenericCollectionViewController {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 0
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let product = productsDataSource?.products[indexPath.item] as Product? {
+            var transactionsViewController = TransactionsViewController()
+            transactionsViewController.productForTransactions = product
+            navigationController?.pushViewController(transactionsViewController, animated: true)
+        }
     }
 }

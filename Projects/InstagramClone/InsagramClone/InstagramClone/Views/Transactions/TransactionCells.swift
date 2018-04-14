@@ -122,8 +122,8 @@ class TransactionCell: GenericCollectionViewCell {
         }
     }
     
-    let transactionAvatar: DesignableView = {
-        let view = DesignableView()
+    let transactionAvatar: StyledView = {
+        let view = StyledView()
         view.cornerRadius = 16.6 // width / 2 to make a view round
         view.clipsToBounds = true
         view.borderWidth = 1
@@ -151,8 +151,8 @@ class TransactionCell: GenericCollectionViewCell {
         return label
     }()
     
-    let rowDevider: DesignableView = {
-        let view = DesignableView()
+    let rowDevider: StyledView = {
+        let view = StyledView()
         view.backgroundColor = TransactionTheme.Colors.RowSeperatorColor()
         return view
     }()

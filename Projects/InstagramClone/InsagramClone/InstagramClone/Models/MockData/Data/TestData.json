@@ -1,0 +1,64 @@
+[
+    {
+        "aggregatedBalance": {
+            "currency":"EUR",
+            "value":"0"
+        },
+        "accounts":{
+            "type":"Current Account",
+            "products":[
+                {"bookedBalance":"18377.31",
+                 "availableBalance":"18377.31",
+                 "IBAN":"DE87201200000006067078",
+                 "currency":"EUR",
+                 "id":"51593",
+                 "alias":"Check Account",
+                 "visible":true
+                },
+                {"bookedBalance":"136684.35",
+                 "availableBalance":"136684.35",
+                 "IBAN":"DE56201200000058814005",
+                 "currency":"EUR",
+                 "id":"137635",
+                 "alias":"Shared Check Account",
+                 "visible":true
+                }
+            ],
+            "aggregatedBalance":{ 
+                "currency":"EUR",
+                "value":"0"
+            }
+        }
+    },
+    {
+        "aggregatedBalance": {
+            "currency":"EUR",
+            "value":"0"
+        },
+        "accounts":{
+            "type":"Current Account",
+            "products":[
+                {"bookedBalance":"18377.31",
+                 "availableBalance":"18377.31",
+                 "IBAN":"DE87201200000006067078",
+                 "currency":"EUR",
+                 "id":"51593",
+                 "alias":"Check Account",
+                 "visible":true
+                },
+                {"bookedBalance":"136684.35",
+                 "availableBalance":"136684.35",
+                 "IBAN":"DE56201200000058814005",
+                 "currency":"EUR",
+                 "id":"137635",
+                 "alias":"Shared Check Account",
+                 "visible":true
+                }
+            ],
+            "aggregatedBalance":{ 
+                "currency":"EUR",
+                "value":"0"
+            }
+        }
+    }
+]

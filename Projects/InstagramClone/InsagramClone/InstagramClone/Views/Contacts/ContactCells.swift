@@ -80,8 +80,8 @@ class ContactCell: GenericCollectionViewCell {
         }
     }
     
-    let profilePicture: DesignableView = {
-        let view = DesignableView()
+    let profilePicture: StyledView = {
+        let view = StyledView()
         view.cornerRadius = 16.6 // width / 2 to make a view round
         view.clipsToBounds = true
         view.borderWidth = 1
@@ -109,8 +109,8 @@ class ContactCell: GenericCollectionViewCell {
         return label
     }()
     
-    let rowDevider: DesignableView = {
-        let view = DesignableView()
+    let rowDevider: StyledView = {
+        let view = StyledView()
         view.backgroundColor = ContactTheme.Colors.RowSeperatorColor()
         return view
     }()

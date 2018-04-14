@@ -1,0 +1,65 @@
+[
+    {
+        "aggregatedBalance": {
+            "currency":"EUR",
+            "value":"0"
+        },
+        "accounts":{
+            "type":"Current Account",
+            "products":[
+                {"bookedBalance":"1,872.31",
+                 "availableBalance":"1,872.31",
+                 "IBAN":"DE87 2012 0000 0006",
+                 "currency":"EUR",
+                 "id":"51593",
+                 "alias":"Check Account",
+                 "visible":true,
+                 "dateOpened": "17/08/2018"},
+                {"bookedBalance":"3,174.60",
+                 "availableBalance":"3,174.60",
+                 "IBAN":"DE87 2018 3492 0001",
+                 "currency":"EUR",
+                 "id":"137635",
+                 "alias":"VISA Card",
+                 "visible":true,
+                 "dateOpened": "11/12/2013"}
+            ],
+            "aggregatedBalance":{ 
+                "currency":"EUR",
+                "value":"0"
+            }
+        }
+    },
+    {
+        "aggregatedBalance": {
+            "currency":"EUR",
+            "value":"0"
+        },
+        "accounts":{
+            "type":"Saving Account",
+            "products":[
+                {"bookedBalance":"5,122.00",
+                 "availableBalance":"5,122.00",
+                 "IBAN":"NL23 2013 4392 2381",
+                 "currency":"EUR",
+                 "id":"51593",
+                 "alias":"Holiday Savings",
+                 "visible":true,
+                 "dateOpened": "17/08/2018"},
+                {"bookedBalance":"136684.35",
+                 "availableBalance":"136684.35",
+                 "IBAN":"DE56201200000058814005",
+                 "currency":"EUR",
+                 "debitCardsItems":[],
+                 "id":"137635",
+                 "alias":"lfd.Kto.",
+                 "visible":true,
+                 "dateOpened": "17/08/2018"}
+            ],
+            "aggregatedBalance":{ 
+                "currency":"EUR",
+                "value":"0"
+            }
+        }
+    }    
+]

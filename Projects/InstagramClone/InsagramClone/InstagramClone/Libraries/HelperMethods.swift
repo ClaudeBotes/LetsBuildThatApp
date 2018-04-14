@@ -23,6 +23,31 @@
 import Foundation
 import UIKit
 
+enum TextAlignment: String {
+    case left = "left"
+    case center = "center"
+    case right = "right"
+    case justified = "justified"
+    case natural = "natural"
+}
+
+public func setTextAlignment(textAlignment: String) -> NSTextAlignment {
+    switch textAlignment {
+    case "left":
+        return NSTextAlignment.left
+    case "center":
+        return NSTextAlignment.center
+    case "right":
+        return NSTextAlignment.right
+    case "justified":
+        return NSTextAlignment.justified
+    case "natural":
+        return NSTextAlignment.natural
+    default:
+        return NSTextAlignment.center
+    }
+}
+
 public func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(Double.pi / 180)
 }
