@@ -31,6 +31,16 @@ enum TextAlignment: String {
     case natural = "natural"
 }
 
+public func convertFontSizeCssStringToCGFloat(value: String) throws -> CGFloat  {
+    var stringValue = value
+    stringValue.removeLast()
+    stringValue.removeLast()
+    
+    let floatValue = try (stringValue as NSString).floatValue
+    
+    return CGFloat(floatValue)
+}
+
 public func setTextAlignment(textAlignment: String) -> NSTextAlignment {
     switch textAlignment {
     case "left":

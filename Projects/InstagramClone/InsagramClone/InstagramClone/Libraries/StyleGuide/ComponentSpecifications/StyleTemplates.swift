@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
-
-struct StyleTemplate {
+public struct StyleTemplate {
     let shadowRadius : CGFloat
     let shadowOpacity : CGFloat
     let shadowOffsetY : CGFloat
@@ -41,7 +39,7 @@ struct StyleTemplate {
     }
 }
 
-struct LayoutTemplate {
+public struct LayoutTemplate {
     let paddingLeft : CGFloat
     let paddingTop : CGFloat
     let paddingRight : CGFloat

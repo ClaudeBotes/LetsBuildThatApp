@@ -1,0 +1,71 @@
+[
+  {
+    "views": [
+      {
+        "name": "accountSummary",
+        "labels": [
+          {
+            "name": "availableBalance",
+            "style": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            }
+          },
+          {
+            "name": "accountName",
+            "style": {
+              "fontSize": "13px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            }
+          },
+          {
+            "name": "accountNumber",
+            "style": {
+              "fontSize": "13px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            }
+          },
+          {
+            "name": "openedDate",
+            "style": {
+              "fontSize": "13px",
+              "textAlign": "right"
+            },
+            "layout": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            }
+          }
+        ]
+      },
+      {
+        "name": "transactions",
+        "labels": [
+          {
+            "name": "availableBalance",
+            "style": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "fontSize": "22px",
+              "textAlign": "left"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "views":{
+            "accountSummary":{
+                "labels":{
+                    "availableBalance":{
+                        "style":{
+                            "fontSize": "22px",
+                            "textAlign": "left"
+                        },
+                        "layout":{
+                        
+                        }
+                    },
+                    "accountName":{
+                        "style":{
+                            "fontSize": "13px",
+                            "textAlign": "left"
+                        },
+                        "layout":{
+                        
+                        }
+                    }
+                }
+            },
+            "transactions":{
+                "labels":{
+                    "availableBalance":{
+                        "style":{
+                            "fontSize": "22px",
+                            "textAlign": "left"
+                        },
+                        "layout":{
+                        
+                        }
+                    },
+                    "accountName":{
+                        "style":{
+                            "fontSize": "13px",
+                            "textAlign": "left"
+                        },
+                        "layout":{
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let textAttributes = [NSAttributedStringKey.foregroundColor:ApplicationTheme.Colors.PrimaryColor2()]
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         
+        // Load Design Specification from JSON
+        JSONReader.shared.loadJSONDataForDesignSpecification()
+        
         return true
     }
 
