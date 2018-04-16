@@ -13,8 +13,6 @@ class ContactsViewController: GenericCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.hidesBarsOnSwipe = true
-        
         // Style Navigation Bar
         navigationItem.title = "My Contacts"
         self.navigationController!.navigationBar.isTranslucent = false

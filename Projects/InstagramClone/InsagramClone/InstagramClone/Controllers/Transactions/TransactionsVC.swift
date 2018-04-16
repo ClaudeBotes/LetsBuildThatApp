@@ -20,8 +20,6 @@ class TransactionsViewController: GenericCollectionViewController {
             print(product.alias! + " got this account")
         }
         
-        //navigationController?.hidesBarsOnSwipe = true
-        
         self.collectionView?.delegate = self
         
         // Style Navigation Bar

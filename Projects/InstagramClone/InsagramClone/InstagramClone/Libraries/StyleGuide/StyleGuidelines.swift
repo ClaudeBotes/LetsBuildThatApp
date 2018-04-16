@@ -29,7 +29,8 @@
  
  - Generic JSON reader
  - Organisation of JSON style files / Many vs One vs Few
- 
+ - convertFontSizeCssStringToCGFloat and convertStringToCGFloat needs to be improved
+ - JSON Reader needs to be cleaned up and error handling introduced
  
  *****************************************************************
  BrandSpecifications vs ComponentSpecifications

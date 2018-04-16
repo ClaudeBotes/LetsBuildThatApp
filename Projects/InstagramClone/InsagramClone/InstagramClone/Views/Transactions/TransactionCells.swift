@@ -16,14 +16,6 @@ class TransactionFooter: GenericCollectionViewCell {
     }
 }
 
-// This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
-class CustomLayer: CALayer {
-    override var zPosition: CGFloat {
-        get { return 0 }
-        set {}
-    }
-}
-
 class TransactionHeader: GenericCollectionViewCell {
     
     // This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header

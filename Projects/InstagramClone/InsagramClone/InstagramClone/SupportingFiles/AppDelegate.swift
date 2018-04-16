@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Load Design Specification from JSON
         JSONReader.shared.loadJSONDataForDesignSpecification()
-        
+
         return true
     }
 

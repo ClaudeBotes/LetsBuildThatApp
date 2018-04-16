@@ -42,3 +42,22 @@ import UIKit
     
 }
 
+extension StyledLabel {
+    static public func createWith(text: String? = "",
+                                  font: UIFont? = nil,
+                                  textColor: UIColor? = .black,
+                                  textAlignment: NSTextAlignment? = .center,
+                                  lineHeight: CGFloat = 1.5) -> StyledLabel {
+        
+        let styledLabel = StyledLabel()
+        styledLabel.text = text
+        styledLabel.font = font
+        styledLabel.textColor = textColor
+        styledLabel.lineHeight = lineHeight
+        styledLabel.textAlignment = textAlignment!
+        
+        return styledLabel
+    }
+    
+}
+

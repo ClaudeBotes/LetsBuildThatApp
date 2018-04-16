@@ -41,6 +41,14 @@ public func convertFontSizeCssStringToCGFloat(value: String) throws -> CGFloat  
     return CGFloat(floatValue)
 }
 
+public func convertStringToCGFloat(value: String) throws -> CGFloat  {
+    let floatValue = try (value as NSString).floatValue
+    
+    return CGFloat(floatValue)
+}
+
+
+
 public func setTextAlignment(textAlignment: String) -> NSTextAlignment {
     switch textAlignment {
     case "left":

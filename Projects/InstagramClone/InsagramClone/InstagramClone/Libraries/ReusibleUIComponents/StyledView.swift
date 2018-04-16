@@ -67,3 +67,27 @@ import UIKit
     }
 }
 
+extension StyledView {
+    static public func createWith(backgroundColor: UIColor = UIColor.clear,
+                                  borderColor: UIColor = UIColor.clear,
+                                  borderWidth: CGFloat = 0,
+                                  cornerRadius: CGFloat = 0,
+                                  shadowColor: UIColor = UIColor.clear,
+                                  shadowRadius: CGFloat = 0,
+                                  shadowOpacity: CGFloat = 0,
+                                  shadowOffsetY: CGFloat = 0) -> StyledView {
+        
+        let view = StyledView()
+        view.backgroundColor = backgroundColor
+        view.borderColor = borderColor
+        view.borderWidth = borderWidth
+        view.cornerRadius = cornerRadius
+        view.shadowColor = shadowColor
+        view.shadowRadius = shadowRadius
+        view.shadowOpacity = shadowOpacity
+        view.shadowOffsetY = shadowOffsetY
+        
+        return view
+    }
+}
+

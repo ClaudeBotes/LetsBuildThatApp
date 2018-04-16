@@ -9,48 +9,46 @@
 import Foundation
 import UIKit
 
-class AccountSummaryFooter: GenericCollectionViewCell {
-    override func setupViews() {
-        super.setupViews()
-        backgroundColor = .green
-    }
-}
-
 class AccountSummaryHeader: GenericCollectionViewCell {
     
+    // This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
+    // Bug does not appear in ios10
+    override class var layerClass: AnyClass {
+        get { return CustomLayer.self }
+    }
+    
     let marketingContent: StyledImageView = {
-        let image = StyledImageView()
-        image.image = #imageLiteral(resourceName: "marketing banner")
-        image.shadowColor =  AccountSummaryTheme.MarketingContentStyle.BackgroundColor()
-        image.shadowOpacity = AccountSummaryTheme.MarketingContentStyle.ShadowOpacity()
-        image.shadowRadius = AccountSummaryTheme.MarketingContentStyle.ShadowRadius()
-        image.shadowOffsetY = AccountSummaryTheme.MarketingContentStyle.ShadowOffsetY()
+        let image = StyledImageView.createWith(image: #imageLiteral(resourceName: "marketing banner"),
+                                               shadowColor: AccSumMarketingContentStyle.shared.ShadowColor(),
+                                               shadowRadius: AccSumMarketingContentStyle.shared.ShadowRadius(),
+                                               shadowOpacity: AccSumMarketingContentStyle.shared.ShadowOpacity(),
+                                               shadowOffsetY: AccSumMarketingContentStyle.shared.ShadowOffsetY())
         return image
     }()
     
     override func setupViews() {
         super.setupViews()
         
-        self.backgroundColor = AccountSummaryTheme.shared.CellBackgroundColor()
+        self.backgroundColor = AccSumHeaderStyle.shared.BackgroundColor()
         
         addSubview(marketingContent)
         marketingContent.anchor(left: leftAnchor,
                                 top: topAnchor,
                                 right: rightAnchor,
                                 bottom: bottomAnchor,
-                                paddingLeft: AccountSummaryTheme.MarketingContentLayout.PaddingLeft(),
-                                paddingTop: AccountSummaryTheme.MarketingContentLayout.PaddingTop(),
-                                paddingRight: AccountSummaryTheme.MarketingContentLayout.PaddingRight(),
-                                paddingBottom: AccountSummaryTheme.MarketingContentLayout.PaddingBottom(),
-                                width: AccountSummaryTheme.MarketingContentLayout.Width(),
-                                height: AccountSummaryTheme.MarketingContentLayout.Height())
+                                paddingLeft: AccSumMarketingContentStyle.shared.PaddingLeft(),
+                                paddingTop: AccSumMarketingContentStyle.shared.PaddingTop(),
+                                paddingRight: AccSumMarketingContentStyle.shared.PaddingRight(),
+                                paddingBottom: AccSumMarketingContentStyle.shared.PaddingBottom(),
+                                width: AccSumMarketingContentStyle.shared.Width(),
+                                height: AccSumMarketingContentStyle.shared.Height())
     }
 }
 
 class AccountSummaryCell: GenericCollectionViewCell {
     
     var product: Product?
-    
+    // TODO: CLean this part up more
     // MARK: Set label values from data source
     
     override var datasourceItem: Any? {
@@ -59,30 +57,30 @@ class AccountSummaryCell: GenericCollectionViewCell {
             let productItem = datasourceItem as? Product
             self.product = productItem
             
-            accountNameLabel.text = productItem?.alias
+            accountName.text = productItem?.alias
             
-            if let accountName = productItem?.alias {
-                accountNameLabel.text = accountName
+            if let alias = productItem?.alias {
+                accountName.text = alias
             } else {
-                accountNameLabel.text = "Account Name Unavailable"
+                accountName.text = "Account Name Unavailable"
             }
             
-            if let availableBalance = productItem?.availableBalance {
-                availableBalanceLabel.text = availableBalance
+            if let availBalance = productItem?.availableBalance {
+                availableBalance.text = availBalance
             } else {
-                availableBalanceLabel.text = "Available Balance Unavailable"
+                availableBalance.text = "Available Balance Unavailable"
             }
             
-            if let accountNumber = productItem?.accountNumber {
-                accountNumberLabel.text = accountNumber
+            if let accNumber = productItem?.accountNumber {
+                accountNumber.text = accNumber
             } else {
-                accountNumberLabel.text = "Account Number Unavailable"
+                accountNumber.text = "Account Number Unavailable"
             }
             
             if let dateOpened = productItem?.dateOpened {
-                openedDateLabel.text = dateOpened
+                openedDate.text = dateOpened
             } else {
-                openedDateLabel.text = "Opening Date Unavailable"
+                openedDate.text = "Opening Date Unavailable"
             }
         }
     }
@@ -90,49 +88,45 @@ class AccountSummaryCell: GenericCollectionViewCell {
     // MARK: Create UI elements
     
     let accountCard: StyledView = {
-        let card = StyledView()
-        card.cornerRadius = AccountSummaryTheme.CardStyle.CornerRadius()
-        card.shadowColor = AccountSummaryTheme.CardStyle.ShadowColor()
-        card.shadowOpacity = AccountSummaryTheme.CardStyle.ShadowOpacity()
-        card.shadowRadius = AccountSummaryTheme.CardStyle.ShadowRadius()
-        card.shadowOffsetY = AccountSummaryTheme.CardStyle.ShadowOffsetY()
-        card.backgroundColor = AccountSummaryTheme.CardStyle.BackgroundColor()
+        let card = StyledView.createWith(backgroundColor: AccSumAccountCardStyle.shared.BackgroundColor(),
+                                         cornerRadius: AccSumAccountCardStyle.shared.CornerRadius(),
+                                         shadowColor: AccSumAccountCardStyle.shared.ShadowColor(),
+                                         shadowRadius: AccSumAccountCardStyle.shared.ShadowRadius(),
+                                         shadowOpacity: AccSumAccountCardStyle.shared.ShadowOpacity(),
+                                         shadowOffsetY: AccSumAccountCardStyle.shared.ShadowOffsetY())
+        
         return card
     }()
     
-    let accountNameLabel: StyledLabel = {
-        let label = StyledLabel()
-        label.text = "1234 1234 1234 1234"
-        label.font = UIFont.systemFont(ofSize: AccountSummaryLabelStyles.shared.AccountNameFont())
-        label.textColor = AccountSummaryLabelStyles.shared.AccountNameColor()
-        label.textAlignment = AccountSummaryLabelStyles.shared.AccountNameTextAlignment()
+    let accountName: StyledLabel = {
+        let label = StyledLabel.createWith(text: ValueNotSet.AccountName.rawValue,
+                                           font:  UIFont.systemFont(ofSize: AccSumAccountNameStyle.shared.Font()),
+                                           textColor: AccSumAccountNameStyle.shared.TextColor(),
+                                           textAlignment: AccSumAccountNameStyle.shared.TextAlignment())
         return label
     }()
     
-    let openedDateLabel: StyledLabel = {
-        let label = StyledLabel()
-        label.text = "01 / 2018"
-        label.font = UIFont.systemFont(ofSize: AccountSummaryLabelStyles.shared.OpenedDateFont())
-        label.textColor = AccountSummaryLabelStyles.shared.OpenedDateColor()
-        label.textAlignment = AccountSummaryLabelStyles.shared.OpenedDateTextAlignment()
+    let openedDate: StyledLabel = {
+        let label = StyledLabel.createWith(text: ValueNotSet.Date.rawValue,
+                                           font:  UIFont.systemFont(ofSize: AccSumOpenedDateStyle.shared.Font()),
+                                           textColor: AccSumOpenedDateStyle.shared.TextColor(),
+                                           textAlignment: AccSumOpenedDateStyle.shared.TextAlignment())
         return label
     }()
     
-    let availableBalanceLabel: StyledLabel = {
-        let label = StyledLabel()
-        label.text = "1234"
-        label.font = UIFont.systemFont(ofSize: AccountSummaryLabelStyles.shared.AvailableBalanceFont())
-        label.textColor = AccountSummaryLabelStyles.shared.AvailableBalanceColor()
-        label.textAlignment = AccountSummaryLabelStyles.shared.AvailableBalanceTextAlignment()
+    let availableBalance: StyledLabel = {
+        let label = StyledLabel.createWith(text: ValueNotSet.BalanceAmount.rawValue,
+                                           font: UIFont.systemFont(ofSize: AccSumAvailableBalanceStyle.shared.Font()),
+                                           textColor: AccSumAvailableBalanceStyle.shared.TextColor(),
+                                           textAlignment: AccSumAvailableBalanceStyle.shared.TextAlignment())
         return label
     }()
     
-    let accountNumberLabel: StyledLabel = {
-        let label = StyledLabel()
-        label.text = "**** **** **** ****"
-        label.font = UIFont.systemFont(ofSize: AccountSummaryLabelStyles.shared.AccountNumberFont())
-        label.textColor = AccountSummaryLabelStyles.shared.AccountNumberColor()
-        label.textAlignment = AccountSummaryLabelStyles.shared.AccountNumberTextAlignment()
+    let accountNumber: StyledLabel = {
+        let label = StyledLabel.createWith(text: ValueNotSet.AccountNumber.rawValue,
+                                           font: UIFont.systemFont(ofSize: AccSumAccountNumberStyle.shared.Font()),
+                                           textColor: AccSumAccountNumberStyle.shared.TextColor(),
+                                           textAlignment:  AccSumAccountNumberStyle.shared.TextAlignment())
         return label
     }()
     
@@ -140,7 +134,7 @@ class AccountSummaryCell: GenericCollectionViewCell {
     
     override func setupViews() {
         super.setupViews()
-        self.backgroundColor = AccountSummaryTheme.shared.CellBackgroundColor()
+        self.backgroundColor = AccSumCellStyle.shared.BackgroundColor()
         
         // MARK: Add card
         addSubview(accountCard)
@@ -148,64 +142,70 @@ class AccountSummaryCell: GenericCollectionViewCell {
                            top: topAnchor,
                            right: rightAnchor,
                            bottom: bottomAnchor,
-                           paddingLeft: AccountSummaryTheme.CardLayout.PaddingLeft(),
-                           paddingTop: AccountSummaryTheme.CardLayout.PaddingTop(),
-                           paddingRight: AccountSummaryTheme.CardLayout.PaddingRight(),
-                           paddingBottom: AccountSummaryTheme.CardLayout.PaddingBottom(),
-                           width: AccountSummaryTheme.CardLayout.Width(),
-                           height: AccountSummaryTheme.CardLayout.Height())
+                           paddingLeft: AccSumAccountCardStyle.shared.PaddingLeft(),
+                           paddingTop: AccSumAccountCardStyle.shared.PaddingTop(),
+                           paddingRight: AccSumAccountCardStyle.shared.PaddingRight(),
+                           paddingBottom: AccSumAccountCardStyle.shared.PaddingBottom(),
+                           width: AccSumAccountCardStyle.shared.Width(),
+                           height: AccSumAccountCardStyle.shared.Height())
         
         // MARK: Add account name
-        addSubview(accountNameLabel)
-        accountNameLabel.anchor(left: accountCard.leftAnchor,
+        addSubview(accountName)
+        accountName.anchor(left: accountCard.leftAnchor,
                                 top: accountCard.topAnchor,
                                 right: accountCard.rightAnchor,
                                 bottom: nil,
-                                paddingLeft: AccountSummaryTheme.AccountNumberLayout.PaddingLeft(),
-                                paddingTop: AccountSummaryTheme.AccountNumberLayout.PaddingTop(),
-                                paddingRight: AccountSummaryTheme.AccountNumberLayout.PaddingRight(),
-                                paddingBottom: AccountSummaryTheme.AccountNumberLayout.PaddingBottom(),
-                                width: AccountSummaryTheme.AccountNumberLayout.Width(),
-                                height: AccountSummaryTheme.AccountNumberLayout.Height())
+                                paddingLeft: AccSumAccountNameStyle.shared.PaddingLeft(),
+                                paddingTop: AccSumAccountNameStyle.shared.PaddingTop(),
+                                paddingRight: AccSumAccountNameStyle.shared.PaddingRight(),
+                                paddingBottom: AccSumAccountNameStyle.shared.PaddingBottom(),
+                                width: AccSumAccountNameStyle.shared.Width(),
+                                height: AccSumAccountNameStyle.shared.Height())
         
         // MAR: Add available balance
-        addSubview(availableBalanceLabel)
-        availableBalanceLabel.anchor(left: accountCard.leftAnchor,
-                                     top: accountNameLabel.bottomAnchor,
+        addSubview(availableBalance)
+        availableBalance.anchor(left: accountCard.leftAnchor,
+                                     top: accountName.bottomAnchor,
                                      right: accountCard.rightAnchor,
                                      bottom: nil,
-                                     paddingLeft: AccountSummaryTheme.AvailableBalanceLayout.PaddingLeft(),
-                                     paddingTop: AccountSummaryTheme.AvailableBalanceLayout.PaddingTop(),
-                                     paddingRight: AccountSummaryTheme.AvailableBalanceLayout.PaddingRight(),
-                                     paddingBottom: AccountSummaryTheme.AvailableBalanceLayout.PaddingBottom(),
-                                     width: AccountSummaryTheme.AvailableBalanceLayout.Width(),
-                                     height: AccountSummaryTheme.AvailableBalanceLayout.Height())
+                                     paddingLeft: AccSumAvailableBalanceStyle.shared.PaddingLeft(),
+                                     paddingTop: AccSumAvailableBalanceStyle.shared.PaddingTop(),
+                                     paddingRight: AccSumAvailableBalanceStyle.shared.PaddingRight(),
+                                     paddingBottom: AccSumAvailableBalanceStyle.shared.PaddingBottom(),
+                                     width: AccSumAvailableBalanceStyle.shared.Width(),
+                                     height: AccSumAvailableBalanceStyle.shared.Height())
         
         // MARK: Add account number
-        addSubview(accountNumberLabel)
-        accountNumberLabel.anchor(left: accountCard.leftAnchor,
-                                  top: availableBalanceLabel.bottomAnchor,
+        addSubview(accountNumber)
+        accountNumber.anchor(left: accountCard.leftAnchor,
+                                  top: availableBalance.bottomAnchor,
                                   right: accountCard.rightAnchor,
                                   bottom: nil,
-                                  paddingLeft: AccountSummaryTheme.AccountNumberLayout.PaddingLeft(),
-                                  paddingTop: AccountSummaryTheme.AccountNumberLayout.PaddingTop(),
-                                  paddingRight: AccountSummaryTheme.AccountNumberLayout.PaddingRight(),
-                                  paddingBottom: AccountSummaryTheme.AccountNumberLayout.PaddingBottom(),
-                                  width: AccountSummaryTheme.AccountNumberLayout.Width(),
-                                  height: AccountSummaryTheme.AccountNumberLayout.Height())
+                                  paddingLeft: AccSumAccountNumberStyle.shared.PaddingLeft(),
+                                  paddingTop: AccSumAccountNumberStyle.shared.PaddingTop(),
+                                  paddingRight: AccSumAccountNumberStyle.shared.PaddingRight(),
+                                  paddingBottom: AccSumAccountNumberStyle.shared.PaddingBottom(),
+                                  width: AccSumAccountNumberStyle.shared.Width(),
+                                  height: AccSumAccountNumberStyle.shared.Height())
         
         // MARK: Add date opened
-        addSubview(openedDateLabel)
-        openedDateLabel.anchor(left: nil,
+        addSubview(openedDate)
+        openedDate.anchor(left: nil,
                                top: accountCard.topAnchor,
                                right: accountCard.rightAnchor,
                                bottom: nil,
-                               paddingLeft: AccountSummaryTheme.OpenedDateLayout.PaddingLeft(),
-                               paddingTop: AccountSummaryTheme.OpenedDateLayout.PaddingTop(),
-                               paddingRight: AccountSummaryTheme.OpenedDateLayout.PaddingRight(),
-                               paddingBottom: AccountSummaryTheme.OpenedDateLayout.PaddingBottom(),
-                               width: AccountSummaryTheme.OpenedDateLayout.Width(),
-                               height: AccountSummaryTheme.OpenedDateLayout.Height())
-        
+                               paddingLeft: AccSumOpenedDateStyle.shared.PaddingLeft(),
+                               paddingTop: AccSumOpenedDateStyle.shared.PaddingTop(),
+                               paddingRight: AccSumOpenedDateStyle.shared.PaddingRight(),
+                               paddingBottom: AccSumOpenedDateStyle.shared.PaddingBottom(),
+                               width: AccSumOpenedDateStyle.shared.Width(),
+                               height: AccSumOpenedDateStyle.shared.Height())
+    }
+}
+
+class AccountSummaryFooter: GenericCollectionViewCell {
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = .green
     }
 }

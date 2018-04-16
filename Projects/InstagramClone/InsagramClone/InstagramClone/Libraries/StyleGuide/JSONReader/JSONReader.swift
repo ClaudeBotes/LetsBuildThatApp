@@ -47,25 +47,25 @@ final class JSONReader {
     }
     
     /**
-     Retrives style properties related to a given label.
-     Use this method if you choose to store a style for a given label in its own file.
+     Retrives style properties related to a given component.
+     Use this method if you choose to store a style for a given component in its own file.
      
-     @param labelName Name of the label that will be used for the filename ( JSON File ) in which its style properties can be found.
+     @param componentName Name of the component that will be used for the filename ( JSON File ) in which its style properties can be found.
      
-     @return TextStyleForJSON Returns a struct for your TextStyle
+     @return StyleForJSON Returns a struct for your TextStyle
      */
-    func getTextStyleJSONDataFor(labelName: String) -> [TextStyleForJSON]{
+    func getTextStyleJSONDataFor(componentName: String) -> [StyleForJSON]{
         
-        let textStyleJSONData: [TextStyleForJSON] = {
+        let styleJSONData: [StyleForJSON] = {
             
-            guard let path = Bundle.main.path(forResource: labelName, ofType: "json") else { return [] }
+            guard let path = Bundle.main.path(forResource: componentName, ofType: "json") else { return [] }
             let url = URL(fileURLWithPath: path)
             
             guard let data = try? Data(contentsOf: url) else { return [] }
             
             do {
                 let decoder = JSONDecoder()
-                let sections = try decoder.decode([TextStyleForJSON].self, from: data)
+                let sections = try decoder.decode([StyleForJSON].self, from: data)
                 return sections
             }catch{
                 print(error)
@@ -73,7 +73,7 @@ final class JSONReader {
             
             return []
         }()
-        return textStyleJSONData
+        return styleJSONData
     }
     
     /**
@@ -112,7 +112,7 @@ final class JSONReader {
     }
     
     /**
-     Loads JSON data for into a local object for easy usage.
+     Loads JSON data for all components into a local object for easy usage.
      
      @param designSpecificationData JSON data needed to convert into a local design specification for easy use.
      */
@@ -126,46 +126,35 @@ final class JSONReader {
                 var designSpecForScreen = DesignSpecificationForScreen()
                 
                 // Assign a name to the design spec for screen
-                if let viewName = view.name{
+                if let viewName = view.name {
                     designSpecForScreen.screenName = viewName
                 }
                 
-                // If labels exist for a given view
-                if let labelsLoaded = view.labels{
+                // If components exist for a given view
+                if let componentsLoaded = view.components{
                     
-                    // Loop through each label that exist for a screen spec
-                    for labelLoaded in labelsLoaded {
-                        var label = DesignSpecificationForLabel()
+                    // Loop through each component that exist for a screen spec
+                    for componentLoaded in componentsLoaded {
+                        var component = DesignSpecificationForComponent()
                         
-                        // If a name exist for label
-                        if let labelName = labelLoaded.name {
-                            label.name = labelName
+                        // If a name exist for component
+                        if let componentName = componentLoaded.name {
+                            component.name = componentName
                         }
                         
-                        // If a style exist for label
-                        if let styleForLabel = labelLoaded.style {
-                            var style = DesignSpecificationForTextStyle()
-                            
-                            // Check if font size is available
-                            if let fontSizeForLabel = styleForLabel.fontSize {
-                                
-                                // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
-                                do {
-                                    let fontSize = try convertFontSizeCssStringToCGFloat(value: fontSizeForLabel)
-                                    style.fontSize = fontSize
-                                }
-                                catch{
-                                    print(error)
-                                }
-                            }
-                            
-                            // Check if text alignment is available
-                            if let textAlignment = styleForLabel.textAlighnment {
-                                style.textAlighnment = setTextAlignment(textAlignment: textAlignment)
-                            }
-                            label.style = style
+                        // If a style exist for component
+                        if let styleForComponent = componentLoaded.style {
+                            let style = buildDesignSpecForStyle(style: styleForComponent)
+                            component.style = style
                         }
-                        designSpecForScreen.labels.append(label)
+                        
+                        // If a layout exist for label
+                        if let layoutForComponent = componentLoaded.layout {
+                            let layout = buildDesignSpecForLayout(layout: layoutForComponent)
+                            component.layout = layout
+                        }
+                        
+                        designSpecForScreen.components.append(component)
                     }
                 }
                 
@@ -173,5 +162,205 @@ final class JSONReader {
                 designSpecificationForComponents.screenSpecifications.append(designSpecForScreen)
             }
         }
+    }
+    
+    /**
+     Loads JSON data related to style into a local object for easy usage.
+     
+     @param style JSON data needed to convert style data into a local design specification for easy use.
+     */
+    private func buildDesignSpecForStyle(style: StyleForJSON) -> DesignSpecificationForStyle{
+        var styleSpec = DesignSpecificationForStyle()
+        
+        /**
+         Font Size
+         */
+        if let fontSizeForComponent = style.fontSize {
+            
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let fontSize = try convertFontSizeCssStringToCGFloat(value: fontSizeForComponent)
+                styleSpec.fontSize = fontSize
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Text Alignment
+         */
+        if let textAlignment = style.textAlighnment {
+            styleSpec.textAlighnment = setTextAlignment(textAlignment: textAlignment)
+        }
+        
+        /**
+         Shadow Radius
+         */
+        if let shadowRadius = style.shadowRadius {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let radius = try convertStringToCGFloat(value: shadowRadius)
+                styleSpec.shadowRadius = radius
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Shadow Opacity
+         */
+        if let shadowOpacity = style.shadowOpacity {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let opacity = try convertStringToCGFloat(value: shadowOpacity)
+                styleSpec.shadowOpacity = opacity
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Shadow OffsetY
+         */
+        if let shadowOffsetY = style.shadowOffsetY {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let offset = try convertStringToCGFloat(value: shadowOffsetY)
+                styleSpec.shadowOffsetY = offset
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Corner Radius
+         */
+        if let cornerRadius = style.cornerRadius {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let radius = try convertStringToCGFloat(value: cornerRadius)
+                styleSpec.cornerRadius = radius
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Border Width
+         */
+        if let borderWidth = style.borderWidth {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let width = try convertStringToCGFloat(value: borderWidth)
+                styleSpec.borderWidth = width
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        return styleSpec
+    }
+    
+    
+    
+    /**
+     Loads JSON data related to layout into a local object for easy usage.
+     
+     @param layout JSON data needed to convert layout data into a local design specification for easy use.
+     */
+    private func buildDesignSpecForLayout(layout: LayoutForJSON) -> DesignSpecificationForLayout{
+        var layoutSpec = DesignSpecificationForLayout()
+        
+        /**
+         Left Padding
+         */
+        if let paddingLeftForLabel = layout.paddingLeft {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: paddingLeftForLabel)
+                layoutSpec.paddingLeft = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Top Padding
+        */
+        if let paddingTopForLabel = layout.paddingTop {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: paddingTopForLabel)
+                layoutSpec.paddingTop = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Right Padding
+         */
+        if let paddingRightForLabel = layout.paddingRight {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: paddingRightForLabel)
+                layoutSpec.paddingRight = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Bottom Padding
+         */
+        if let paddingBottomForLabel = layout.paddingBottom {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: paddingBottomForLabel)
+                layoutSpec.paddingBottom = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Width Padding
+         */
+        if let widthForLabel = layout.width {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: widthForLabel)
+                layoutSpec.width = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        /**
+         Height Padding
+         */
+        if let heightForLabel = layout.width {
+            // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
+            do {
+                let padding = try convertStringToCGFloat(value: heightForLabel)
+                layoutSpec.height = padding
+            }
+            catch{
+                print(error)
+            }
+        }
+        
+        return layoutSpec
     }
 }

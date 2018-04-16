@@ -20,7 +20,7 @@ public enum StylingError: Error {
 public func HandleStylingError(errorType: StylingError){}
 
 /**
- Use this method if to get the design spec for a given screen.
+ Use this method to get the design spec for a given screen.
  
  @param screenName Screen which needs to be located in the Design Specification.
  @return DesignSpecForScreen Design specification / properties that will be returned for the given screen name.
@@ -39,6 +39,34 @@ public func getDesignSpecForScreen(screenName: String) -> DesignSpecificationFor
     return designSpecForScreen
 }
 
+
+/**
+ Use this method to get the design spec for a given component.
+ 
+ @param screenName Screen which needs to be located in the Design Specification.
+ @param componentName Component which needs to be located in the Design Specification.
+ @return DesignSpecificationForComponent Design specification / properties that will be returned for the given component name.
+ */
+public func getDesignSpecForComponent(screenName: String, componentName: String) -> DesignSpecificationForComponent {
+    
+    let designSpec = JSONReader.shared.getDesignSpecificationForComponents()
+    var designSpecForComponent = DesignSpecificationForComponent()
+    
+    for screenSpecification in designSpec.screenSpecifications {
+        
+        if screenSpecification.screenName == screenName {
+            
+            for component in screenSpecification.components {
+                
+                if component.name == componentName {
+                    designSpecForComponent = component
+                }
+            }
+        }
+    }
+    return designSpecForComponent
+}
+
 /**
  Use this method if you choose to store a style for a given label in its own file.
  
@@ -46,9 +74,9 @@ public func getDesignSpecForScreen(screenName: String) -> DesignSpecificationFor
  @param labelName Will be used to identify the json file in which text style properties can be found.
  @param textColor Color which label should be set to.
  */
-public func setLabelStyle( textStyle: inout DesignSpecificationForTextStyle, labelName label: String, textColor: UIColor) {
+public func setLabelStyle( textStyle: inout DesignSpecificationForStyle, labelName label: String, textColor: UIColor) {
     
-    let jsonData = JSONReader.shared.getTextStyleJSONDataFor(labelName: label)  as? [TextStyleForJSON]
+    let jsonData = JSONReader.shared.getTextStyleJSONDataFor(componentName: label)  as? [StyleForJSON]
     
     // If any results exist
     if let textStyles = jsonData {

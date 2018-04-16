@@ -15,8 +15,6 @@ class AccountSummaryViewController: GenericCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.hidesBarsOnSwipe = true
        
         // Style Navigation Bar
         navigationItem.title = "Accounts"

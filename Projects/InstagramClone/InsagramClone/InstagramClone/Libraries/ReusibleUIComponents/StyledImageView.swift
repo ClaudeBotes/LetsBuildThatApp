@@ -80,6 +80,7 @@ extension StyledImageView {
                                   shadowOffsetY: CGFloat = 0) -> StyledImageView {
         
         let imageView = StyledImageView()
+        imageView.image = image
         imageView.backgroundColor = backgroundColor
         imageView.borderColor = borderColor
         imageView.borderWidth = borderWidth
