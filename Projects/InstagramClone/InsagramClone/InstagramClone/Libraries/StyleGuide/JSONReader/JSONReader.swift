@@ -173,6 +173,13 @@ final class JSONReader {
         var styleSpec = DesignSpecificationForStyle()
         
         /**
+         Text
+         */
+        if let textForComponent = style.text {
+            styleSpec.text = textForComponent
+        }
+        
+        /**
          Font Size
          */
         if let fontSizeForComponent = style.fontSize {
@@ -350,7 +357,7 @@ final class JSONReader {
         /**
          Height Padding
          */
-        if let heightForLabel = layout.width {
+        if let heightForLabel = layout.height {
             // Need to conver string to CGFloat ( if we want to copy and paste css value from invision )
             do {
                 let padding = try convertStringToCGFloat(value: heightForLabel)

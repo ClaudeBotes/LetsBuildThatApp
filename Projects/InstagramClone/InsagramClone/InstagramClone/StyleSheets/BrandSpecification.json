@@ -8,7 +8,8 @@
              "warning": "FEC61D",
              "info": "3EBFED",
              "light": "E5E5E5",
-             "dark": "333333"
+             "dark": "333333",
+             "white": "FFFFFF"
          }
      }
  ]

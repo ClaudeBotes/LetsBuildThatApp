@@ -75,7 +75,7 @@ extension StyledButton {
                             title: String? = nil,
                             font: UIFont? = nil,
                             titleColor: UIColor? = .white,
-                            titleAlignment: UIControlContentHorizontalAlignment? = .center,
+                            titleAlignment: NSTextAlignment = .center, // Used NSTextAlignment due to SwiftStyleFromJSON implimentation
                             shadowColor: UIColor = UIColor.clear,
                             shadowRadius: CGFloat = 0,
                             shadowOpacity: CGFloat = 0,
@@ -94,9 +94,16 @@ extension StyledButton {
         button.shadowOpacity = shadowOpacity
         button.shadowOffsetY = shadowOffsetY
         button.isEnabled = isEnabled
-        
-        if let textAlignment = titleAlignment {
-            button.contentHorizontalAlignment = textAlignment
+            
+        switch titleAlignment {
+        case .left:
+            button.contentHorizontalAlignment = .left
+        case .center:
+            button.contentHorizontalAlignment = .center
+        case .right:
+            button.contentHorizontalAlignment = .right
+        default:
+            button.contentHorizontalAlignment = .center
         }
         
         if let buttonTitle = title {

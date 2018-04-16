@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51191086208546C800E9C1DD /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51191085208546C800E9C1DD /* StyleSheet.swift */; };
+		511910882085478300E9C1DD /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511910872085478300E9C1DD /* Layout.swift */; };
 		513CBB17206FA568004061BD /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB16206FA568004061BD /* SignUpView.swift */; };
 		513CBB19206FA610004061BD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB18206FA610004061BD /* Extensions.swift */; };
 		513CBB1B206FDB35004061BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 513CBB1A206FDB35004061BD /* GoogleService-Info.plist */; };
@@ -46,10 +48,7 @@
 		514EEE67206ECF3A0046E3B6 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE66206ECF3A0046E3B6 /* CustomFont.swift */; };
 		514EEE69206ED6860046E3B6 /* StyledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE68206ED6860046E3B6 /* StyledTextField.swift */; };
 		514EEE6B206ED6A60046E3B6 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EEE6A206ED6A60046E3B6 /* SpringTextField.swift */; };
-		514F9A082083C0C100C82B87 /* AccSumStyleSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514F9A072083C0C100C82B87 /* AccSumStyleSheets.swift */; };
 		51611A7020767B5F000D8367 /* ContactCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A6F20767B5F000D8367 /* ContactCells.swift */; };
-		51611A7220767B7E000D8367 /* ContactCellTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A7120767B7E000D8367 /* ContactCellTheme.swift */; };
-		51611A7420767B99000D8367 /* ContactTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A7320767B99000D8367 /* ContactTheme.swift */; };
 		51611A7720767BB7000D8367 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A7620767BB7000D8367 /* ContactsVC.swift */; };
 		51611A7D20767C45000D8367 /* ContactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A7920767C45000D8367 /* ContactAPI.swift */; };
 		51611A7E20767C45000D8367 /* ContactCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A7A20767C45000D8367 /* ContactCollectionViewDatasource.swift */; };
@@ -60,8 +59,6 @@
 		51611A8820775941000D8367 /* TransactionCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A8420775941000D8367 /* TransactionCollectionViewDatasource.swift */; };
 		51611A8920775941000D8367 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A8520775941000D8367 /* Transaction.swift */; };
 		51611A8E20775B3E000D8367 /* TransactionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A8B20775B3E000D8367 /* TransactionCells.swift */; };
-		51611A8F20775B3E000D8367 /* TransactionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A8C20775B3E000D8367 /* TransactionTheme.swift */; };
-		51611A9020775B3E000D8367 /* TransactionCellTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A8D20775B3E000D8367 /* TransactionCellTheme.swift */; };
 		51611A9320776BC1000D8367 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51611A9220776BC1000D8367 /* TransactionsVC.swift */; };
 		51C5345520821473007A9608 /* DesignSpecsForComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5345420821473007A9608 /* DesignSpecsForComponents.swift */; };
 		51C5345720823D0A007A9608 /* BrandSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5345620823D0A007A9608 /* BrandSpecification.swift */; };
@@ -108,6 +105,8 @@
 /* Begin PBXFileReference section */
 		045CB8AD11DB4B7ED89F1043 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		3AF8E211B7339778827BA666 /* Pods_InstagramCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51191085208546C800E9C1DD /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		511910872085478300E9C1DD /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		513CBB16206FA568004061BD /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		513CBB18206FA610004061BD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		513CBB1A206FDB35004061BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -153,10 +152,7 @@
 		514EEE66206ECF3A0046E3B6 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		514EEE68206ED6860046E3B6 /* StyledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextField.swift; sourceTree = "<group>"; };
 		514EEE6A206ED6A60046E3B6 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
-		514F9A072083C0C100C82B87 /* AccSumStyleSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccSumStyleSheets.swift; sourceTree = "<group>"; };
 		51611A6F20767B5F000D8367 /* ContactCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCells.swift; sourceTree = "<group>"; };
-		51611A7120767B7E000D8367 /* ContactCellTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellTheme.swift; sourceTree = "<group>"; };
-		51611A7320767B99000D8367 /* ContactTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTheme.swift; sourceTree = "<group>"; };
 		51611A7620767BB7000D8367 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		51611A7920767C45000D8367 /* ContactAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAPI.swift; sourceTree = "<group>"; };
 		51611A7A20767C45000D8367 /* ContactCollectionViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewDatasource.swift; sourceTree = "<group>"; };
@@ -167,8 +163,6 @@
 		51611A8420775941000D8367 /* TransactionCollectionViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		51611A8520775941000D8367 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		51611A8B20775B3E000D8367 /* TransactionCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCells.swift; sourceTree = "<group>"; };
-		51611A8C20775B3E000D8367 /* TransactionTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTheme.swift; sourceTree = "<group>"; };
-		51611A8D20775B3E000D8367 /* TransactionCellTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellTheme.swift; sourceTree = "<group>"; };
 		51611A9220776BC1000D8367 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
 		51C5345420821473007A9608 /* DesignSpecsForComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSpecsForComponents.swift; sourceTree = "<group>"; };
 		51C5345620823D0A007A9608 /* BrandSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSpecification.swift; sourceTree = "<group>"; };
@@ -232,17 +226,10 @@
 			children = (
 				51C5345420821473007A9608 /* DesignSpecsForComponents.swift */,
 				51FA8B3920716DBB00BEEF3D /* StyleTemplates.swift */,
+				51191085208546C800E9C1DD /* StyleSheet.swift */,
+				511910872085478300E9C1DD /* Layout.swift */,
 			);
 			path = ComponentSpecifications;
-			sourceTree = "<group>";
-		};
-		513428C120803EB50084D2DF /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				514517E7207A3AD500678063 /* product-summary.json */,
-				514517E9207A48B500678063 /* TestDataPlayground.json */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		513CBB1C206FF108004061BD /* DataProviders */ = {
@@ -302,9 +289,9 @@
 		513CBB5520715F76004061BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				51FA8B36207163F100BEEF3D /* AccountSummary */,
 				51611A8A20775B09000D8367 /* Transactions */,
 				51611A6E20767B2A000D8367 /* Contacts */,
-				51FA8B36207163F100BEEF3D /* AccountSummary */,
 				513CBB5620715FAC004061BD /* SignUp */,
 			);
 			path = Views;
@@ -322,7 +309,8 @@
 		514517E6207A3AAF00678063 /* MockData */ = {
 			isa = PBXGroup;
 			children = (
-				513428C120803EB50084D2DF /* Data */,
+				514517E7207A3AD500678063 /* product-summary.json */,
+				514517E9207A48B500678063 /* TestDataPlayground.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -385,9 +373,9 @@
 		514EEE50206EBE8E0046E3B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				51FA8B3B2071796B00BEEF3D /* AccountSummary */,
 				51611A9120776BA2000D8367 /* Transactions */,
 				51611A7520767BA1000D8367 /* Contacts */,
-				51FA8B3B2071796B00BEEF3D /* AccountSummary */,
 				51FA8B3D207179A200BEEF3D /* Signup */,
 				51FA8B3C2071797C00BEEF3D /* UserProfile */,
 				513CBB3020713589004061BD /* MainTabBarController.swift */,
@@ -469,8 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				51611A6F20767B5F000D8367 /* ContactCells.swift */,
-				51611A7120767B7E000D8367 /* ContactCellTheme.swift */,
-				51611A7320767B99000D8367 /* ContactTheme.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -509,8 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				51611A8B20775B3E000D8367 /* TransactionCells.swift */,
-				51611A8D20775B3E000D8367 /* TransactionCellTheme.swift */,
-				51611A8C20775B3E000D8367 /* TransactionTheme.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -530,14 +514,6 @@
 				51C5345E2082544E007A9608 /* ColorPalatteSpecification.swift */,
 			);
 			path = BrandSpecifications;
-			sourceTree = "<group>";
-		};
-		51C53464208259A4007A9608 /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				514F9A072083C0C100C82B87 /* AccSumStyleSheets.swift */,
-			);
-			path = Styles;
 			sourceTree = "<group>";
 		};
 		51C5346520825B61007A9608 /* StyleSheets */ = {
@@ -589,7 +565,6 @@
 			isa = PBXGroup;
 			children = (
 				51FA8B372071640900BEEF3D /* AccountSummaryCells.swift */,
-				51C53464208259A4007A9608 /* Styles */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -957,7 +932,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51611A8F20775B3E000D8367 /* TransactionTheme.swift in Sources */,
 				51611A9320776BC1000D8367 /* TransactionsVC.swift in Sources */,
 				51C5345F2082544E007A9608 /* ColorPalatteSpecification.swift in Sources */,
 				514EEE25206EBDC50046E3B6 /* SignupVC.swift in Sources */,
@@ -976,7 +950,6 @@
 				514EEE5C206ECB060046E3B6 /* StyledLabel.swift in Sources */,
 				513CBB5420715B46004061BD /* GenericCollectionViewDatasource.swift in Sources */,
 				513CBB3320713876004061BD /* UserProfileVC.swift in Sources */,
-				51611A7220767B7E000D8367 /* ContactCellTheme.swift in Sources */,
 				514EEE60206ECB060046E3B6 /* StyledButton.swift in Sources */,
 				51C5348C2082CF26007A9608 /* FilesAndScreens.swift in Sources */,
 				514EEE5F206ECB060046E3B6 /* SpringView.swift in Sources */,
@@ -986,12 +959,11 @@
 				51611A8920775941000D8367 /* Transaction.swift in Sources */,
 				51FA8B322071618100BEEF3D /* Account.swift in Sources */,
 				514EEE62206ECB060046E3B6 /* SpringLabel.swift in Sources */,
-				514F9A082083C0C100C82B87 /* AccSumStyleSheets.swift in Sources */,
-				51611A7420767B99000D8367 /* ContactTheme.swift in Sources */,
+				511910882085478300E9C1DD /* Layout.swift in Sources */,
+				51191086208546C800E9C1DD /* StyleSheet.swift in Sources */,
 				51FA8B4520718DCB00BEEF3D /* SpringImageView.swift in Sources */,
 				514EEE6B206ED6A60046E3B6 /* SpringTextField.swift in Sources */,
 				513CBB5320715B46004061BD /* GenericCollectionViewController.swift in Sources */,
-				51611A9020775B3E000D8367 /* TransactionCellTheme.swift in Sources */,
 				51C5346320825770007A9608 /* StyleGuidelines.swift in Sources */,
 				51611A8020767C45000D8367 /* ContactPM.swift in Sources */,
 				514EEE65206ECB750046E3B6 /* ApplicationTheme.swift in Sources */,

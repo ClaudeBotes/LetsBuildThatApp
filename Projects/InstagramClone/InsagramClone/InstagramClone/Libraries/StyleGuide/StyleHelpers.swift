@@ -68,6 +68,61 @@ public func getDesignSpecForComponent(screenName: String, componentName: String)
 }
 
 /**
+ Use this method to get the design spec for a given components style.
+ 
+ @param screenName Screen which needs to be located in the Design Specification.
+ @param componentName Component which needs to be located in the Design Specification.
+ @return DesignSpecificationForStyle Design specification / properties that will be returned for the given component name.
+ */
+public func getDesignSpecForComponentStyle(screenName: String, componentName: String) -> DesignSpecificationForStyle{
+    
+    let designSpec = JSONReader.shared.getDesignSpecificationForComponents()
+    var designSpecForStyle = DesignSpecificationForStyle()
+    
+    for screenSpecification in designSpec.screenSpecifications {
+        
+        if screenSpecification.screenName == screenName {
+            
+            for component in screenSpecification.components {
+                
+                if component.name == componentName {
+                    designSpecForStyle = component.style
+                }
+            }
+        }
+    }
+    return designSpecForStyle
+}
+
+/**
+ Use this method to get the design spec for a given components style.
+ 
+ @param screenName Screen which needs to be located in the Design Specification.
+ @param componentName Component which needs to be located in the Design Specification.
+ @return DesignSpecificationForStyle Design specification / properties that will be returned for the given component name.
+ */
+public func getDesignSpecForComponentLayout(screenName: String, componentName: String) -> DesignSpecificationForLayout{
+    
+    let designSpec = JSONReader.shared.getDesignSpecificationForComponents()
+    var designSpecForLayout = DesignSpecificationForLayout()
+    
+    for screenSpecification in designSpec.screenSpecifications {
+        
+        if screenSpecification.screenName == screenName {
+            
+            for component in screenSpecification.components {
+                
+                if component.name == componentName {
+                    designSpecForLayout = component.layout
+                }
+            }
+        }
+    }
+    return designSpecForLayout
+}
+
+
+/**
  Use this method if you choose to store a style for a given label in its own file.
  
  @param textStyle The TextStyleObject that should be updated.

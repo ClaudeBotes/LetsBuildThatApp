@@ -33,9 +33,10 @@ struct ColorStructForJSON: Codable {
     var info: String?
     var light: String?
     var dark: String?
+    var white: String?
     
     enum CodingKeys: String, CodingKey {
-        case primary, secondary, success, danger, warning, info, light, dark
+        case primary, secondary, success, danger, warning, info, light, dark, white
     }
 }
 

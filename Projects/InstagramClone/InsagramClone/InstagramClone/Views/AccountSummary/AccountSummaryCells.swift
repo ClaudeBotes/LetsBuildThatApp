@@ -11,6 +11,10 @@ import UIKit
 
 class AccountSummaryHeader: GenericCollectionViewCell {
     
+    enum components: String {
+        case marketingContent = "marketingContent"
+    }
+    
     // This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
     // Bug does not appear in ios10
     override class var layerClass: AnyClass {
@@ -18,34 +22,47 @@ class AccountSummaryHeader: GenericCollectionViewCell {
     }
     
     let marketingContent: StyledImageView = {
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                               componentName: components.marketingContent.rawValue)
         let image = StyledImageView.createWith(image: #imageLiteral(resourceName: "marketing banner"),
-                                               shadowColor: AccSumMarketingContentStyle.shared.ShadowColor(),
-                                               shadowRadius: AccSumMarketingContentStyle.shared.ShadowRadius(),
-                                               shadowOpacity: AccSumMarketingContentStyle.shared.ShadowOpacity(),
-                                               shadowOffsetY: AccSumMarketingContentStyle.shared.ShadowOffsetY())
+                                               shadowColor: BrandSpecification.shared.colorPalette.dark,
+                                               shadowRadius: style.ShadowRadius(),
+                                               shadowOpacity: style.ShadowOpacity(),
+                                               shadowOffsetY: style.ShadowOffsetY())
         return image
     }()
     
     override func setupViews() {
         super.setupViews()
         
-        self.backgroundColor = AccSumHeaderStyle.shared.BackgroundColor()
+        self.backgroundColor = BrandSpecification.shared.colorPalette.light
         
         addSubview(marketingContent)
+        let marketingContentLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                               componentName: components.marketingContent.rawValue)
         marketingContent.anchor(left: leftAnchor,
                                 top: topAnchor,
                                 right: rightAnchor,
                                 bottom: bottomAnchor,
-                                paddingLeft: AccSumMarketingContentStyle.shared.PaddingLeft(),
-                                paddingTop: AccSumMarketingContentStyle.shared.PaddingTop(),
-                                paddingRight: AccSumMarketingContentStyle.shared.PaddingRight(),
-                                paddingBottom: AccSumMarketingContentStyle.shared.PaddingBottom(),
-                                width: AccSumMarketingContentStyle.shared.Width(),
-                                height: AccSumMarketingContentStyle.shared.Height())
+                                paddingLeft: marketingContentLayout.PaddingLeft(),
+                                paddingTop: marketingContentLayout.PaddingTop(),
+                                paddingRight: marketingContentLayout.PaddingRight(),
+                                paddingBottom: marketingContentLayout.PaddingBottom(),
+                                width: marketingContentLayout.Width(),
+                                height: marketingContentLayout.Height())
     }
 }
 
 class AccountSummaryCell: GenericCollectionViewCell {
+    
+    enum components: String {
+        case availableBalance = "availableBalance"
+        case accountName = "accountName"
+        case accountNumber = "accountNumber"
+        case openedDate = "openedDate"
+        case accountCard = "accountCard"
+        case marketingContent = "marketingContent"
+    }
     
     var product: Product?
     // TODO: CLean this part up more
@@ -88,45 +105,54 @@ class AccountSummaryCell: GenericCollectionViewCell {
     // MARK: Create UI elements
     
     let accountCard: StyledView = {
-        let card = StyledView.createWith(backgroundColor: AccSumAccountCardStyle.shared.BackgroundColor(),
-                                         cornerRadius: AccSumAccountCardStyle.shared.CornerRadius(),
-                                         shadowColor: AccSumAccountCardStyle.shared.ShadowColor(),
-                                         shadowRadius: AccSumAccountCardStyle.shared.ShadowRadius(),
-                                         shadowOpacity: AccSumAccountCardStyle.shared.ShadowOpacity(),
-                                         shadowOffsetY: AccSumAccountCardStyle.shared.ShadowOffsetY())
-        
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                   componentName: components.accountCard.rawValue)
+        let card = StyledView.createWith(backgroundColor: BrandSpecification.shared.colorPalette.white,
+                                         cornerRadius: style.CornerRadius(),
+                                         shadowColor: BrandSpecification.shared.colorPalette.dark,
+                                         shadowRadius: style.ShadowRadius(),
+                                         shadowOpacity: style.ShadowOpacity(),
+                                         shadowOffsetY: style.ShadowOffsetY())
         return card
     }()
     
     let accountName: StyledLabel = {
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                              componentName: components.accountName.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountName.rawValue,
-                                           font:  UIFont.systemFont(ofSize: AccSumAccountNameStyle.shared.Font()),
-                                           textColor: AccSumAccountNameStyle.shared.TextColor(),
-                                           textAlignment: AccSumAccountNameStyle.shared.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.Font()),
+                                           textColor: BrandSpecification.shared.colorPalette.primary,
+                                           textAlignment: style.TextAlignment())
         return label
     }()
     
     let openedDate: StyledLabel = {
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                               componentName: components.openedDate.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.Date.rawValue,
-                                           font:  UIFont.systemFont(ofSize: AccSumOpenedDateStyle.shared.Font()),
-                                           textColor: AccSumOpenedDateStyle.shared.TextColor(),
-                                           textAlignment: AccSumOpenedDateStyle.shared.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.Font()),
+                                           textColor: BrandSpecification.shared.colorPalette.secondary,
+                                           textAlignment: style.TextAlignment())
         return label
     }()
     
     let availableBalance: StyledLabel = {
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                               componentName: components.availableBalance.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.BalanceAmount.rawValue,
-                                           font: UIFont.systemFont(ofSize: AccSumAvailableBalanceStyle.shared.Font()),
-                                           textColor: AccSumAvailableBalanceStyle.shared.TextColor(),
-                                           textAlignment: AccSumAvailableBalanceStyle.shared.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.Font()),
+                                           textColor: BrandSpecification.shared.colorPalette.primary,
+                                           textAlignment: style.TextAlignment())
         return label
     }()
     
     let accountNumber: StyledLabel = {
+        let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
+                               componentName: components.accountNumber.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountNumber.rawValue,
-                                           font: UIFont.systemFont(ofSize: AccSumAccountNumberStyle.shared.Font()),
-                                           textColor: AccSumAccountNumberStyle.shared.TextColor(),
-                                           textAlignment:  AccSumAccountNumberStyle.shared.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.Font()),
+                                           textColor: BrandSpecification.shared.colorPalette.secondary,
+                                           textAlignment:  style.TextAlignment())
         return label
     }()
     
@@ -134,78 +160,87 @@ class AccountSummaryCell: GenericCollectionViewCell {
     
     override func setupViews() {
         super.setupViews()
-        self.backgroundColor = AccSumCellStyle.shared.BackgroundColor()
+        self.backgroundColor = BrandSpecification.shared.colorPalette.light
         
         // MARK: Add card
         addSubview(accountCard)
+        let accountCardLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                       componentName: components.accountCard.rawValue)
         accountCard.anchor(left: leftAnchor,
                            top: topAnchor,
                            right: rightAnchor,
                            bottom: bottomAnchor,
-                           paddingLeft: AccSumAccountCardStyle.shared.PaddingLeft(),
-                           paddingTop: AccSumAccountCardStyle.shared.PaddingTop(),
-                           paddingRight: AccSumAccountCardStyle.shared.PaddingRight(),
-                           paddingBottom: AccSumAccountCardStyle.shared.PaddingBottom(),
-                           width: AccSumAccountCardStyle.shared.Width(),
-                           height: AccSumAccountCardStyle.shared.Height())
+                           paddingLeft: accountCardLayout.PaddingLeft(),
+                           paddingTop: accountCardLayout.PaddingTop(),
+                           paddingRight: accountCardLayout.PaddingRight(),
+                           paddingBottom: accountCardLayout.PaddingBottom(),
+                           width: accountCardLayout.Width(),
+                           height: accountCardLayout.Height())
         
         // MARK: Add account name
         addSubview(accountName)
+        let accountNameLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                   componentName: components.accountName.rawValue)
         accountName.anchor(left: accountCard.leftAnchor,
                                 top: accountCard.topAnchor,
                                 right: accountCard.rightAnchor,
                                 bottom: nil,
-                                paddingLeft: AccSumAccountNameStyle.shared.PaddingLeft(),
-                                paddingTop: AccSumAccountNameStyle.shared.PaddingTop(),
-                                paddingRight: AccSumAccountNameStyle.shared.PaddingRight(),
-                                paddingBottom: AccSumAccountNameStyle.shared.PaddingBottom(),
-                                width: AccSumAccountNameStyle.shared.Width(),
-                                height: AccSumAccountNameStyle.shared.Height())
+                                paddingLeft: accountNameLayout.PaddingLeft(),
+                                paddingTop: accountNameLayout.PaddingTop(),
+                                paddingRight: accountNameLayout.PaddingRight(),
+                                paddingBottom: accountNameLayout.PaddingBottom(),
+                                width: accountNameLayout.Width(),
+                                height: accountNameLayout.Height())
         
-        // MAR: Add available balance
+        // MARK: Add available balance
         addSubview(availableBalance)
+        let availableBalanceLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                       componentName: components.availableBalance.rawValue)
         availableBalance.anchor(left: accountCard.leftAnchor,
                                      top: accountName.bottomAnchor,
                                      right: accountCard.rightAnchor,
                                      bottom: nil,
-                                     paddingLeft: AccSumAvailableBalanceStyle.shared.PaddingLeft(),
-                                     paddingTop: AccSumAvailableBalanceStyle.shared.PaddingTop(),
-                                     paddingRight: AccSumAvailableBalanceStyle.shared.PaddingRight(),
-                                     paddingBottom: AccSumAvailableBalanceStyle.shared.PaddingBottom(),
-                                     width: AccSumAvailableBalanceStyle.shared.Width(),
-                                     height: AccSumAvailableBalanceStyle.shared.Height())
+                                     paddingLeft: availableBalanceLayout.PaddingLeft(),
+                                     paddingTop: availableBalanceLayout.PaddingTop(),
+                                     paddingRight: availableBalanceLayout.PaddingRight(),
+                                     paddingBottom: availableBalanceLayout.PaddingBottom(),
+                                     width: availableBalanceLayout.Width(),
+                                     height: availableBalanceLayout.Height())
         
         // MARK: Add account number
         addSubview(accountNumber)
+        let accountNumberLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                            componentName: components.accountNumber.rawValue)
         accountNumber.anchor(left: accountCard.leftAnchor,
                                   top: availableBalance.bottomAnchor,
                                   right: accountCard.rightAnchor,
                                   bottom: nil,
-                                  paddingLeft: AccSumAccountNumberStyle.shared.PaddingLeft(),
-                                  paddingTop: AccSumAccountNumberStyle.shared.PaddingTop(),
-                                  paddingRight: AccSumAccountNumberStyle.shared.PaddingRight(),
-                                  paddingBottom: AccSumAccountNumberStyle.shared.PaddingBottom(),
-                                  width: AccSumAccountNumberStyle.shared.Width(),
-                                  height: AccSumAccountNumberStyle.shared.Height())
+                                  paddingLeft: accountNumberLayout.PaddingLeft(),
+                                  paddingTop: accountNumberLayout.PaddingTop(),
+                                  paddingRight: accountNumberLayout.PaddingRight(),
+                                  paddingBottom: accountNumberLayout.PaddingBottom(),
+                                  width: accountNumberLayout.Width(),
+                                  height: accountNumberLayout.Height())
         
         // MARK: Add date opened
         addSubview(openedDate)
+        let openedDateLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                         componentName: components.openedDate.rawValue)
         openedDate.anchor(left: nil,
                                top: accountCard.topAnchor,
                                right: accountCard.rightAnchor,
                                bottom: nil,
-                               paddingLeft: AccSumOpenedDateStyle.shared.PaddingLeft(),
-                               paddingTop: AccSumOpenedDateStyle.shared.PaddingTop(),
-                               paddingRight: AccSumOpenedDateStyle.shared.PaddingRight(),
-                               paddingBottom: AccSumOpenedDateStyle.shared.PaddingBottom(),
-                               width: AccSumOpenedDateStyle.shared.Width(),
-                               height: AccSumOpenedDateStyle.shared.Height())
+                               paddingLeft: openedDateLayout.PaddingLeft(),
+                               paddingTop: openedDateLayout.PaddingTop(),
+                               paddingRight: openedDateLayout.PaddingRight(),
+                               paddingBottom: openedDateLayout.PaddingBottom(),
+                               width: openedDateLayout.Width(),
+                               height: openedDateLayout.Height())
     }
 }
 
 class AccountSummaryFooter: GenericCollectionViewCell {
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .green
     }
 }

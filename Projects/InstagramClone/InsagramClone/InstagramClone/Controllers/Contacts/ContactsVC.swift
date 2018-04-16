@@ -13,15 +13,12 @@ class ContactsViewController: GenericCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Style Navigation Bar
-        navigationItem.title = "My Contacts"
+        // MARK: Style Navigation Bar
+        
         self.navigationController!.navigationBar.isTranslucent = false
+        self.collectionView?.backgroundColor = BrandSpecification.shared.colorPalette.light
         
-        
-        self.collectionView?.backgroundColor = ApplicationTheme.Colors.PrimaryColor2()
-        
-        // Remove bottom border line of navigation bar
-        
+        // MARK: Remove bottom border line of navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -37,16 +34,22 @@ class ContactsViewController: GenericCollectionViewController {
     
     // Set header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 0)
+        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+                            componentName: "tableHeader")
+        return CGSize(width: view.frame.width, height: layout.Height())
     }
     
     // Set footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+                            componentName: "tableFooter")
         return CGSize(width: view.frame.width, height: 0)
     }
     
     // Set cell size
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+                            componentName: "tableCell")
         return CGSize(width: view.frame.width, height: 60)
     }
     

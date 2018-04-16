@@ -20,6 +20,7 @@ struct ColorPalatteSpecification {
     var info: UIColor
     var light: UIColor
     var dark: UIColor
+    var white: UIColor
     
     init(){
         self.primary = .clear
@@ -30,6 +31,7 @@ struct ColorPalatteSpecification {
         self.info = .clear
         self.light = .clear
         self.dark = .clear
+        self.white = .clear
     }
     
     init(primary: UIColor = UIColor.clear,
@@ -39,7 +41,8 @@ struct ColorPalatteSpecification {
          warning: UIColor = UIColor.clear,
          info: UIColor = UIColor.clear,
          light: UIColor = UIColor.clear,
-         dark: UIColor = UIColor.clear )
+         dark: UIColor = UIColor.clear,
+         white: UIColor = UIColor.clear)
     {
         self.primary = primary
         self.secondary = secondary
@@ -49,5 +52,6 @@ struct ColorPalatteSpecification {
         self.info = info
         self.light = light
         self.dark = dark
+        self.white = white
     }
 }

@@ -15,6 +15,7 @@ import UIKit
 public enum ApplicationScreen: String {
     case AccountSummary = "accountSummary"
     case Transactions = "transactions"
+    case Contacts = "contacts"
 }
 
 public enum StyleSheets: String {
@@ -25,9 +26,10 @@ public enum StyleSheets: String {
 
 public enum ValueNotSet: String {
     case AccountName = "Check Account"
-    case AccountNumber = "**** **** **** ****"
-    case BalanceAmount = "1234"
+    case AccountNumber = "DE87 2018 3492 0001"
+    case BalanceAmount = "$ 3,174.60"
     case Date = "01 / 2018"
+    case BenificiaryName = "Bruce Wayne"
 }
 
 // This is a hack to fix a bug in ios11 where the scrollbar appears behind the collectionview header
@@ -37,3 +39,5 @@ class CustomLayer: CALayer {
         set {}
     }
 }
+
+

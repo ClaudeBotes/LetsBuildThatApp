@@ -63,6 +63,9 @@ final class BrandSpecification {
         if let dark = colors.dark {
             self.colorPalette.dark = UIColor(hex: dark)
         }
+        if let white = colors.white {
+            self.colorPalette.white = UIColor(hex: white)
+        }
     }
 }
 

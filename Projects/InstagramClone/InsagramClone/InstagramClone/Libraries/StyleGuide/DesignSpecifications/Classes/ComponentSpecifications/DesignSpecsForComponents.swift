@@ -70,6 +70,7 @@ public struct DesignSpecificationForComponent {
  Used to group design specifications for a specific component style.
  */
 public struct DesignSpecificationForStyle {
+    var text: String
     var fontSize: CGFloat
     var textColor: UIColor
     var textAlighnment: NSTextAlignment
@@ -84,6 +85,7 @@ public struct DesignSpecificationForStyle {
     
     
     init(){
+        self.text = ""
         self.fontSize = 12.0
         self.textAlighnment = NSTextAlignment.center
         self.textColor = .black
@@ -98,7 +100,8 @@ public struct DesignSpecificationForStyle {
         
     }
     
-    init(fontSize: CGFloat = 12.0,
+    init(text: String = "",
+         fontSize: CGFloat = 12.0,
          textAlignment: NSTextAlignment = NSTextAlignment.center,
          textColor: UIColor = .black,
          shadowRadius: CGFloat = 0,
@@ -110,6 +113,7 @@ public struct DesignSpecificationForStyle {
          borderColor:UIColor = .black,
          backgroundColor : UIColor = .white ){
         
+        self.text = text
         self.fontSize = fontSize
         self.textAlighnment = textAlignment
         self.textColor = textColor
@@ -178,6 +182,9 @@ public class BaseStyleSheet {
         self.screenName = screenName
     }
     
+    func SreenTitle() -> String {
+        return self.style.text
+    }
     func Font() -> CGFloat {
         return self.style.fontSize
     }

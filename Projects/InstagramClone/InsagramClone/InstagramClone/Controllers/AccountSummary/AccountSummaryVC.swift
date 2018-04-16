@@ -12,12 +12,15 @@ import UIKit
 class AccountSummaryViewController: GenericCollectionViewController {
     
     var productsDataSource: AccountSummaryCollectionViewDatasource?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Style Navigation Bar
-        navigationItem.title = "Accounts"
+        let style = StyleSheet (screenName: ApplicationScreen.AccountSummary.rawValue,
+                           componentName: "screen")
+        
+        navigationItem.title = style.Title()
         self.navigationController!.navigationBar.isTranslucent = false
     
         // Setup data source for collection view configurations
@@ -27,17 +30,23 @@ class AccountSummaryViewController: GenericCollectionViewController {
     
     // Set header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 189)
+        let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                       componentName: "tableHeader")
+        return CGSize(width: view.frame.width, height: layout.Height())
     }
     
     // Set footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 0)
+        let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                       componentName: "tableFooter")
+        return CGSize(width: view.frame.width, height: layout.Height())
     }
     
     // Set cell size
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 155)
+        let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
+                                     componentName: "tableCell")
+        return CGSize(width: view.frame.width, height: layout.Height())
     }
     
     // Set space between rows

@@ -5,6 +5,30 @@
         "name": "accountSummary",
         "components": [
           {
+            "name": "screen",
+            "style": {
+              "text": "Account"
+            }
+          },
+          {
+            "name": "tableHeader",
+            "layout": {
+              "height": "189"
+            }
+          },
+          {
+            "name": "tableFooter",
+            "layout": {
+              "height": "0"
+            }
+          },
+          {
+            "name": "tableCell",
+            "layout": {
+              "height": "155"
+            }
+          },
+          {
             "name": "availableBalance",
             "style": {
               "fontSize": "22px",
@@ -106,18 +130,300 @@
         "name": "transactions",
         "components": [
           {
-            "name": "availableBalance",
+            "name": "screen",
             "style": {
-              "fontSize": "22px",
+              "text": "Transactions"
+            }
+          },
+          {
+            "name": "tableHeader",
+            "layout": {
+              "height": "168"
+            }
+          },
+          {
+            "name": "tableFooter",
+            "layout": {
+              "height": "0"
+            }
+          },
+          {
+            "name": "tableCell",
+            "layout": {
+              "height": "60"
+            }
+          },
+          {
+            "name": "accountBalance",
+            "style": {
+              "fontSize": "28px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "41"
+            }
+          },
+          {
+            "name": "accountName",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+          {
+            "name": "accountNumber",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+          {
+            "name": "newPayment",
+            "style": {
+              "text": "New Payment",
+              "fontSize": "17px",
+              "textAlign": "center",
+              "shadowRadius": "2.0",
+              "shadowOpacity": "0.15",
+              "shadowOffsetY": "3.0",
+              "cornerRadius": "4.0",
+              "borderWidth": "0.0"
+            },
+            "layout": {
+              "paddingLeft": "16",
+              "paddingTop": "16",
+              "paddingRight": "16",
+              "paddingBottom": "16",
+              "width": "0",
+              "height": "44"
+            }
+          },
+          {
+            "name": "transactionAvatar",
+            "style": {
+              "cornerRadius": "16.6",
+              "borderWidth": "1.0"
+            },
+            "layout": {
+              "paddingLeft": "16",
+              "paddingTop": "14",
+              "paddingRight": "16",
+              "paddingBottom": "14",
+              "width": "0",
+              "height": "0"
+            }
+          },
+          {
+            "name": "transactionName",
+            "style": {
+              "fontSize": "17px",
               "textAlign": "left"
             },
             "layout": {
-              "paddingLeft": "15",
-              "paddingTop": "7",
+              "paddingLeft": "65",
+              "paddingTop": "8",
+              "paddingRight": "15",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+            {
+            "name": "transactionAmount",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "paddingLeft": "65",
+              "paddingTop": "3",
               "paddingRight": "15",
               "paddingBottom": "0",
               "width": "0",
               "height": "28"
+            }
+          },
+            {
+            "name": "rowDevider",
+            "layout": {
+              "paddingLeft": "65",
+              "paddingTop": "0",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "1"
+            }
+          }
+        ]
+      },
+        {
+        "name": "contacts",
+        "components": [
+          {
+            "name": "screen",
+            "style": {
+              "text": "Contacts"
+            }
+          },
+          {
+            "name": "tableHeader",
+            "layout": {
+              "height": "168"
+            }
+          },
+          {
+            "name": "tableFooter",
+            "layout": {
+              "height": "0"
+            }
+          },
+          {
+            "name": "tableCell",
+            "layout": {
+              "height": "60"
+            }
+          },
+          {
+            "name": "accountBalance",
+            "style": {
+              "fontSize": "28px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "41"
+            }
+          },
+          {
+            "name": "accountName",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+          {
+            "name": "accountNumber",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "center"
+            },
+            "layout": {
+              "paddingLeft": "0",
+              "paddingTop": "3",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+          {
+            "name": "newPayment",
+            "style": {
+              "text": "New Payment",
+              "fontSize": "17px",
+              "textAlign": "center",
+              "shadowRadius": "2.0",
+              "shadowOpacity": "0.15",
+              "shadowOffsetY": "3.0",
+              "cornerRadius": "4.0",
+              "borderWidth": "0.0"
+            },
+            "layout": {
+              "paddingLeft": "16",
+              "paddingTop": "16",
+              "paddingRight": "16",
+              "paddingBottom": "16",
+              "width": "0",
+              "height": "44"
+            }
+          },
+          {
+            "name": "transactionAvatar",
+            "style": {
+              "cornerRadius": "16.6",
+              "borderWidth": "1.0"
+            },
+            "layout": {
+              "paddingLeft": "16",
+              "paddingTop": "14",
+              "paddingRight": "16",
+              "paddingBottom": "14",
+              "width": "0",
+              "height": "0"
+            }
+          },
+          {
+            "name": "transactionName",
+            "style": {
+              "fontSize": "17px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "paddingLeft": "65",
+              "paddingTop": "8",
+              "paddingRight": "15",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "20"
+            }
+          },
+            {
+            "name": "transactionAmount",
+            "style": {
+              "fontSize": "15px",
+              "textAlign": "left"
+            },
+            "layout": {
+              "paddingLeft": "65",
+              "paddingTop": "3",
+              "paddingRight": "15",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "28"
+            }
+          },
+            {
+            "name": "rowDevider",
+            "layout": {
+              "paddingLeft": "65",
+              "paddingTop": "0",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "0",
+              "height": "1"
             }
           }
         ]

@@ -51,6 +51,7 @@ struct ComponentForJSON: Codable{
 Node containing the style for a component. ( "fontSize": "13px", )
 */
 struct StyleForJSON: Codable {
+    var text: String?
     var fontSize: String?
     var textAlighnment: String?
     var shadowRadius : String?
@@ -62,6 +63,7 @@ struct StyleForJSON: Codable {
     var backgroundColor: String?
     
     enum CodingKeys: String, CodingKey {
+        case text
         case fontSize
         case textAlighnment = "textAlign"
         case shadowRadius

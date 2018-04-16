@@ -47,8 +47,6 @@ public func convertStringToCGFloat(value: String) throws -> CGFloat  {
     return CGFloat(floatValue)
 }
 
-
-
 public func setTextAlignment(textAlignment: String) -> NSTextAlignment {
     switch textAlignment {
     case "left":
