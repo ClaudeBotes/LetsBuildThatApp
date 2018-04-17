@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // Load Design Specification and Brand from JSON
-        JSONReader.shared.loadJSONDataForDesignSpecification()
-        JSONReader.shared.loadJSONDataForBrandSpecification()
+        JSONReader.shared.loadJSONDataForDesignSpecification(designSpecFileName: StyleSheets.DesignSpecification.rawValue)
+        JSONReader.shared.loadJSONDataForBrandSpecification(brandSpecFileName: StyleSheets.BrandSpecification.rawValue)
         
         
         window = UIWindow()

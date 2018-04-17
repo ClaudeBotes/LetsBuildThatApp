@@ -157,5 +157,4 @@ extension StyledTextField {
         
         return textField
     }
-    
 }

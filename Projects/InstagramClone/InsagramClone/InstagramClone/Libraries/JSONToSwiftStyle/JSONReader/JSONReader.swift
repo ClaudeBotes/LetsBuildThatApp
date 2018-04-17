@@ -28,7 +28,7 @@ final class JSONReader {
     /**
      Retrives JSON data for design specification and sets a DesignSpecification for local usage.
      */
-    func loadJSONDataForDesignSpecification(){
+    func loadJSONDataForDesignSpecification(designSpecFileName: String){
         
         let designSpecificationJSONData: [DesignSpecificationForJSON] = {
             
@@ -373,11 +373,11 @@ final class JSONReader {
     /**
      Retrives JSON data for design specification and sets a DesignSpecification for local usage.
      */
-    func loadJSONDataForBrandSpecification(){
+    func loadJSONDataForBrandSpecification(brandSpecFileName: String){
         
         let brandSpecificationJSONData: [BrandSpecificationForJSON] = {
             
-            guard let path = Bundle.main.path(forResource: StyleSheets.BrandSpecification.rawValue, ofType: "json") else { return [] }
+            guard let path = Bundle.main.path(forResource: brandSpecFileName, ofType: "json") else { return [] }
             let url = URL(fileURLWithPath: path)
             
             guard let data = try? Data(contentsOf: url) else { return [] }
