@@ -46,13 +46,13 @@ open class GenericTableViewController: UITableViewController {
         }
     }
     
-//    public init() {
-//        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-//    }
+    //    public init() {
+    //        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    //    }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required public init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     let defaultCellId = "defaultCellId"
     let defaultFooterId = "defaultFooterId"
@@ -105,35 +105,35 @@ open class GenericTableViewController: UITableViewController {
         return cell
     }
     
-//    override open func tableView(_ tableView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UITableReusableView {
-//
-//        let reusableView: GenericTableViewCell
-//
-//        if kind == UICollectionElementKindSectionHeader {
-//            if let classes = datasource?.headerClasses(), classes.count > indexPath.section {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(classes[indexPath.section]), for: indexPath) as! GenericCollectionViewCell
-//            } else if let cls = datasource?.headerClasses()?.first {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(cls), for: indexPath) as! GenericCollectionViewCell
-//            } else {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: defaultHeaderId, for: indexPath) as! GenericCollectionViewCell
-//            }
-//            reusableView.datasourceItem = datasource?.headerItem(indexPath.section)
-//
-//        } else {
-//            if let classes = datasource?.footerClasses(), classes.count > indexPath.section {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(classes[indexPath.section]), for: indexPath) as! GenericCollectionViewCell
-//            } else if let cls = datasource?.footerClasses()?.first {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(cls), for: indexPath) as! GenericCollectionViewCell
-//            } else {
-//                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: defaultFooterId, for: indexPath) as! GenericCollectionViewCell
-//            }
-//            reusableView.datasourceItem = datasource?.footerItem(indexPath.section)
-//        }
-//
-//        reusableView.controller = self
-//
-//        return reusableView
-//    }
+    //    override open func tableView(_ tableView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UITableReusableView {
+    //
+    //        let reusableView: GenericTableViewCell
+    //
+    //        if kind == UICollectionElementKindSectionHeader {
+    //            if let classes = datasource?.headerClasses(), classes.count > indexPath.section {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(classes[indexPath.section]), for: indexPath) as! GenericCollectionViewCell
+    //            } else if let cls = datasource?.headerClasses()?.first {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(cls), for: indexPath) as! GenericCollectionViewCell
+    //            } else {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: defaultHeaderId, for: indexPath) as! GenericCollectionViewCell
+    //            }
+    //            reusableView.datasourceItem = datasource?.headerItem(indexPath.section)
+    //
+    //        } else {
+    //            if let classes = datasource?.footerClasses(), classes.count > indexPath.section {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(classes[indexPath.section]), for: indexPath) as! GenericCollectionViewCell
+    //            } else if let cls = datasource?.footerClasses()?.first {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(cls), for: indexPath) as! GenericCollectionViewCell
+    //            } else {
+    //                reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: defaultFooterId, for: indexPath) as! GenericCollectionViewCell
+    //            }
+    //            reusableView.datasourceItem = datasource?.footerItem(indexPath.section)
+    //        }
+    //
+    //        reusableView.controller = self
+    //
+    //        return reusableView
+    //    }
     
     open func getRefreshControl() -> UIRefreshControl {
         let rc = UIRefreshControl()
@@ -145,9 +145,9 @@ open class GenericTableViewController: UITableViewController {
         
     }
     
-//    open var layout: UICollectionViewFlowLayout? {
-//        get {
-//            return collectionViewLayout as? UICollectionViewFlowLayout
-//        }
-//    }
+    //    open var layout: UICollectionViewFlowLayout? {
+    //        get {
+    //            return collectionViewLayout as? UICollectionViewFlowLayout
+    //        }
+    //    }
 }

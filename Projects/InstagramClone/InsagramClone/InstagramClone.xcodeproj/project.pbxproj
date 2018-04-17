@@ -15,7 +15,10 @@
 		511910902086124200E9C1DD /* StyleForJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5119108F2086124200E9C1DD /* StyleForJSON.swift */; };
 		511910932086237400E9C1DD /* ProjectSpecificUICommons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511910922086237400E9C1DD /* ProjectSpecificUICommons.swift */; };
 		5119109520863B5300E9C1DD /* DesignSpecificationForBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5119109420863B5300E9C1DD /* DesignSpecificationForBrand.swift */; };
-		511911F02086A62A00E9C1DD /* UITableView in Resources */ = {isa = PBXBuildFile; fileRef = 511911EF2086A62900E9C1DD /* UITableView */; };
+		511911F22086A75200E9C1DD /* GenericTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511911F12086A75200E9C1DD /* GenericTableViewDatasource.swift */; };
+		511911F42086A77400E9C1DD /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511911F32086A77400E9C1DD /* GenericTableViewController.swift */; };
+		511911F62086A79900E9C1DD /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511911F52086A79900E9C1DD /* GenericTableViewCell.swift */; };
+		511911F82086A7AF00E9C1DD /* DefaultTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511911F72086A7AF00E9C1DD /* DefaultTableViewCells.swift */; };
 		513CBB17206FA568004061BD /* SignupVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB16206FA568004061BD /* SignupVIew.swift */; };
 		513CBB19206FA610004061BD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CBB18206FA610004061BD /* Extensions.swift */; };
 		513CBB1B206FDB35004061BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 513CBB1A206FDB35004061BD /* GoogleService-Info.plist */; };
@@ -117,7 +120,10 @@
 		5119108F2086124200E9C1DD /* StyleForJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleForJSON.swift; sourceTree = "<group>"; };
 		511910922086237400E9C1DD /* ProjectSpecificUICommons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSpecificUICommons.swift; sourceTree = "<group>"; };
 		5119109420863B5300E9C1DD /* DesignSpecificationForBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSpecificationForBrand.swift; sourceTree = "<group>"; };
-		511911EF2086A62900E9C1DD /* UITableView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UITableView; sourceTree = "<group>"; };
+		511911F12086A75200E9C1DD /* GenericTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewDatasource.swift; sourceTree = "<group>"; };
+		511911F32086A77400E9C1DD /* GenericTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
+		511911F52086A79900E9C1DD /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
+		511911F72086A7AF00E9C1DD /* DefaultTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCells.swift; sourceTree = "<group>"; };
 		513CBB16206FA568004061BD /* SignupVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVIew.swift; sourceTree = "<group>"; };
 		513CBB18206FA610004061BD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		513CBB1A206FDB35004061BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -248,6 +254,17 @@
 			path = UICollectionVIew;
 			sourceTree = "<group>";
 		};
+		511911F92086B0BF00E9C1DD /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				511911F32086A77400E9C1DD /* GenericTableViewController.swift */,
+				511911F12086A75200E9C1DD /* GenericTableViewDatasource.swift */,
+				511911F52086A79900E9C1DD /* GenericTableViewCell.swift */,
+				511911F72086A7AF00E9C1DD /* DefaultTableViewCells.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
 		513428C0207FEEF70084D2DF /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,8 +310,8 @@
 		513CBB3920715B1F004061BD /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				51FA8B462075874300BEEF3D /* SwiftBoilerPlate */,
 				514EEE63206ECB580046E3B6 /* JSONToSwiftStyle */,
-				51FA8B462075874300BEEF3D /* GenericCollectionView */,
 				514EEE56206ECB060046E3B6 /* HelperMethods.swift */,
 				513CBB18206FA610004061BD /* Extensions.swift */,
 				513CBB3A20715B2C004061BD /* LBTAComponents */,
@@ -623,13 +640,13 @@
 			path = Signup;
 			sourceTree = "<group>";
 		};
-		51FA8B462075874300BEEF3D /* GenericCollectionView */ = {
+		51FA8B462075874300BEEF3D /* SwiftBoilerPlate */ = {
 			isa = PBXGroup;
 			children = (
-				511911EF2086A62900E9C1DD /* UITableView */,
+				511911F92086B0BF00E9C1DD /* UITableView */,
 				511911EE2086A5EE00E9C1DD /* UICollectionVIew */,
 			);
-			path = GenericCollectionView;
+			path = SwiftBoilerPlate;
 			sourceTree = "<group>";
 		};
 		59A68F4ADF7F2ACDD21E4FD4 /* Pods */ = {
@@ -773,7 +790,6 @@
 			files = (
 				514EEE2D206EBDC50046E3B6 /* LaunchScreen.storyboard in Resources */,
 				51C5346720825C3E007A9608 /* BrandSpecification.json in Resources */,
-				511911F02086A62A00E9C1DD /* UITableView in Resources */,
 				514517E8207A3AD500678063 /* product-summary.json in Resources */,
 				51C5347920828B66007A9608 /* DesignSpecification.json in Resources */,
 				514EEE2A206EBDC50046E3B6 /* Assets.xcassets in Resources */,
@@ -973,6 +989,7 @@
 				51611A7720767BB7000D8367 /* ContactsVC.swift in Sources */,
 				511910932086237400E9C1DD /* ProjectSpecificUICommons.swift in Sources */,
 				51611A8820775941000D8367 /* TransactionCollectionViewDatasource.swift in Sources */,
+				511911F42086A77400E9C1DD /* GenericTableViewController.swift in Sources */,
 				513CBB17206FA568004061BD /* SignupVIew.swift in Sources */,
 				51FA8B382071640900BEEF3D /* AccountSummaryCells.swift in Sources */,
 				514EEE23206EBDC50046E3B6 /* AppDelegate.swift in Sources */,
@@ -997,6 +1014,7 @@
 				514EEE6B206ED6A60046E3B6 /* SpringTextField.swift in Sources */,
 				513CBB5320715B46004061BD /* GenericCollectionViewController.swift in Sources */,
 				51C5346320825770007A9608 /* Guide.swift in Sources */,
+				511911F62086A79900E9C1DD /* GenericTableViewCell.swift in Sources */,
 				51611A8020767C45000D8367 /* ContactPM.swift in Sources */,
 				51FA8B4120718D9A00BEEF3D /* StyledImageView.swift in Sources */,
 				5119108C2086116D00E9C1DD /* DesignSpecForLayout.swift in Sources */,
@@ -1007,6 +1025,7 @@
 				513CBB25206FF274004061BD /* Users.swift in Sources */,
 				513CBB3820713C16004061BD /* AccountSummaryVC.swift in Sources */,
 				514EEE5D206ECB060046E3B6 /* SpringButton.swift in Sources */,
+				511911F22086A75200E9C1DD /* GenericTableViewDatasource.swift in Sources */,
 				513CBB19206FA610004061BD /* Extensions.swift in Sources */,
 				51611A7E20767C45000D8367 /* ContactCollectionViewDatasource.swift in Sources */,
 				51611A7020767B5F000D8367 /* ContactCells.swift in Sources */,
@@ -1022,6 +1041,7 @@
 				51C5345720823D0A007A9608 /* Brand.swift in Sources */,
 				514EEE5B206ECB060046E3B6 /* Spring.swift in Sources */,
 				513CBB4F20715B46004061BD /* DefaultCells.swift in Sources */,
+				511911F82086A7AF00E9C1DD /* DefaultTableViewCells.swift in Sources */,
 				514EEE61206ECB060046E3B6 /* StyledView.swift in Sources */,
 				51FA8B2E207160DB00BEEF3D /* AccountAPI.swift in Sources */,
 				514EEE69206ED6860046E3B6 /* StyledTextField.swift in Sources */,

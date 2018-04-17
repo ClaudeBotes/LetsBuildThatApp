@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class ContactHeader: GenericCollectionViewCell {
+class ContactHeader: GenericTableViewCell {
     
     enum components: String {
         case accountBalance = "accountBalance"
@@ -143,7 +143,7 @@ class ContactHeader: GenericCollectionViewCell {
     }
 }
 
-class ContactCell: GenericCollectionViewCell {
+class ContactCell: GenericTableViewCell {
     
     enum components: String {
         case transactionAvatar = "transactionAvatar"
@@ -154,17 +154,17 @@ class ContactCell: GenericCollectionViewCell {
     
     override var datasourceItem: Any? {
         didSet {
-            let transactionItem = datasourceItem as? Transaction
+            let ContactItem = datasourceItem as? Contact
             
-            transactionName.text = transactionItem?.name
+            transactionName.text = ContactItem?.name
             
-            if let tranName = transactionItem?.name {
+            if let tranName = ContactItem?.name {
                 transactionName.text = tranName
             } else {
                 transactionName.text = "Transaction Name Unavailable"
             }
             
-            if let accounttNumber = transactionItem?.transactionAmount {
+            if let accounttNumber = ContactItem?.accountNumber {
                 transactionAmount.text = accounttNumber
             } else {
                 transactionAmount.text = "Account Number Unavailable"
@@ -276,7 +276,7 @@ class ContactCell: GenericCollectionViewCell {
     }
 }
 
-class ContactFooter: GenericCollectionViewCell {
+class ContactFooter: GenericTableViewCell {
     override func setupViews() {
         super.setupViews()
         backgroundColor = Brand.shared.colorPalette.white

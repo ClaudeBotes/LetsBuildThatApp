@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         window = UIWindow()
-        window?.rootViewController = SignupViewController()//MainTabBarController()
+        window?.rootViewController = MainTabBarController()//SignupViewController()
         
         // Style Naviagtion Bar
         UINavigationBar.appearance().barStyle = .blackOpaque // make status bar white

@@ -8,19 +8,19 @@
 
 import Foundation
 
-class ContactCollectionViewDatasource: GenericCollectionViewDatasource {
+class ContactTableViewDatasource: GenericTableViewDatasource {
     
     let contacts = ContactAPI.shared.getContacts()
     
-    override func footerClasses() -> [GenericCollectionViewCell.Type]? {
+    override func footerClasses() -> [GenericTableViewCell.Type]? {
         return [ContactFooter.self]
     }
     
-    override func headerClasses() -> [GenericCollectionViewCell.Type]? {
+    override func headerClasses() -> [GenericTableViewCell.Type]? {
         return [ContactHeader.self]
     }
     
-    override func cellClasses() -> [GenericCollectionViewCell.Type] {
+    override func cellClasses() -> [GenericTableViewCell.Type] {
         return [ContactCell.self]
     }
     

@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-class ContactsViewController: GenericCollectionViewController {
+class ContactsViewController: GenericTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: Style Navigation Bar
         
         self.navigationController!.navigationBar.isTranslucent = false
-        self.collectionView?.backgroundColor = Brand.shared.colorPalette.light
+        self.tableView?.backgroundColor = Brand.shared.colorPalette.light
         
         // MARK: Remove bottom border line of navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -24,34 +24,56 @@ class ContactsViewController: GenericCollectionViewController {
         
         // Specify data source for cell classes
         
-        let contactsDatasource = ContactCollectionViewDatasource()
+        let contactsDatasource = ContactTableViewDatasource()
         self.datasource = contactsDatasource
         
-        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout // casting is required because UICollectionViewLayout doesn't offer header pin. Its feature of UICollectionViewFlowLayout
-        layout?.sectionHeadersPinToVisibleBounds = true
+        //let layout = tableView?.collectionViewLayout as? UICollectionViewFlowLayout // casting is required because UICollectionViewLayout doesn't offer header pin. Its feature of UICollectionViewFlowLayout
+        //layout?.sectionHeadersPinToVisibleBounds = true
         
     }
     
     // Set header size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
                             componentName: "tableHeader")
-        return CGSize(width: view.frame.width, height: layout.height)
+        return layout.height
+    }
+    
+     // Set cell size
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+                            componentName: "tableCell")
+        return layout.height
     }
     
     // Set footer size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
                             componentName: "tableFooter")
-        return CGSize(width: view.frame.width,height: layout.height)
+        return layout.height
     }
     
-    // Set cell size
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
-                            componentName: "tableCell")
-        return CGSize(width: view.frame.width, height: layout.height)
-    }
+//    // Set header size
+//    func tableView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+//                            componentName: "tableHeader")
+//        return CGSize(width: view.frame.width, height: layout.height)
+//    }
+    
+//    // Set footer size
+//    func tableView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+//        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+//                            componentName: "tableFooter")
+//        return CGSize(width: view.frame.width,height: layout.height)
+//    }
+    
+//    // Set cell size
+//    override func tableView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let layout = Layout(screenName: ApplicationScreen.Contacts.rawValue,
+//                            componentName: "tableCell")
+//        return CGSize(width: view.frame.width, height: layout.height)
+//    }
     
     // Set space between rows
     func collectionView(_ collectionView: UICollectionView,
