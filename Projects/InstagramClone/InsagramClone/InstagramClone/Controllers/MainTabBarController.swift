@@ -41,7 +41,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let userProfileNavController = getNewNavigationController(unselectedImage: #imageLiteral(resourceName: "profile-disabled"), selectedImage: #imageLiteral(resourceName: "profile-enabled"), rootViewController: ContactsViewController())
         
-        tabBar.tintColor = ApplicationTheme.Colors.PrimaryColor2()
+        tabBar.tintColor = Brand.shared.colorPalette.primary
         
         viewControllers = [homeNavController,
                            transactionsNavController,

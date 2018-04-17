@@ -27,7 +27,16 @@ class SignupViewController: UIViewController {
     private func SetupSignUpView(){
         
         view.addSubview(signUpView)
-        signUpView.anchor(left: view.leftAnchor, top: view.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingLeft: 0, paddingTop: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
+        signUpView.anchor(left: view.leftAnchor,
+                          top: view.topAnchor,
+                          right: view.rightAnchor,
+                          bottom: view.bottomAnchor,
+                          paddingLeft: 0,
+                          paddingTop: 0,
+                          paddingRight: 0,
+                          paddingBottom: 0,
+                          width: 0,
+                          height: 0)
         
         signUpView.signUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         signUpView.emailTextField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
@@ -41,7 +50,7 @@ class SignupViewController: UIViewController {
     }
     
     @objc func handleSignUp() {
-        print("clicked!")
+        print("handleSignUp!")
         
         guard let email = signUpView.emailTextField.text, email.count > 0 else { return }
         guard let username = signUpView.usernameTextField.text, username.count > 0 else { return }

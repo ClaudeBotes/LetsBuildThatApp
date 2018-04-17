@@ -101,6 +101,10 @@ public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     )
 }
 
+public func UIColorFromString(hex: String) -> UIColor {
+    return UIColor(hex: hex)
+}
+
 public func stringFromDate(date: NSDate, format: String) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format

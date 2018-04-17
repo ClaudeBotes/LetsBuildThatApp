@@ -9,7 +9,8 @@
              "info": "3EBFED",
              "light": "E5E5E5",
              "dark": "333333",
-             "white": "FFFFFF"
+             "white": "FFFFFF",
+             "signUpTextFieldDark":"2B2B51"
          }
      }
  ]

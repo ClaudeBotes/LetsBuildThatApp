@@ -2,6 +2,72 @@
   {
     "views": [
       {
+        "name": "signUp",
+        "components": [
+          {
+            "name": "screen",
+            "style": {
+              "text": "Sign Up",
+              "assetName": "signup-background"
+            }
+          },
+          {
+            "name": "logo",
+            "style": {
+              "assetName": "bank-logo"
+            },
+            "layout": {
+              "paddingLeft": "23",
+              "paddingTop": "70",
+              "paddingRight": "0",
+              "paddingBottom": "0",
+              "width": "180",
+              "height": "50"
+            }
+          },
+          {
+            "name": "textFieldsForSignUp",
+            "style": {
+              "fontSize": "16px",
+              "textAlign": "left",
+              "shadowRadius": "4.0",
+              "shadowOpacity": "0.15",
+              "shadowOffsetY": "3.0",
+              "cornerRadius": "4.0",
+              "borderWidth": "1.0",
+              "leftPaddingForText": "15",
+              "rightPaddingForText": "15"
+            }
+          },
+          {
+            "name": "signUpStack",
+            "layout": {
+              "paddingLeft": "23",
+              "paddingTop": "0",
+              "paddingRight": "25",
+              "paddingBottom": "25",
+              "width": "0",
+              "height": "210"
+            }
+          },
+          {
+            "name": "signUpButton",
+            "style": {
+              "text": "Sign Up",
+              "fontSize": "16px",
+              "textAlign": "center",
+              "shadowRadius": "4.0",
+              "shadowOpacity": "0.15",
+              "shadowOffsetY": "3.0",
+              "cornerRadius": "4.0",
+              "borderWidth": "0.0",
+              "leftPaddingForText": "15",
+              "rightPaddingForText": "15"
+            }
+          }
+        ]
+      },
+      {
         "name": "accountSummary",
         "components": [
           {
@@ -249,7 +315,7 @@
               "height": "20"
             }
           },
-            {
+          {
             "name": "transactionAmount",
             "style": {
               "fontSize": "15px",
@@ -264,7 +330,7 @@
               "height": "28"
             }
           },
-            {
+          {
             "name": "rowDevider",
             "layout": {
               "paddingLeft": "65",
@@ -277,7 +343,7 @@
           }
         ]
       },
-        {
+      {
         "name": "contacts",
         "components": [
           {
@@ -400,7 +466,7 @@
               "height": "20"
             }
           },
-            {
+          {
             "name": "transactionAmount",
             "style": {
               "fontSize": "15px",
@@ -415,7 +481,7 @@
               "height": "28"
             }
           },
-            {
+          {
             "name": "rowDevider",
             "layout": {
               "paddingLeft": "65",

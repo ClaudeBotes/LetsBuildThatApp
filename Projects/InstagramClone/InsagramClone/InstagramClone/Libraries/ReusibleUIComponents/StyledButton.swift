@@ -112,4 +112,36 @@ extension StyledButton {
         
         return button
     }
+    
+    static public func createWith(style: StyleSheet, font: UIFont, enabled: Bool) -> StyledButton {
+        
+        let button = StyledButton()
+        button.backgroundColor = style.backgroundColor
+        button.titleLabel?.font = font
+        button.setTitleColor(style.textColor, for: .normal)
+        button.borderColor = style.borderColor
+        button.borderWidth = style.borderWidth
+        button.cornerRadius = style.cornerRadius
+        button.shadowColor = style.shadowColor
+        button.shadowRadius = style.shadowRadius
+        button.shadowOpacity = style.shadowOpacity
+        button.shadowOffsetY = style.shadowOffsetY
+        button.isEnabled = enabled
+        
+        switch style.textAlignment {
+        case .left:
+            button.contentHorizontalAlignment = .left
+        case .center:
+            button.contentHorizontalAlignment = .center
+        case .right:
+            button.contentHorizontalAlignment = .right
+        default:
+            button.contentHorizontalAlignment = .center
+        }
+        
+        button.setTitle(style.title, for: .normal)
+        
+        return button
+    }
+
 }

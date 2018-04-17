@@ -25,17 +25,17 @@ class AccountSummaryHeader: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                componentName: components.marketingContent.rawValue)
         let image = StyledImageView.createWith(image: #imageLiteral(resourceName: "marketing banner"),
-                                               shadowColor: BrandSpecification.shared.colorPalette.dark,
-                                               shadowRadius: style.ShadowRadius(),
-                                               shadowOpacity: style.ShadowOpacity(),
-                                               shadowOffsetY: style.ShadowOffsetY())
+                                               shadowColor: Brand.shared.colorPalette.dark,
+                                               shadowRadius: style.shadowRadius,
+                                               shadowOpacity: style.shadowOpacity,
+                                               shadowOffsetY: style.shadowOffsetY)
         return image
     }()
     
     override func setupViews() {
         super.setupViews()
         
-        self.backgroundColor = BrandSpecification.shared.colorPalette.light
+        self.backgroundColor = Brand.shared.colorPalette.light
         
         addSubview(marketingContent)
         let marketingContentLayout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
@@ -44,12 +44,12 @@ class AccountSummaryHeader: GenericCollectionViewCell {
                                 top: topAnchor,
                                 right: rightAnchor,
                                 bottom: bottomAnchor,
-                                paddingLeft: marketingContentLayout.PaddingLeft(),
-                                paddingTop: marketingContentLayout.PaddingTop(),
-                                paddingRight: marketingContentLayout.PaddingRight(),
-                                paddingBottom: marketingContentLayout.PaddingBottom(),
-                                width: marketingContentLayout.Width(),
-                                height: marketingContentLayout.Height())
+                                paddingLeft: marketingContentLayout.paddingLeft,
+                                paddingTop: marketingContentLayout.paddingTop,
+                                paddingRight: marketingContentLayout.paddingRight,
+                                paddingBottom: marketingContentLayout.paddingBottom,
+                                width: marketingContentLayout.width,
+                                height: marketingContentLayout.height)
     }
 }
 
@@ -107,12 +107,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
     let accountCard: StyledView = {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                    componentName: components.accountCard.rawValue)
-        let card = StyledView.createWith(backgroundColor: BrandSpecification.shared.colorPalette.white,
-                                         cornerRadius: style.CornerRadius(),
-                                         shadowColor: BrandSpecification.shared.colorPalette.dark,
-                                         shadowRadius: style.ShadowRadius(),
-                                         shadowOpacity: style.ShadowOpacity(),
-                                         shadowOffsetY: style.ShadowOffsetY())
+        let card = StyledView.createWith(backgroundColor: Brand.shared.colorPalette.white,
+                                         cornerRadius: style.cornerRadius,
+                                         shadowColor: Brand.shared.colorPalette.dark,
+                                         shadowRadius: style.shadowRadius,
+                                         shadowOpacity: style.shadowOpacity,
+                                         shadowOffsetY: style.shadowOffsetY)
         return card
     }()
     
@@ -120,9 +120,9 @@ class AccountSummaryCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                               componentName: components.accountName.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountName.rawValue,
-                                           font:  UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.primary,
-                                           textAlignment: style.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.primary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -130,9 +130,9 @@ class AccountSummaryCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                componentName: components.openedDate.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.Date.rawValue,
-                                           font:  UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.secondary,
-                                           textAlignment: style.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.secondary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -140,9 +140,9 @@ class AccountSummaryCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                componentName: components.availableBalance.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.BalanceAmount.rawValue,
-                                           font: UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.primary,
-                                           textAlignment: style.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.primary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -150,9 +150,9 @@ class AccountSummaryCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.AccountSummary.rawValue,
                                componentName: components.accountNumber.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountNumber.rawValue,
-                                           font: UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.secondary,
-                                           textAlignment:  style.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.secondary,
+                                           textAlignment:  style.textAlignment)
         return label
     }()
     
@@ -160,7 +160,7 @@ class AccountSummaryCell: GenericCollectionViewCell {
     
     override func setupViews() {
         super.setupViews()
-        self.backgroundColor = BrandSpecification.shared.colorPalette.light
+        self.backgroundColor = Brand.shared.colorPalette.light
         
         // MARK: Add card
         addSubview(accountCard)
@@ -170,12 +170,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
                            top: topAnchor,
                            right: rightAnchor,
                            bottom: bottomAnchor,
-                           paddingLeft: accountCardLayout.PaddingLeft(),
-                           paddingTop: accountCardLayout.PaddingTop(),
-                           paddingRight: accountCardLayout.PaddingRight(),
-                           paddingBottom: accountCardLayout.PaddingBottom(),
-                           width: accountCardLayout.Width(),
-                           height: accountCardLayout.Height())
+                           paddingLeft: accountCardLayout.paddingLeft,
+                           paddingTop: accountCardLayout.paddingTop,
+                           paddingRight: accountCardLayout.paddingRight,
+                           paddingBottom: accountCardLayout.paddingBottom,
+                           width: accountCardLayout.width,
+                           height: accountCardLayout.height)
         
         // MARK: Add account name
         addSubview(accountName)
@@ -185,12 +185,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
                                 top: accountCard.topAnchor,
                                 right: accountCard.rightAnchor,
                                 bottom: nil,
-                                paddingLeft: accountNameLayout.PaddingLeft(),
-                                paddingTop: accountNameLayout.PaddingTop(),
-                                paddingRight: accountNameLayout.PaddingRight(),
-                                paddingBottom: accountNameLayout.PaddingBottom(),
-                                width: accountNameLayout.Width(),
-                                height: accountNameLayout.Height())
+                                paddingLeft: accountNameLayout.paddingLeft,
+                                paddingTop: accountNameLayout.paddingTop,
+                                paddingRight: accountNameLayout.paddingRight,
+                                paddingBottom: accountNameLayout.paddingBottom,
+                                width: accountNameLayout.width,
+                                height: accountNameLayout.height)
         
         // MARK: Add available balance
         addSubview(availableBalance)
@@ -200,12 +200,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
                                      top: accountName.bottomAnchor,
                                      right: accountCard.rightAnchor,
                                      bottom: nil,
-                                     paddingLeft: availableBalanceLayout.PaddingLeft(),
-                                     paddingTop: availableBalanceLayout.PaddingTop(),
-                                     paddingRight: availableBalanceLayout.PaddingRight(),
-                                     paddingBottom: availableBalanceLayout.PaddingBottom(),
-                                     width: availableBalanceLayout.Width(),
-                                     height: availableBalanceLayout.Height())
+                                     paddingLeft: availableBalanceLayout.paddingLeft,
+                                     paddingTop: availableBalanceLayout.paddingTop,
+                                     paddingRight: availableBalanceLayout.paddingRight,
+                                     paddingBottom: availableBalanceLayout.paddingBottom,
+                                     width: availableBalanceLayout.width,
+                                     height: availableBalanceLayout.height)
         
         // MARK: Add account number
         addSubview(accountNumber)
@@ -215,12 +215,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
                                   top: availableBalance.bottomAnchor,
                                   right: accountCard.rightAnchor,
                                   bottom: nil,
-                                  paddingLeft: accountNumberLayout.PaddingLeft(),
-                                  paddingTop: accountNumberLayout.PaddingTop(),
-                                  paddingRight: accountNumberLayout.PaddingRight(),
-                                  paddingBottom: accountNumberLayout.PaddingBottom(),
-                                  width: accountNumberLayout.Width(),
-                                  height: accountNumberLayout.Height())
+                                  paddingLeft: accountNumberLayout.paddingLeft,
+                                  paddingTop: accountNumberLayout.paddingTop,
+                                  paddingRight: accountNumberLayout.paddingRight,
+                                  paddingBottom: accountNumberLayout.paddingBottom,
+                                  width: accountNumberLayout.width,
+                                  height: accountNumberLayout.height)
         
         // MARK: Add date opened
         addSubview(openedDate)
@@ -230,12 +230,12 @@ class AccountSummaryCell: GenericCollectionViewCell {
                                top: accountCard.topAnchor,
                                right: accountCard.rightAnchor,
                                bottom: nil,
-                               paddingLeft: openedDateLayout.PaddingLeft(),
-                               paddingTop: openedDateLayout.PaddingTop(),
-                               paddingRight: openedDateLayout.PaddingRight(),
-                               paddingBottom: openedDateLayout.PaddingBottom(),
-                               width: openedDateLayout.Width(),
-                               height: openedDateLayout.Height())
+                               paddingLeft: openedDateLayout.paddingLeft,
+                               paddingTop: openedDateLayout.paddingTop,
+                               paddingRight: openedDateLayout.paddingRight,
+                               paddingBottom: openedDateLayout.paddingBottom,
+                               width: openedDateLayout.width,
+                               height: openedDateLayout.height)
     }
 }
 

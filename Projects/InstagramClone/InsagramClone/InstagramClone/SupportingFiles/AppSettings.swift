@@ -16,10 +16,11 @@ public enum ApplicationScreen: String {
     case AccountSummary = "accountSummary"
     case Transactions = "transactions"
     case Contacts = "contacts"
+    case SignUp = "signUp"
 }
 
 public enum StyleSheets: String {
-    case Brand = "BrandSpecification"
+    case BrandSpecification = "BrandSpecification"
     case DesignSpecification = "DesignSpecification"
     case DesignSpecificationPlayground = "DesignSpecificationPlayground"
 }

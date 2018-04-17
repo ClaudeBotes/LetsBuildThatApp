@@ -108,8 +108,8 @@ extension StyledTextField {
                                   cornerRadius: CGFloat = 0,
                                   borderWidth: CGFloat = 0,
                                   borderColor: UIColor = UIColor.clear,
-                                  leftPadding: CGFloat = 0,
-                                  rightPadding: CGFloat = 0,
+                                  leftPaddingForText: CGFloat = 0,
+                                  rightPaddingForText: CGFloat = 0,
                                   backgroundColor: UIColor = UIColor.clear,
                                   isEnabled: Bool = true) -> StyledTextField {
         
@@ -121,13 +121,38 @@ extension StyledTextField {
         textField.cornerRadius = cornerRadius
         textField.borderWidth = borderWidth
         textField.borderColor = borderColor
-        textField.leftPadding = leftPadding
-        textField.rightPadding = rightPadding
+        textField.leftPadding = leftPaddingForText
+        textField.rightPadding = rightPaddingForText
         textField.isEnabled = isEnabled
         
         if let placeholderValue = placeholderText, let placeholderValueColor = placeholderTextColor {
              textField.attributedPlaceholder = NSAttributedString(string: placeholderValue,
                                                       attributes: [NSAttributedStringKey.foregroundColor: placeholderValueColor])
+        }
+        
+        return textField
+    }
+    
+    static public func createWith(style: StyleSheet,
+                                  enabled: Bool,
+                                  font: UIFont,
+                                  placeholderText: String? = nil) -> StyledTextField {
+        
+        let textField = StyledTextField()
+        textField.backgroundColor = style.backgroundColor
+        textField.font = font
+        textField.textColor = style.textColor
+        textField.lineHeight = style.lineHeight
+        textField.cornerRadius = style.cornerRadius
+        textField.borderWidth = style.cornerRadius
+        textField.borderColor = style.borderColor
+        textField.leftPadding = style.leftPaddingForText
+        textField.rightPadding = style.rightPaddingForText
+        textField.isEnabled = enabled
+        
+        if let placeholderValue = placeholderText {
+            textField.attributedPlaceholder = NSAttributedString(string: placeholderValue,
+                                                                 attributes: [NSAttributedStringKey.foregroundColor: style.placeholderTextColor])
         }
         
         return textField

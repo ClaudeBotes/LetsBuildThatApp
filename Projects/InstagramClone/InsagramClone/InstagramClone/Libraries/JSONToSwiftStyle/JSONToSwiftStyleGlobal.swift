@@ -1,8 +1,8 @@
 //
-//  StyleHelpers.swift
+//  JSONToSwiftStyleGlobal.swift
 //  InstagramClone
 //
-//  This file is for any helper methods or types related to styling.
+//  This file contains global methods for JSONToSwiftStyle.
 //
 //  Created by Claude Botes on 14/04/2018.
 //  Copyright © 2018 Claude. All rights reserved.

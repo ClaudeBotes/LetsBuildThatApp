@@ -20,7 +20,7 @@ class AccountSummaryViewController: GenericCollectionViewController {
         let style = StyleSheet (screenName: ApplicationScreen.AccountSummary.rawValue,
                            componentName: "screen")
         
-        navigationItem.title = style.Title()
+        navigationItem.title = style.title
         self.navigationController!.navigationBar.isTranslucent = false
     
         // Setup data source for collection view configurations
@@ -32,21 +32,21 @@ class AccountSummaryViewController: GenericCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
                                        componentName: "tableHeader")
-        return CGSize(width: view.frame.width, height: layout.Height())
+        return CGSize(width: view.frame.width, height: layout.height)
     }
     
     // Set footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
                                        componentName: "tableFooter")
-        return CGSize(width: view.frame.width, height: layout.Height())
+        return CGSize(width: view.frame.width, height: layout.height)
     }
     
     // Set cell size
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.AccountSummary.rawValue,
                                      componentName: "tableCell")
-        return CGSize(width: view.frame.width, height: layout.Height())
+        return CGSize(width: view.frame.width, height: layout.height)
     }
     
     // Set space between rows

@@ -25,7 +25,7 @@ class TransactionsViewController: GenericCollectionViewController {
         // MARK: Style Navigation Bar
     
         self.navigationController!.navigationBar.isTranslucent = false
-        self.collectionView?.backgroundColor = BrandSpecification.shared.colorPalette.light
+        self.collectionView?.backgroundColor = Brand.shared.colorPalette.light
         
         // MARK: Remove bottom border line of navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -45,21 +45,21 @@ class TransactionsViewController: GenericCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.Transactions.rawValue,
                                        componentName: "tableHeader")
-        return CGSize(width: view.frame.width, height: layout.Height())
+        return CGSize(width: view.frame.width, height: layout.height)
     }
     
     // Set footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.Transactions.rawValue,
                             componentName: "tableFooter")
-        return CGSize(width: view.frame.width, height: 0)
+        return CGSize(width: view.frame.width,height: layout.height)
     }
     
     // Set cell size
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = Layout(screenName: ApplicationScreen.Transactions.rawValue,
                             componentName: "tableCell")
-        return CGSize(width: view.frame.width, height: 60)
+        return CGSize(width: view.frame.width, height: layout.height)
     }
     
     // Set space between rows

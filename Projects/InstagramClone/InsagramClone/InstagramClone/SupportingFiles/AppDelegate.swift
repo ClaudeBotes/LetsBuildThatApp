@@ -20,17 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        // Load Design Specification and Brand from JSON
+        JSONReader.shared.loadJSONDataForDesignSpecification()
+        JSONReader.shared.loadJSONDataForBrandSpecification()
+        
+        
         window = UIWindow()
-        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = SignupViewController()//MainTabBarController()
         
         // Style Naviagtion Bar
         UINavigationBar.appearance().barStyle = .blackOpaque // make status bar white
-        UINavigationBar.appearance().barTintColor = ApplicationTheme.Colors.White()
-        let textAttributes = [NSAttributedStringKey.foregroundColor:ApplicationTheme.Colors.PrimaryColor2()]
+        UINavigationBar.appearance().barTintColor = Brand.shared.colorPalette.white
+        let textAttributes = [NSAttributedStringKey.foregroundColor: Brand.shared.colorPalette.primary]
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         
-        // Load Design Specification from JSON
-        JSONReader.shared.loadJSONDataForDesignSpecification()
+        
 
         return true
     }

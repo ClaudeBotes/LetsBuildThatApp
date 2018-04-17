@@ -13,7 +13,7 @@ import Foundation
 /**
  Main node of the brand specification. ( "colors": { )
  */
-struct BrandSpecStructForJSON: Codable {
+struct BrandSpecificationForJSON: Codable {
     var colors: ColorStructForJSON?
     
     enum CodingKeys: String, CodingKey {
@@ -34,9 +34,10 @@ struct ColorStructForJSON: Codable {
     var light: String?
     var dark: String?
     var white: String?
+    var signUpTextFieldDark: String?
     
     enum CodingKeys: String, CodingKey {
-        case primary, secondary, success, danger, warning, info, light, dark, white
+        case primary, secondary, success, danger, warning, info, light, dark, white, signUpTextFieldDark
     }
 }
 

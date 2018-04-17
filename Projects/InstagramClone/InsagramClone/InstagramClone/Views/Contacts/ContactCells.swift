@@ -30,9 +30,9 @@ class ContactHeader: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.accountBalance.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.BalanceAmount.rawValue,
-                                           font: UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.primary,
-                                           textAlignment: style.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.primary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -40,9 +40,9 @@ class ContactHeader: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.accountName.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountName.rawValue,
-                                           font:  UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.secondary,
-                                           textAlignment: style.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.secondary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -50,33 +50,33 @@ class ContactHeader: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.accountNumber.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.AccountNumber.rawValue,
-                                           font: UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.secondary,
-                                           textAlignment:  style.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.secondary,
+                                           textAlignment:  style.textAlignment)
         return label
     }()
     
     let newPaymentButton: StyledButton = {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.newPayment.rawValue)
-        let button = StyledButton.createWith( backgroundColor: BrandSpecification.shared.colorPalette.primary,
-                                              borderColor: BrandSpecification.shared.colorPalette.primary,
-                                              cornerRadius: style.CornerRadius(),
-                                              title: style.Title(),
-                                              font: UIFont.boldSystemFont(ofSize: style.Font()),
-                                              titleColor: BrandSpecification.shared.colorPalette.white,
-                                              titleAlignment: style.TextAlignment(),
-                                              shadowColor: BrandSpecification.shared.colorPalette.dark,
-                                              shadowRadius: style.ShadowRadius(),
-                                              shadowOpacity: style.ShadowOpacity(),
-                                              shadowOffsetY: style.ShadowOpacity(),
+        let button = StyledButton.createWith( backgroundColor: Brand.shared.colorPalette.primary,
+                                              borderColor: Brand.shared.colorPalette.primary,
+                                              cornerRadius: style.cornerRadius,
+                                              title: style.title,
+                                              font: UIFont.boldSystemFont(ofSize: style.fontSize),
+                                              titleColor: Brand.shared.colorPalette.white,
+                                              titleAlignment: style.textAlignment,
+                                              shadowColor: Brand.shared.colorPalette.dark,
+                                              shadowRadius: style.shadowRadius,
+                                              shadowOpacity: style.shadowOpacity,
+                                              shadowOffsetY: style.shadowOpacity,
                                               isEnabled: false )
         return button
     }()
     
     override func setupViews() {
         super.setupViews()
-        self.backgroundColor = BrandSpecification.shared.colorPalette.white
+        self.backgroundColor = Brand.shared.colorPalette.white
         
         // MARK: Add account name
         addSubview(accountName)
@@ -87,12 +87,12 @@ class ContactHeader: GenericCollectionViewCell {
                            top: self.topAnchor,
                            right: nil,
                            bottom: nil,
-                           paddingLeft: accountNameLayout.PaddingLeft(),
-                           paddingTop: accountNameLayout.PaddingTop(),
-                           paddingRight: accountNameLayout.PaddingRight(),
-                           paddingBottom: accountNameLayout.PaddingBottom(),
-                           width: accountNameLayout.Width(),
-                           height: accountNameLayout.Height())
+                           paddingLeft: accountNameLayout.paddingLeft,
+                           paddingTop: accountNameLayout.paddingTop,
+                           paddingRight: accountNameLayout.paddingRight,
+                           paddingBottom: accountNameLayout.paddingBottom,
+                           width: accountNameLayout.width,
+                           height: accountNameLayout.height)
         
         // MARK: Add account balance
         addSubview(accountBalance)
@@ -103,12 +103,12 @@ class ContactHeader: GenericCollectionViewCell {
                               top: accountName.bottomAnchor,
                               right: nil,
                               bottom: nil,
-                              paddingLeft: availableBalanceLayout.PaddingLeft(),
-                              paddingTop: availableBalanceLayout.PaddingTop(),
-                              paddingRight: availableBalanceLayout.PaddingRight(),
-                              paddingBottom: availableBalanceLayout.PaddingBottom(),
-                              width: availableBalanceLayout.Width(),
-                              height: availableBalanceLayout.Height())
+                              paddingLeft: availableBalanceLayout.paddingLeft,
+                              paddingTop: availableBalanceLayout.paddingTop,
+                              paddingRight: availableBalanceLayout.paddingRight,
+                              paddingBottom: availableBalanceLayout.paddingBottom,
+                              width: availableBalanceLayout.width,
+                              height: availableBalanceLayout.height)
         
         // MARK: Add account number
         addSubview(accountNumber)
@@ -119,12 +119,12 @@ class ContactHeader: GenericCollectionViewCell {
                              top: accountBalance.bottomAnchor,
                              right: nil,
                              bottom: nil,
-                             paddingLeft: accountNumberLayout.PaddingLeft(),
-                             paddingTop: accountNumberLayout.PaddingTop(),
-                             paddingRight: accountNumberLayout.PaddingRight(),
-                             paddingBottom: accountNumberLayout.PaddingBottom(),
-                             width: accountNumberLayout.Width(),
-                             height: accountNumberLayout.Height())
+                             paddingLeft: accountNumberLayout.paddingLeft,
+                             paddingTop: accountNumberLayout.paddingTop,
+                             paddingRight: accountNumberLayout.paddingRight,
+                             paddingBottom: accountNumberLayout.paddingBottom,
+                             width: accountNumberLayout.width,
+                             height: accountNumberLayout.height)
         
         // MARK: Add new payment button
         addSubview(newPaymentButton)
@@ -134,12 +134,12 @@ class ContactHeader: GenericCollectionViewCell {
                                 top: accountNumber.bottomAnchor,
                                 right: self.rightAnchor,
                                 bottom: nil,
-                                paddingLeft: newPaymentButtonLayout.PaddingLeft(),
-                                paddingTop: newPaymentButtonLayout.PaddingTop(),
-                                paddingRight: newPaymentButtonLayout.PaddingRight(),
-                                paddingBottom: newPaymentButtonLayout.PaddingBottom(),
-                                width: newPaymentButtonLayout.Width(),
-                                height: newPaymentButtonLayout.Height())
+                                paddingLeft: newPaymentButtonLayout.paddingLeft,
+                                paddingTop: newPaymentButtonLayout.paddingTop,
+                                paddingRight: newPaymentButtonLayout.paddingRight,
+                                paddingBottom: newPaymentButtonLayout.paddingBottom,
+                                width: newPaymentButtonLayout.width,
+                                height: newPaymentButtonLayout.height)
     }
 }
 
@@ -175,10 +175,10 @@ class ContactCell: GenericCollectionViewCell {
     let transactionAvatar: StyledView = {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.transactionAvatar.rawValue)
-        let view = StyledView.createWith(backgroundColor: BrandSpecification.shared.colorPalette.light,
-                                         borderColor: BrandSpecification.shared.colorPalette.light,
-                                         borderWidth: style.BorderWidth(),
-                                         cornerRadius: style.CornerRadius())
+        let view = StyledView.createWith(backgroundColor: Brand.shared.colorPalette.light,
+                                         borderColor: Brand.shared.colorPalette.light,
+                                         borderWidth: style.borderWidth,
+                                         cornerRadius: style.cornerRadius)
         view.clipsToBounds = true
         return view
     }()
@@ -187,9 +187,9 @@ class ContactCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.transactionName.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.BenificiaryName.rawValue,
-                                           font:  UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.primary,
-                                           textAlignment: style.TextAlignment())
+                                           font:  UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.primary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
@@ -197,22 +197,22 @@ class ContactCell: GenericCollectionViewCell {
         let style = StyleSheet(screenName: ApplicationScreen.Contacts.rawValue,
                                componentName: components.transactionAmount.rawValue)
         let label = StyledLabel.createWith(text: ValueNotSet.BalanceAmount.rawValue,
-                                           font: UIFont.systemFont(ofSize: style.Font()),
-                                           textColor: BrandSpecification.shared.colorPalette.secondary,
-                                           textAlignment: style.TextAlignment())
+                                           font: UIFont.systemFont(ofSize: style.fontSize),
+                                           textColor: Brand.shared.colorPalette.secondary,
+                                           textAlignment: style.textAlignment)
         return label
     }()
     
     let rowDevider: StyledView = {
         let view = StyledView()
-        view.backgroundColor = BrandSpecification.shared.colorPalette.light
+        view.backgroundColor = Brand.shared.colorPalette.light
         return view
     }()
     
     override func setupViews() {
         super.setupViews()
         
-        self.backgroundColor = BrandSpecification.shared.colorPalette.white
+        self.backgroundColor = Brand.shared.colorPalette.white
         
         // MARK: Add cotnact name
         addSubview(transactionName)
@@ -222,12 +222,12 @@ class ContactCell: GenericCollectionViewCell {
                                top: self.topAnchor,
                                right: self.rightAnchor,
                                bottom: nil,
-                               paddingLeft: transactionNameLayout.PaddingLeft(),
-                               paddingTop: transactionNameLayout.PaddingTop(),
-                               paddingRight: transactionNameLayout.PaddingRight(),
-                               paddingBottom: transactionNameLayout.PaddingBottom(),
-                               width: transactionNameLayout.Width(),
-                               height: transactionNameLayout.Height())
+                               paddingLeft: transactionNameLayout.paddingLeft,
+                               paddingTop: transactionNameLayout.paddingTop,
+                               paddingRight: transactionNameLayout.paddingRight,
+                               paddingBottom: transactionNameLayout.paddingBottom,
+                               width: transactionNameLayout.width,
+                               height: transactionNameLayout.height)
         
         // MARK: Add account number
         addSubview(transactionAmount)
@@ -237,12 +237,12 @@ class ContactCell: GenericCollectionViewCell {
                                  top: transactionName.bottomAnchor,
                                  right: self.rightAnchor,
                                  bottom: nil,
-                                 paddingLeft: transactionAmountLayout.PaddingLeft(),
-                                 paddingTop: transactionAmountLayout.PaddingTop(),
-                                 paddingRight: transactionAmountLayout.PaddingRight(),
-                                 paddingBottom: transactionAmountLayout.PaddingBottom(),
-                                 width: transactionAmountLayout.Width(),
-                                 height: transactionAmountLayout.Height())
+                                 paddingLeft: transactionAmountLayout.paddingLeft,
+                                 paddingTop: transactionAmountLayout.paddingTop,
+                                 paddingRight: transactionAmountLayout.paddingRight,
+                                 paddingBottom: transactionAmountLayout.paddingBottom,
+                                 width: transactionAmountLayout.width,
+                                 height: transactionAmountLayout.height)
         
         // MARK: Add row devider name
         addSubview(rowDevider)
@@ -252,12 +252,12 @@ class ContactCell: GenericCollectionViewCell {
                           top: nil,
                           right: self.rightAnchor,
                           bottom: self.bottomAnchor,
-                          paddingLeft: rowDeviderLayout.PaddingLeft(),
-                          paddingTop: rowDeviderLayout.PaddingTop(),
-                          paddingRight: rowDeviderLayout.PaddingRight(),
-                          paddingBottom: rowDeviderLayout.PaddingBottom(),
-                          width: rowDeviderLayout.Width(),
-                          height: rowDeviderLayout.Height())
+                          paddingLeft: rowDeviderLayout.paddingLeft,
+                          paddingTop: rowDeviderLayout.paddingTop,
+                          paddingRight: rowDeviderLayout.paddingRight,
+                          paddingBottom: rowDeviderLayout.paddingBottom,
+                          width: rowDeviderLayout.width,
+                          height: rowDeviderLayout.height)
         
         // MARK: Add profile picture view
         addSubview(transactionAvatar)
@@ -267,18 +267,18 @@ class ContactCell: GenericCollectionViewCell {
                                  top: self.topAnchor,
                                  right: transactionName.leftAnchor,
                                  bottom: self.bottomAnchor,
-                                 paddingLeft: transactionAvatarLayout.PaddingLeft(),
-                                 paddingTop: transactionAvatarLayout.PaddingTop(),
-                                 paddingRight: transactionAvatarLayout.PaddingRight(),
-                                 paddingBottom: transactionAvatarLayout.PaddingBottom(),
-                                 width: transactionAvatarLayout.Width(),
-                                 height: transactionAvatarLayout.Height())
+                                 paddingLeft: transactionAvatarLayout.paddingLeft,
+                                 paddingTop: transactionAvatarLayout.paddingTop,
+                                 paddingRight: transactionAvatarLayout.paddingRight,
+                                 paddingBottom: transactionAvatarLayout.paddingBottom,
+                                 width: transactionAvatarLayout.width,
+                                 height: transactionAvatarLayout.height)
     }
 }
 
 class ContactFooter: GenericCollectionViewCell {
     override func setupViews() {
         super.setupViews()
-        backgroundColor = BrandSpecification.shared.colorPalette.white
+        backgroundColor = Brand.shared.colorPalette.white
     }
 }

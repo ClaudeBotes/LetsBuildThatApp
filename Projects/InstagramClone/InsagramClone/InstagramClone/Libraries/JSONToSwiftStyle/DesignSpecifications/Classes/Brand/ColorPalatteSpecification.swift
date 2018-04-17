@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-struct ColorPalatteSpecification {
+struct DesignSpecificationForColorPalatte {
     var primary: UIColor
     var secondary: UIColor
     var success: UIColor
@@ -21,6 +21,7 @@ struct ColorPalatteSpecification {
     var light: UIColor
     var dark: UIColor
     var white: UIColor
+    var signUpTextFieldDark: UIColor
     
     init(){
         self.primary = .clear
@@ -32,6 +33,7 @@ struct ColorPalatteSpecification {
         self.light = .clear
         self.dark = .clear
         self.white = .clear
+        self.signUpTextFieldDark = .clear
     }
     
     init(primary: UIColor = UIColor.clear,
@@ -42,7 +44,8 @@ struct ColorPalatteSpecification {
          info: UIColor = UIColor.clear,
          light: UIColor = UIColor.clear,
          dark: UIColor = UIColor.clear,
-         white: UIColor = UIColor.clear)
+         white: UIColor = UIColor.clear,
+         signUpTextFieldDark: UIColor = .clear)
     {
         self.primary = primary
         self.secondary = secondary
@@ -53,5 +56,6 @@ struct ColorPalatteSpecification {
         self.light = light
         self.dark = dark
         self.white = white
+        self.signUpTextFieldDark = signUpTextFieldDark
     }
 }
